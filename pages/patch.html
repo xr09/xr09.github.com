@@ -5,6 +5,7 @@
 <title>How to obtain the Linux kernel the smart way?</title>
 
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../bootstrap.css">
 
 <style type="text/css">
 
@@ -344,8 +345,8 @@ ul.auto-toc {
 <h1 class="title">How to obtain the Linux kernel the smart way?</h1>
 
 <!-- How to play with patch and the Linux kernel? -->
-<p>Some of us like living on the edge, use the last kernel, no problem, go to kernel.org and get the last stable release and good to go, compile.</p>
-<p>But each kernel weights almost 70MB (in xz format), and getting the whole package every time when there are only a few changes seems like such a waste of time and bandwith.</p>
+<p>Some of us love living on the edge, use the last stable kernel release, no problem, go to kernel.org, download the file and good to go, compile.</p>
+<p>But... each kernel weights almost 70MB (in xz format), and getting the whole package every time when there are only a few changes seems like such a waste of time and bandwith.</p>
 <p>Next, a real life example, my very own <em>holy crap!! this is awesome!!</em> moment.</p>
 <p>Let's see, right now (2013-04-15) the stable version is <cite>3.8.7</cite>, you get it, compile it and install, nothing fancy.</p>
 <p>It's all good, kernel is running fine and we're living on the edge, but... oh no, those kernel folks released a new fix <cite>3.8.8</cite>, do we have to download 70 more megabytes? No f** way!</p>
@@ -353,7 +354,7 @@ ul.auto-toc {
 <p>Every release has the full package, and the patch, the later is created on top of the last stable release base, i.e. 3.7.0, 3.8.0, and so forth.</p>
 <p>So you apply <cite>patch-3.8.8</cite> to <cite>linux-3.8.0</cite> not <cite>linux-3.8.7</cite>.</p>
 <p>But how do I get 3.8.0? Download again?</p>
-<p>Nop. Just get the <cite>patch-3.8.7</cite> and rest it to <cite>linux-3.8.7</cite>.</p>
+<p>No. Just get the <cite>patch-3.8.7</cite> and substract it from <cite>linux-3.8.7</cite>.</p>
 <p>A full working example.</p>
 <p>All we need is:</p>
 <p>The original kernel we got:
@@ -379,7 +380,7 @@ xzcat ../patch-3.8.8.xz | patch -p1
 <p>Read the FAQ!</p>
 <p><a class="reference external" href="https://www.kernel.org/category/faq.html">https://www.kernel.org/category/faq.html</a></p>
 
-<h2>by <a href="http://github.com/xr09">xr09</a></h2>
+<h5 class="pagination-centered">by <a href="http://github.com/xr09">xr09</a></h5>
 </div>
 
 </div>
