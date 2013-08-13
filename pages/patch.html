@@ -5,7 +5,6 @@
 <title>How to obtain the Linux kernel the smart way?</title>
 
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../bootstrap.css">
 
 <style type="text/css">
 
@@ -374,6 +373,9 @@ xzcat ../patch-3.8.7.xz | patch -R -p1
 <pre class="literal-block">
 xzcat ../patch-3.8.8.xz | patch -p1
 </pre>
+
+<img src="img/kernel-patch.jpg" alt="Patching the kernel" />
+
 <p>Eureka! We just got 3.8.8 without wasting that much bandwith.</p>
 <p>Houston, we'ready to compile.</p>
 <p>If you want to try a -rc kernel (bleeding edge) just apply any rc patch (like 3.9-rc8) to the previous base release (3.8.0).</p>
