@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Common Sense Applied</title><link href="http://xr09.github.io/test/" rel="alternate"></link><link href="http://xr09.github.io/test/feeds/test.atom.xml" rel="self"></link><id>http://xr09.github.io/test/</id><updated>2013-08-19T10:20:00-04:00</updated><entry><title>First Post</title><link href="http://xr09.github.io/test/first-post.html" rel="alternate"></link><updated>2013-08-19T10:20:00-04:00</updated><author><name>xr09</name></author><id>tag:xr09.github.io/test,2013-08-19:first-post.html</id><summary type="html">&lt;div class="section" id="introduction"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Common Sense Applied</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/test.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2013-08-19T10:20:00-04:00</updated><entry><title>First Post</title><link href="http://xr09.github.io/first-post.html" rel="alternate"></link><updated>2013-08-19T10:20:00-04:00</updated><author><name>xr09</name></author><id>tag:xr09.github.io,2013-08-19:first-post.html</id><summary type="html">&lt;div class="section" id="introduction"&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This is my first pelican post!&lt;/p&gt;
 &lt;/div&gt;
