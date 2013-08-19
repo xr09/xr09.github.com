@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Common Sense Applied</title><link>http://xr09.github.io/test/</link><description></description><atom:link href="http://xr09.github.io/test/feeds/test.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 19 Aug 2013 10:20:00 -0400</lastBuildDate><item><title>First Post</title><link>http://xr09.github.io/test/first-post.html</link><description>&lt;div class="section" id="introduction"&gt;
+&lt;h2&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is my first pelican post!&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">xr09</dc:creator><pubDate>Mon, 19 Aug 2013 10:20:00 -0400</pubDate><guid>tag:xr09.github.io/test,2013-08-19:first-post.html</guid><category>blog</category><category>pelican</category></item></channel></rss>
