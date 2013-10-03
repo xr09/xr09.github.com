@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Common Sense Applied</title><link>http://xr09.github.io/</link><description></description><atom:link href="http://xr09.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 19 Aug 2013 10:20:00 -0400</lastBuildDate><item><title>First Post</title><link>http://xr09.github.io/first-post.html</link><description>&lt;div class="section" id="introduction"&gt;
-&lt;h2&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is my first pelican post!&lt;/p&gt;
-&lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">xr09</dc:creator><pubDate>Mon, 19 Aug 2013 10:20:00 -0400</pubDate><guid>tag:xr09.github.io,2013-08-19:first-post.html</guid><category>blog</category><category>pelican</category></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevPad</title><link>http://xr09.github.io/</link><description></description><atom:link href="http://xr09.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 03 Oct 2013 14:23:00 -0400</lastBuildDate><item><title>sed is unix</title><link>http://xr09.github.io/sed-is-unix.html</link><description>&lt;p&gt;The UNIX concept of &amp;quot;do one thing and do it well&amp;quot; is so beautiful it's inspiring.&lt;/p&gt;
+&lt;p&gt;Back in 2005 as a beginner Linux user I used vim for everything text related, now I use it relatively less, I just found sed a while ago.&lt;/p&gt;
+&lt;p&gt;For example, this is how I change my IceWm wallpaper with sed.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sed -i  &lt;span class="s1"&gt;&amp;#39;/jpg/ s/old_wallpaper/new_wallpaper/&amp;#39;&lt;/span&gt; .icewm/preferences
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A rather simple task, any visual text editor could do but I find this way extremely simple and pragmatic (and scriptable).&lt;/p&gt;
+&lt;p&gt;Some argue this is a waste of time, the time of text tools is over. Until they have to change a humongous 2GB text file and no editor can handle it, but sed will.&lt;/p&gt;
+&lt;p&gt;Do one thing and do it well. Nice play UNIX.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">xr09</dc:creator><pubDate>Thu, 03 Oct 2013 14:23:00 -0400</pubDate><guid>tag:xr09.github.io,2013-10-03:sed-is-unix.html</guid><category>unix</category><category>sed</category></item><item><title>Pelican looks great</title><link>http://xr09.github.io/pelican-looks-great.html</link><description>&lt;p&gt;Just got my pelican working, awesome, I struggled for a while with dependencies and even wanted to give up and check some alternatives but in the end I got it, loving Pelican so far.&lt;/p&gt;
+&lt;p&gt;For begginers trying to get a Pelican site, you should get acquainted with virtualenv, pip and I'd say virtualenvwrapper too, this is bread and butter on python world nowadays, so go for it right now.&lt;/p&gt;
+&lt;p&gt;Create a virtualenv, install pelican on it, create you blog directory with the respective settings.py, source and output folders inside, then just write your posts on Restructured Text or Markdown as you prefer and compile with a command like &lt;cite&gt;pelican -s settings.py -r&lt;/cite&gt;.&lt;/p&gt;
+&lt;p&gt;I was thinking on writing just-another-pelican-tutorial but I'll leave it here, there are too many of those already, just posted this to say thanks to Pelican community, great software.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">xr09</dc:creator><pubDate>Tue, 01 Oct 2013 13:13:00 -0400</pubDate><guid>tag:xr09.github.io,2013-10-01:pelican-looks-great.html</guid><category>pelican</category></item></channel></rss>

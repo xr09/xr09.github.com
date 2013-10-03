@@ -1,6 +1,7 @@
 /* general style */
 body    { font: 18px/25px 'Palatino', 'Palatino Linotype', 'Georgia', serif;
-          margin: 0; padding: 0; }
+          margin: 0; padding: 0; 
+        }
 a       { /*color: #432165;*/ color: #234764; }
 a:hover { color: #3b185f; background: #f9f8fa; }
 
@@ -32,7 +33,7 @@ div.separator               {border-bottom: 1px dotted #ddd; padding-bottom: 42p
 div.header, div.navigation  { height: 25px; margin-bottom: 42px; }
 div.navigation ul           { margin: 0; padding: 0; list-style: none; }
 div.navigation ul li        { display: inline; margin: 0 2px; padding: 0;}
-div.body                    { clear: both; }
+div.body                    { clear: both; font-size: 1.1em;}
 div.footer                  { border-top: 1px dotted #ddd; padding-top: 9px;
                               margin-top: 42px; font-size: 16px; color: #888;
                               text-align: center; }
