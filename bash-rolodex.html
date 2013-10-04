@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title> Bash Rolodex | DevPad </title>
+
+    <link rel="stylesheet" href="http://xr09.github.io/theme/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="http://xr09.github.io/theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://xr09.github.io/theme/css/font-awesome.css" type="text/css"/>
+  </head>
+  <body>
+    <div class=container>
+                    
+      <div class=navigation>
+        <ul>
+          <li><a href="http://xr09.github.io/">DevPad</a> </li>
+                      <li><a href="http://xr09.github.io/archives.html">Archive</a> </li>
+                      <li><a href="http://xr09.github.io/tags.html">Tags</a> </li>
+                  </ul>
+      </div>
+      <div class=separator></div>                
+        <div class=body>
+            <h1 class="title"> Bash Rolodex</h1>
+    <p class=date> Fri 04 October 2013 </p>
+    <p>There's been a while since I have a <em>rolodex.txt</em> in my <em>ideas_for_projects</em>
+directory, althought there are <a class="reference external" href="https://www.google.com/search?q=rolodex+programs">several</a> options out there, <a class="reference external" href="http://en.wikipedia.org/wiki/Rolodex">this</a> is the
+kind of program nobody resists to reimplement, so here I go.</p>
+<p>My first idea was a PyQt UI with a SQlite db, simple, fast and pragmatic,
+some UX mojo and the magic is done. But never had the time to start it,
+damn, lately I have no time to start anything at all, and that's a pitty
+because I love starting things (almost as much as releasing those things).</p>
+<p>So the situation gets worst, I needed something quick and simple to manage
+all my phone numbers and no time for boilerplate code, just <em>the thing</em>.</p>
+<p>Well in the last year I've been inmersed reading lots of bash code at work,
+made a couple of <a class="reference external" href="https://github.com/xr09/kaos">new</a> bash <a class="reference external" href="https://github.com/xr09/rainbow.sh">projects</a> myself and I'm really enjoying its
+pragmatism, is just plain talk with the system, so lets make a rolodex with bash.</p>
+<div class="section" id="the-thing">
+<h2>The Thing</h2>
+<p>First, this rolodex uses a text file with all the info using one line
+per contact. Like this:</p>
+<div class="highlight"><pre>dave number
+john number1 number2
+ana number
+</pre></div>
+<p>The file will be in: <em>~/.my_contacts</em></p>
+<p>Then all we need is a way to add new contacts to that file and search them later.</p>
+<p>Easy cake with Bash, just put these two functions on <em>~/.bashrc</em> and we're done.</p>
+<div class="highlight"><pre>addnumber<span class="o">(){</span>
+  <span class="nb">echo</span> <span class="s2">&quot;$@&quot;</span> &gt;&gt; ~/.my_contacts
+<span class="o">}</span>
+
+number<span class="o">(){</span>
+  grep -i <span class="nv">$1</span> ~/.my_contacts
+<span class="o">}</span>
+</pre></div>
+<p>So the workflow for using this rolodex would be:</p>
+<div class="highlight"><pre><span class="nv">$ </span>addnumber moss the nerd 45645456
+<span class="nv">$ </span>addnumber jennifer public relations 98989898
+<span class="nv">$ </span>addnumber roy the mad irish 12121212
+<span class="nv">$ </span>number jen
+<span class="nv">$ </span>jennifer public relations 98989898
+</pre></div>
+<p>Maybe you want to mess with the contacts, fix bad info, remove some old entry, etc..
+in that case, fire up your editor and go nuts changing everything, is just a
+simple text file.</p>
+<p>No big fancy buttons this time but as I promised you have your rolodex in bash,
+as pragmatic as it gets.</p>
+</div>
+
+    
+    <div class=twitter>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+        <p class=tags>This entry was tagged as
+            <a href="http://xr09.github.io/tag/rolodex.html">rolodex</a>
+            <a href="http://xr09.github.io/tag/unix.html">unix</a>
+            <a href="http://xr09.github.io/tag/bash.html">bash</a>
+          </p>
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'devpad'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>            </div>
+        
+                    <div class=footer>
+  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Manuel Gutierrez</p>
+  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
+    <a href="https://github.com/fjavieralba/flasky">Theme</a>  by <a href="http://fjavieralba.com">fjavieralba</a>
+  </p> 
+  <p>
+    <div class=social style="font-size: 27px;">
+      <ul>
+        <script language="JavaScript">
+          u = 'dhunterkde';
+          s = 'gmail.com';
+          document.write('<a href=\"mailto:' + u + '@' + s + '\" target=\"_blank\">');
+        </script>
+            <li><i class="icon-envelope icon-large"></i> </li>
+        </a>        
+        <a href="https://github.com/xr09" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
+        <a href="http://xr09.github.io/feeds/all.rss.xml" rel="alternate" title="Recent Blog Posts"><li> <i class="icon-rss icon-large"></i> </li></a>
+      </ul>
+    </div>
+  </p>
+</div>            </div>
+          </body>
+</html>
