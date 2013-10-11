@@ -45,6 +45,8 @@ as pragmatic as it gets.&lt;/p&gt;
 &lt;/div&gt;
 </summary><category term="rolodex"></category><category term="unix"></category><category term="bash"></category></entry><entry><title>Pelican looks great</title><link href="http://xr09.github.io/pelican-looks-great.html" rel="alternate"></link><updated>2013-10-01T13:13:00-04:00</updated><author><name>xr09</name></author><id>tag:xr09.github.io,2013-10-01:pelican-looks-great.html</id><summary type="html">&lt;p&gt;Just got my pelican working, awesome, I struggled for a while with dependencies and even wanted to give up and check some alternatives but in the end I got it, loving Pelican so far.&lt;/p&gt;
 &lt;p&gt;For begginers trying to get a Pelican site, you should get acquainted with virtualenv, pip and I'd say virtualenvwrapper too, this is bread and butter on python world nowadays, so go for it right now.&lt;/p&gt;
-&lt;p&gt;Create a virtualenv, install pelican on it, create you blog directory with the respective settings.py, source and output folders inside, then just write your posts on Restructured Text or Markdown as you prefer and compile with a command like &lt;cite&gt;pelican -s settings.py -r&lt;/cite&gt;.&lt;/p&gt;
-&lt;p&gt;I was thinking on writing just-another-pelican-tutorial but I'll leave it here, there are too many of those already, just posted this to say thanks to Pelican community, great software.&lt;/p&gt;
+&lt;p&gt;Create a virtualenv, install pelican on it, create you blog directory with the respective settings.py, source and output folders inside, then just write your posts on Restructured Text or Markdown as you prefer and compile with a command like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pelican blog/ -s settings.py -r
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I was thinking on writing just-another-pelican-tutorial but I'll recommend one of the many I've found, read &lt;a class="reference external" href="http://fjavieralba.com/pelican-a-static-blog-generator-for-pythonistas.html"&gt;this&lt;/a&gt; one and enjoy Pelican.&lt;/p&gt;
 </summary><category term="pelican"></category></entry></feed>
