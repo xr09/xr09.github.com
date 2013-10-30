@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title> Serving Static Folder with NGINX | DevPad </title>
+
+    <link rel="stylesheet" href="http://xr09.github.io/theme/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="http://xr09.github.io/theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://xr09.github.io/theme/css/font-awesome.css" type="text/css"/>
+  </head>
+  <body>
+    <div class=container>
+<div class="header">
+    <a href="http://xr09.github.io/">DevPad</a> <span class="muted">clean code, good karma</span>
+</div>
+
+<div class=navigation>
+    <ul>
+            <li><a href="http://xr09.github.io/pages/projects.html">Projects</a> </li>
+            <li><a href="http://xr09.github.io/archives.html">Archive</a> </li>
+            <li><a href="http://xr09.github.io/tags.html">Tags</a> </li>
+            <li><a href="http://xr09.github.io/pages/about.html">About</a> </li>
+    </ul>
+</div>
+<div class=separator></div>        
+        <div class=body>
+    <h1 class="title"> Serving Static Folder with NGINX</h1>
+    <p class=date> Wed 30 October 2013 </p>
+    <p>At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it daily), as I'm already running nginx for my local Symfony2 development I had the idea of serving a static folder with all our quick'n'dirty scripts to get always the latest and shiniest.</p>
+<p>So here it is, I need to serve one folder by HTTP, I'll put several files I need to download from time to time from others workstations.</p>
+<p>Solution:</p>
+<div class="highlight"><pre>mkdir /var/www/static
+chmod a+rw /var/www/static -R
+</pre></div>
+<p>Create the static folder and give permissions for a normal user to copy there.</p>
+<p>Then set up nginx to serve it and we're done: <code>vim /etc/nginx/sites/static.conf</code></p>
+<div class="highlight"><pre><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">8080</span><span class="p">;</span>
+      <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="kn">root</span>    <span class="s">/var/www/static/</span><span class="p">;</span>
+        <span class="kn">access_log</span>   <span class="no">on</span><span class="p">;</span>
+        <span class="kn">autoindex</span>  <span class="no">on</span><span class="p">;</span>
+      <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>Now the folder is accesible by <code>http://your_ip_address:8080</code>, go nuts downloading anything there with wget.</p>
+
+    
+    <p class=tags>This entry was tagged as
+      <a href="http://xr09.github.io/tag/nginx.html">nginx</a>
+      <a href="http://xr09.github.io/tag/static.html">static</a>
+    </p>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'devpad'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>        </div>
+        
+<div class=footer>
+  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Manuel Gutierrez</p>
+  <p > Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
+    <a href="https://github.com/fjavieralba/flasky">Theme</a>  by <a href="http://fjavieralba.com">fjavieralba</a>
+  </p> 
+  <p>
+    <div class=social style="font-size: 27px;">
+      <ul>
+        <script language="JavaScript">
+          u = 'dhunterkde';
+          s = 'gmail.com';
+          document.write('<a href=\"mailto:' + u + '@' + s + '\" target=\"_blank\">');
+        </script>
+            <li><i class="icon-envelope icon-large"></i> </li>
+        </a>        
+        <a href="http://github.com/xr09" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
+        <a href="http://xr09.github.io/feeds/all.rss.xml" rel="alternate" title="Recent Blog Posts"><li> <i class="icon-rss icon-large"></i> </li></a>
+      </ul>
+    </div>
+  </p>
+</div>    </div>
+  </body>
+</html>
