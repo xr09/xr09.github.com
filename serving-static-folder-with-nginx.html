@@ -28,7 +28,7 @@
         <div class=body>
     <h1 class="title"> Serving Static Folder with NGINX</h1>
     <p class=date> Wed 30 October 2013 </p>
-    <p>At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it daily), as I'm already running nginx for my local Symfony2 development I had the idea of serving a static folder with all our quick'n'dirty scripts to get always the latest and shiniest.</p>
+    <p>At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it daily), as I'm already running nginx for my local web development I had the idea of serving a static folder with all our quick'n'dirty scripts to get always the latest and shiniest.</p>
 <p>So here it is, I need to serve one folder by HTTP, I'll put several files I need to download from time to time from others workstations.</p>
 <p>Solution:</p>
 <div class="highlight"><pre>mkdir /var/www/static
@@ -46,6 +46,10 @@ chmod a+rw /var/www/static -R
 <span class="p">}</span>
 </pre></div>
 <p>Now the folder is accesible by <code>http://your_ip_address:8080</code>, go nuts downloading anything there with wget.</p>
+<p>As a bonus here is the way of using wget as if were curl:</p>
+<div class="highlight"><pre>wget -q -O - 192.168.1.123/somescript | bash
+</pre></div>
+<p>-q is for quiet, -O is to redirect the output and - is an alias to stdout, this way is a shortcut for downloading <em>somescript</em> and running it with bash.</p>
 
     
 <div class=twitter>
@@ -87,7 +91,7 @@ chmod a+rw /var/www/static -R
             <li><i class="icon-envelope icon-large"></i> </li>
         </a>
         <a href="http://twitter.com/xr09" target="_blank"> <li> <i class="icon-twitter-sign icon-large"> </li></i> </a>
-        <a href="http://www.linkedin.com/pub/manuel-enrique-gutierrez-perez/43/a31/a9"><li><i class="icon-linkedin-sign icon-large" ></i></li></a>
+        <a href=""><li><i class="icon-linkedin-sign icon-large" ></i></li></a>
         <a href="http://github.com/xr09" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
         <a href="http://xr09.github.io/feeds/all.rss.xml" rel="alternate" title="Recent Blog Posts"><li> <i class="icon-rss icon-large"></i> </li></a>
       </ul>
