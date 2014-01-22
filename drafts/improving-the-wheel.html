@@ -1,84 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title> Improving the wheel | DevPad </title>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Improving the wheel</title>
+  <meta name="author" content="Manuel Gutierrez">
 
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/font-awesome.css" type="text/css"/>
-  </head>
-  <body>
-    <div class=container>
-<div class="header">
-    <a href="http://xr09.github.io/">DevPad</a> <span class="muted">clean code, good karma</span>
-</div>
+  <link href="http://192.168.15.149:8000/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+        title="DevPad RSS Feed" />
 
-<div class=navigation>
-    <ul>
-            <li><a href="http://xr09.github.io/pages/projects.html">Projects</a> </li>
-            <li><a href="http://xr09.github.io/archives.html">Archive</a> </li>
-            <li><a href="http://xr09.github.io/tags.html">Tags</a> </li>
-            <li><a href="http://xr09.github.io/pages/about.html">About</a> </li>
-    </ul>
-</div>
-<div class=separator></div>        
-        <div class=body>
-    <h1 class="title"> Improving the wheel</h1>
-    <p class=date> Mon 14 October 2013 </p>
-    <p>I needed a simple web app for searching users in my company's ldap server, there's already a page for that but its UI/UX is so bad it hurts using it. Let's change that.</p>
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="http://192.168.15.149:8000/favicon.png" rel="icon">
+  <link href="http://192.168.15.149:8000/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="http://192.168.15.149:8000/theme/js/modernizr-2.0.js"></script>
+  <script src="http://192.168.15.149:8000/theme/js/ender.js"></script>
+  <script src="http://192.168.15.149:8000/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://192.168.15.149:8000/">DevPad</a></h1>
+    <h2>clean code, good karma</h2>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://192.168.15.149:8000/" rel="subscribe-rss">RSS</a></li>
+  <li><a href="http://192.168.15.149:8000/feeds/all.rss.xml" rel="subscribe-rss">RSS</a></li>
+</ul>
+
+<!-- TODO: add search here
+<form action="" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:http://192.168.15.149:8000" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+-->
+
+<ul class="main-navigation">
+      <li><a href="http://192.168.15.149:8000/pages/about.html">About</a></li>
+      <li><a href="http://192.168.15.149:8000/pages/projects.html">Projects</a></li>
+    <li >
+    <a href="http://192.168.15.149:8000/category/server.html">Server</a>
+    </li>
+    <li >
+    <a href="http://192.168.15.149:8000/category/os.html">Os</a>
+    </li>
+    <li class="active">
+    <a href="http://192.168.15.149:8000/category/dev.html">Dev</a>
+    </li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Improving the wheel</h1>
+      <p class="meta"><time datetime="2013-10-14T15:10:00" pubdate>Mon 14 October 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>I needed a simple web app for searching users in my company's ldap server, there's already a page for that but its UI/UX is so bad it hurts using it. Let's change that.</p>
 <p>First, evaluate the current solution.</p>
-
-    
-<div class=twitter>
-<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
-    <p class=tags>This entry was tagged as
-      <a href="http://xr09.github.io/tag/ux.html">ux</a>
-      <a href="http://xr09.github.io/tag/design.html">design</a>
-      <a href="http://xr09.github.io/tag/flask.html">flask</a>
-      <a href="http://xr09.github.io/tag/python.html">python</a>
-    </p>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'devpad'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-        </div>
-        
-<div class=footer>
-  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Manuel Gutierrez</p>
-  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
-    <a href="https://github.com/fjavieralba/flasky">Theme</a>  by <a href="http://fjavieralba.com">fjavieralba</a>
-  </p> 
-  <p>
-    <div class=social style="font-size: 27px;">
-      <ul>
-        <script language="JavaScript">
-          u = 'dhunterkde';
-          s = 'gmail.com';
-          document.write('<a href=\"mailto:' + u + '@' + s + '\" target=\"_blank\">');
-        </script>
-            <li><i class="icon-envelope icon-large"></i> </li>
-        </a>
-        <a href="http://twitter.com/xr09" target="_blank"> <li> <i class="icon-twitter-sign icon-large"> </li></i> </a>
-        <a href=""><li><i class="icon-linkedin-sign icon-large" ></i></li></a>
-        <a href="http://github.com/xr09" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
-        <a href="http://xr09.github.io/feeds/all.rss.xml" rel="alternate" title="Recent Blog Posts"><li> <i class="icon-rss icon-large"></i> </li></a>
-      </ul>
-    </div>
-  </p>
-</div>    </div>
-  </body>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Manuel Gutierrez</span>
+  </span>
+<time datetime="2013-10-14T15:10:00" pubdate>Mon 14 October 2013</time>  <span class="categories">
+    <a class="category" href="http://192.168.15.149:8000/tag/ux.html">ux</a>
+    <a class="category" href="http://192.168.15.149:8000/tag/design.html">design</a>
+    <a class="category" href="http://192.168.15.149:8000/tag/flask.html">flask</a>
+    <a class="category" href="http://192.168.15.149:8000/tag/python.html">python</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://192.168.15.149:8000/serving-static-folder-with-nginx.html">Serving Static Folder with NGINX</a>
+      </li>
+      <li class="post">
+          <a href="http://192.168.15.149:8000/this-is-how-i-roll.html">This is how I roll</a>
+      </li>
+      <li class="post">
+          <a href="http://192.168.15.149:8000/bash-rolodex.html">Bash Rolodex</a>
+      </li>
+      <li class="post">
+          <a href="http://192.168.15.149:8000/sed-is-unix.html">sed is unix</a>
+      </li>
+      <li class="post">
+          <a href="http://192.168.15.149:8000/pelican-looks-great.html">Pelican looks great</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="http://192.168.15.149:8000/category/server.html">server</a></li>
+        <li><a href="http://192.168.15.149:8000/category/os.html">os</a></li>
+        <li><a href="http://192.168.15.149:8000/category/dev.html">dev</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="http://192.168.15.149:8000/tag/pelican.html">pelican</a>,    <a href="http://192.168.15.149:8000/tag/python.html">python</a>,    <a href="http://192.168.15.149:8000/tag/rolodex.html">rolodex</a>,    <a href="http://192.168.15.149:8000/tag/nginx.html">nginx</a>,    <a href="http://192.168.15.149:8000/tag/unix.html">unix</a>,    <a href="http://192.168.15.149:8000/tag/sed.html">sed</a>,    <a href="http://192.168.15.149:8000/tag/static.html">static</a>,    <a href="http://192.168.15.149:8000/tag/bash.html">bash</a>  </section>
+
+
+
+</aside><aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://192.168.15.149:8000/serving-static-folder-with-nginx.html">Serving Static Folder with NGINX</a>
+      </li>
+      <li class="post">
+          <a href="http://192.168.15.149:8000/this-is-how-i-roll.html">This is how I roll</a>
+      </li>
+      <li class="post">
+          <a href="http://192.168.15.149:8000/bash-rolodex.html">Bash Rolodex</a>
+      </li>
+      <li class="post">
+          <a href="http://192.168.15.149:8000/sed-is-unix.html">sed is unix</a>
+      </li>
+      <li class="post">
+          <a href="http://192.168.15.149:8000/pelican-looks-great.html">Pelican looks great</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="http://192.168.15.149:8000/category/server.html">server</a></li>
+        <li><a href="http://192.168.15.149:8000/category/os.html">os</a></li>
+        <li><a href="http://192.168.15.149:8000/category/dev.html">dev</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="http://192.168.15.149:8000/tag/pelican.html">pelican</a>,    <a href="http://192.168.15.149:8000/tag/python.html">python</a>,    <a href="http://192.168.15.149:8000/tag/rolodex.html">rolodex</a>,    <a href="http://192.168.15.149:8000/tag/nginx.html">nginx</a>,    <a href="http://192.168.15.149:8000/tag/unix.html">unix</a>,    <a href="http://192.168.15.149:8000/tag/sed.html">sed</a>,    <a href="http://192.168.15.149:8000/tag/static.html">static</a>,    <a href="http://192.168.15.149:8000/tag/bash.html">bash</a>  </section>
+
+
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Manuel Gutierrez -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+	<script type="text/javascript">
+	  var disqus_shortname = 'devpad';
+          var disqus_identifier = '/improving-the-wheel.html';
+          var disqus_url = 'http://192.168.15.149:8000/improving-the-wheel.html';
+          var disqus_title = 'Improving the wheel';
+	  (function() {
+	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	   })();
+	</script>
+</body>
 </html>
