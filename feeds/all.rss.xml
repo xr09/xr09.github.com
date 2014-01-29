@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevPad</title><link>http://xr09.github.io/</link><description>clean code, good karma</description><atom:link href="http://xr09.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 30 Oct 2013 09:18:00 -0400</lastBuildDate><item><title>Serving Static Folder with NGINX</title><link>http://xr09.github.io/serving-static-folder-with-nginx.html</link><description>&lt;p&gt;At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it daily), as I'm already running nginx for my local web development I had the idea of serving a static folder with all our quick'n'dirty scripts to get always the latest and shiniest.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevPad</title><link>http://xr09.github.io/</link><description>clean code, good karma</description><atom:link href="http://xr09.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 29 Jan 2014 12:13:00 -0500</lastBuildDate><item><title>New Admin In Town</title><link>http://xr09.github.io/new-admin-in-town.html</link><description>&lt;p&gt;Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task, interesting stuff.&lt;/p&gt;
+&lt;p&gt;I'm trying hard to keep up the pace with my personal projects (new ideas to code), but lately bash is more common than python in my &lt;strong&gt;workspace&lt;/strong&gt; folder, ain't no shame in that since bash is mandatory on every admin toolbox.&lt;/p&gt;
+&lt;p&gt;Next topics: rsnapshot, cron, server hardening.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Wed, 29 Jan 2014 12:13:00 -0500</pubDate><guid>tag:xr09.github.io,2014-01-29:new-admin-in-town.html</guid><category>job</category><category>admin</category></item><item><title>Serving Static Folder with NGINX</title><link>http://xr09.github.io/serving-static-folder-with-nginx.html</link><description>&lt;p&gt;At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it daily), as I'm already running nginx for my local web development I had the idea of serving a static folder with all our quick'n'dirty scripts to get always the latest and shiniest.&lt;/p&gt;
 &lt;p&gt;So here it is, I need to serve one folder by HTTP, I'll put several files I need to download from time to time from others workstations.&lt;/p&gt;
 &lt;p&gt;Solution:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;mkdir /var/www/static
@@ -16,11 +19,11 @@ chmod a+rw /var/www/static -R
       &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now the folder is accesible by &lt;code&gt;http://your_ip_address:8080&lt;/code&gt;, go nuts downloading anything there with wget.&lt;/p&gt;
+&lt;p&gt;Now the folder is accessible by &lt;code&gt;http://your_ip_address:8080&lt;/code&gt;, go nuts downloading anything there with wget.&lt;/p&gt;
 &lt;p&gt;As a bonus here is the way of using wget as if were curl:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;wget -q -O - 192.168.1.123:8080/somescript | bash
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;-q is for quiet, -O is to redirect the output and the - is an alias to stdout, this way is a shortcut for downloading &lt;em&gt;somescript&lt;/em&gt; and running it with bash.&lt;/p&gt;
+&lt;p&gt;-q is for quiet, -O is to redirect the output and the - is an alias to std-out, this way is a shortcut for downloading &lt;em&gt;somescript&lt;/em&gt; and running it with bash.&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Wed, 30 Oct 2013 09:18:00 -0400</pubDate><guid>tag:xr09.github.io,2013-10-30:serving-static-folder-with-nginx.html</guid><category>nginx</category><category>static</category></item><item><title>This is how I roll</title><link>http://xr09.github.io/this-is-how-i-roll.html</link><description>&lt;p&gt;Sometime when faced with hard decisions you could use a little help from life. (&lt;cite&gt;s/life/python/&lt;/cite&gt;).&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;opt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;yes&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;no&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;maybe&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -29,15 +32,15 @@ chmod a+rw /var/www/static -R
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This is how I roll... the dice.&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Mon, 21 Oct 2013 13:14:00 -0400</pubDate><guid>tag:xr09.github.io,2013-10-21:this-is-how-i-roll.html</guid><category>python</category></item><item><title>Bash Rolodex</title><link>http://xr09.github.io/bash-rolodex.html</link><description>&lt;p&gt;There's been a while since I have a &lt;em&gt;rolodex.txt&lt;/em&gt; in my &lt;em&gt;ideas_for_projects&lt;/em&gt;
-directory, althought there are &lt;a class="reference external" href="https://www.google.com/search?q=rolodex+programs"&gt;several&lt;/a&gt; options out there, &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Rolodex"&gt;this&lt;/a&gt; is the
+directory, although there are &lt;a class="reference external" href="https://www.google.com/search?q=rolodex+programs"&gt;several&lt;/a&gt; options out there, &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Rolodex"&gt;this&lt;/a&gt; is the
 kind of program nobody resists to reimplement, so here I go.&lt;/p&gt;
 &lt;p&gt;My first idea was a PyQt UI with a SQlite db, simple, fast and pragmatic,
 some UX mojo and the magic is done. But never had the time to start it,
-damn, lately I have no time to start anything at all, and that's a pitty
+damn, lately I have no time to start anything at all, and that's a pity
 because I love starting things (almost as much as releasing those things).&lt;/p&gt;
 &lt;p&gt;So the situation gets worst, I needed something quick and simple to manage
 all my phone numbers and no time for boilerplate code, just &lt;em&gt;the thing&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Well in the last year I've been inmersed reading lots of bash code at work,
+&lt;p&gt;Well in the last year I've been immersed reading lots of bash code at work,
 made a couple of &lt;a class="reference external" href="https://github.com/xr09/kaos"&gt;new&lt;/a&gt; bash &lt;a class="reference external" href="https://github.com/xr09/rainbow.sh"&gt;projects&lt;/a&gt; myself and I'm really enjoying its
 pragmatism, is just plain talk with the system, so lets make a rolodex with bash.&lt;/p&gt;
 &lt;div class="section" id="the-thing"&gt;
