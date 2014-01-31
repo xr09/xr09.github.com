@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevPad</title><link>http://xr09.github.io/</link><description>clean code, good karma</description><atom:link href="http://xr09.github.io/feeds/dev.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 29 Jan 2014 12:13:00 -0500</lastBuildDate><item><title>New Admin In Town</title><link>http://xr09.github.io/new-admin-in-town.html</link><description>&lt;p&gt;Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task, interesting stuff.&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevPad</title><link>http://xr09.github.io/</link><description>clean code, good karma</description><atom:link href="http://xr09.github.io/feeds/dev.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 31 Jan 2014 14:07:00 -0500</lastBuildDate><item><title>Fast Git Clone</title><link>http://xr09.github.io/fast-git-clone.html</link><description>&lt;p&gt;Lots of tutorials nowadays recommend using &lt;cite&gt;git clone&lt;/cite&gt; to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.&lt;/p&gt;
+&lt;p&gt;Whenever you need to clone a git repo from the internet and you plan to just use the contents and no need for past history, then the good old &lt;cite&gt;git clone&lt;/cite&gt; is a waste of bandwith, that command gets the whole repo history, that is every line change that has been commited since the beginning of development, you just need the latest state of files so let's tweak a little:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone --depth 1 https://github.com/apenwarr/sshuttle.git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This way you get the latest copy of a project's master branch, no history and minimize usage of network resources. That's fast!&lt;/p&gt;
+&lt;p&gt;From &lt;strong&gt;man git clone&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;--depth &amp;lt;depth&amp;gt;
+      Create a shallow clone with a history truncated to the specified
+      number of revisions. A shallow repository has a number of
+      limitations (you cannot clone or fetch from it, nor push from nor
+      into it), but is adequate if you are only interested in the recent
+      history of a large project with a long history, and would want to
+      send in fixes as patches.
+&lt;/pre&gt;&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Fri, 31 Jan 2014 14:07:00 -0500</pubDate><guid>tag:xr09.github.io,2014-01-31:fast-git-clone.html</guid><category>git</category></item><item><title>New Admin In Town</title><link>http://xr09.github.io/new-admin-in-town.html</link><description>&lt;p&gt;Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task, interesting stuff.&lt;/p&gt;
 &lt;p&gt;I'm trying hard to keep up the pace with my personal projects (new ideas to code), but lately bash is more common than python in my &lt;strong&gt;workspace&lt;/strong&gt; folder, ain't no shame in that since bash is mandatory on every admin toolbox.&lt;/p&gt;
 &lt;p&gt;Next topics: rsnapshot, cron, server hardening.&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Wed, 29 Jan 2014 12:13:00 -0500</pubDate><guid>tag:xr09.github.io,2014-01-29:new-admin-in-town.html</guid><category>job</category><category>admin</category></item><item><title>This is how I roll</title><link>http://xr09.github.io/this-is-how-i-roll.html</link><description>&lt;p&gt;Sometime when faced with hard decisions you could use a little help from life. (&lt;cite&gt;s/life/python/&lt;/cite&gt;).&lt;/p&gt;
