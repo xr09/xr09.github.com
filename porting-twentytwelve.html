@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>DevPad - static</title>
+  <title>Porting TwentyTwelve</title>
   <meta name="author" content="Manuel Gutierrez">
 
   <link href="http://xr09.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
@@ -56,30 +56,41 @@
     <li >
     <a href="http://xr09.github.io/category/os.html">Os</a>
     </li>
-    <li >
+    <li class="active">
     <a href="http://xr09.github.io/category/dev.html">Dev</a>
     </li>
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://xr09.github.io/serving-static-folder-with-nginx.html">Serving Static Folder with NGINX</a>
-      </h1>
-      <p class="meta"><time datetime="2013-10-30T09:18:00" pubdate>Wed 30 October 2013</time></p>
+      <h1 class="entry-title">Porting TwentyTwelve</h1>
+      <p class="meta"><time datetime="2014-02-07T08:57:00" pubdate>Fri 07 February 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://xr09.github.io/serving-static-folder-with-nginx.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
+  <div class="entry-content"><p>I'm working on a port of the <a class="reference external" href="http://twentytwelvedemo.wordpress.com/">TwentyTwelve</a> Wordpress theme for Pelican, right now is in alpha state but progressing incrementally. Despite the amount of work and responsabilities I have at the moment, this little project is a stress relief.</p>
+<p>There's a snapshot of this blog with TwentyTwelve right <a class="reference external" href="http://xr09.github.io/TwentyTwelve/">here</a>, check it out.</p>
+<p>If anybody want to help then just <a class="reference external" href="https://github.com/xr09/TwentyTwelve">fork</a> it.</p>
+</div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Manuel Gutierrez</span>
+  </span>
+<time datetime="2014-02-07T08:57:00" pubdate>Fri 07 February 2014</time>  <span class="categories">
+    <a class="category" href="http://xr09.github.io/tag/pelican.html">pelican</a>
+    <a class="category" href="http://xr09.github.io/tag/blog.html">blog</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
 
-  <br />
-</div></div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
 	  <img src="http://xr09.github.io/images/xr09.jpg" alt="" width=""/> 
@@ -88,7 +99,19 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="http://xr09.github.io/porting-twentytwelve.html">Porting TwentyTwelve</a>
+      </li>
+      <li class="post">
+          <a href="http://xr09.github.io/fast-git-clone.html">Fast Git Clone</a>
+      </li>
+      <li class="post">
+          <a href="http://xr09.github.io/new-admin-in-town.html">New Admin In Town</a>
+      </li>
+      <li class="post">
           <a href="http://xr09.github.io/serving-static-folder-with-nginx.html">Serving Static Folder with NGINX</a>
+      </li>
+      <li class="post">
+          <a href="http://xr09.github.io/this-is-how-i-roll.html">This is how I roll</a>
       </li>
     </ul>
   </section>
@@ -117,6 +140,9 @@
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'devpad';
+          var disqus_identifier = '/porting-twentytwelve.html';
+          var disqus_url = 'http://xr09.github.io/porting-twentytwelve.html';
+          var disqus_title = 'Porting TwentyTwelve';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
