@@ -19,7 +19,7 @@
 &lt;p&gt;Check out a task for last sunday of the month:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;30 6 * * 7 root run-if-today L Sun &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; touch /opt/last-sunday
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;It even supports &lt;strong&gt;L&lt;/strong&gt; for last, granted to work on february and leap years. ;)&lt;/p&gt;
+&lt;p&gt;Use &lt;strong&gt;L&lt;/strong&gt; or &lt;strong&gt;l&lt;/strong&gt; for last, granted to work on february and leap years. ;)&lt;/p&gt;
 &lt;p&gt;Please read the &lt;a class="reference external" href="https://github.com/xr09/cron-last-sunday/blob/master/run-if-today"&gt;code&lt;/a&gt; if you want to see how it works, it's pretty short and simple. I even put a bad joke or two.&lt;/p&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Tue, 01 Apr 2014 16:42:00 -0400</pubDate><guid>tag:xr09.github.io,2014-04-01:cron-scheduling-for-the-fancy.html</guid><category>unix</category><category>cron</category><category>admin</category></item><item><title>Porting TwentyTwelve</title><link>http://xr09.github.io/porting-twentytwelve.html</link><description>&lt;p&gt;I'm working on a port of the &lt;a class="reference external" href="http://twentytwelvedemo.wordpress.com/"&gt;TwentyTwelve&lt;/a&gt; Wordpress theme for Pelican, right now is in alpha state but progressing incrementally. Despite the amount of work and responsabilities I have at the moment, this little project is a stress relief.&lt;/p&gt;
 &lt;p&gt;There's a snapshot of this blog with TwentyTwelve right &lt;a class="reference external" href="http://xr09.github.io/TwentyTwelve/"&gt;here&lt;/a&gt;, check it out.&lt;/p&gt;
