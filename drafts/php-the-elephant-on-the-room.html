@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>DevPad - admin</title>
+  <title>PHP: The Elephant On The Room</title>
   <meta name="author" content="Manuel Gutierrez">
 
   <link href="http://xr09.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
@@ -49,44 +49,55 @@
     <li >
     <a href="http://xr09.github.io/category/os.html">Os</a>
     </li>
-    <li >
+    <li class="active">
     <a href="http://xr09.github.io/category/dev.html">Dev</a>
     </li>
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://xr09.github.io/cron-scheduling-for-the-fancy.html">Cron Scheduling For The Fancy</a>
-      </h1>
-      <p class="meta"><time datetime="2014-04-01T16:42:00" pubdate>Tue 01 April 2014</time></p>
+      <h1 class="entry-title">PHP: The Elephant On The Room</h1>
+      <p class="meta"><time datetime="2014-03-27T14:30:00" pubdate>Thu 27 March 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.</p>
-<p>The regular cron is ok for like 99% of the needs, there's no need for ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://xr09.github.io/cron-scheduling-for-the-fancy.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://xr09.github.io/new-admin-in-town.html">New Admin In Town</a>
-      </h1>
-      <p class="meta"><time datetime="2014-01-29T12:13:00" pubdate>Wed 29 January 2014</time></p>
-</header>
+  <div class="entry-content"><div class="section" id="why-php">
+<h2>Why PHP?</h2>
+<p>In one word: hosting.</p>
+<p>There's an emerging platform I'd love to deploy some apps in, but there is 90% probabilities the thing will be PHP only.</p>
+<p>Right now there's struggle in my head trying to find a PHP framework which doesn't sucks (compared to Django and Flask).</p>
+</div>
+<div class="section" id="what-do-i-want">
+<h2>What do I want?</h2>
+<ul class="simple">
+<li>Templating engine: I like <a class="reference external" href="http://symfony.com">Symfony</a>'s <strong>Twig</strong>, <a class="reference external" href="http://laravel.com/">Laravel</a>'s <strong>Blade</strong> and <a class="reference external" href="http://phalconphp.com/">Phalcon</a>'s <strong>Volt</strong>.</li>
+</ul>
+<p>Phalcon is out of my reach, is not likely that a new hosting platform would let a user install C extensions.</p>
+<ul class="simple">
+<li>ORM: I like Propel, Doctrine is not my favorite, and Eloquent looks fine.</li>
+</ul>
+<p>With some Symfony experience under my belt, it seems like the most obvoius choice. Twig is a big plus,</p>
+<p>But Symfony is somewhat bloated from my POV, doctrine, xml schemas, so many config files, the thing grew up commit by commit and you need like 6 bundles minimum for any project. Is</p>
+<p>First of, I like explicit frameworks, don't give me too much magic, although magic seems nice at first, but when you try to invoke some advanced trick the bunny may get lost in the hat.</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">example</span><span class="p">():</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Lorem ipsum dolor sit amet&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Manuel Gutierrez</span>
+  </span>
+<time datetime="2014-03-27T14:30:00" pubdate>Thu 27 March 2014</time>  <span class="categories">
+    <a class="category" href="http://xr09.github.io/tag/.html"></a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
 
-  <div class="entry-content"><p>Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://xr09.github.io/new-admin-in-town.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
-
-  <br />
-</div></div>
+</div>
 <aside class="sidebar">
   <section>
 	  <img src="http://xr09.github.io/images/xr09.jpg" alt="" width=""/> 
@@ -98,7 +109,16 @@
           <a href="http://xr09.github.io/cron-scheduling-for-the-fancy.html">Cron Scheduling For The Fancy</a>
       </li>
       <li class="post">
+          <a href="http://xr09.github.io/porting-twentytwelve.html">Porting TwentyTwelve</a>
+      </li>
+      <li class="post">
+          <a href="http://xr09.github.io/fast-git-clone.html">Fast Git Clone</a>
+      </li>
+      <li class="post">
           <a href="http://xr09.github.io/new-admin-in-town.html">New Admin In Town</a>
+      </li>
+      <li class="post">
+          <a href="http://xr09.github.io/serving-static-folder-with-nginx.html">Serving Static Folder with NGINX</a>
       </li>
     </ul>
   </section>
@@ -130,6 +150,9 @@
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'devpad';
+          var disqus_identifier = '/php-the-elephant-on-the-room.html';
+          var disqus_url = 'http://xr09.github.io/php-the-elephant-on-the-room.html';
+          var disqus_title = 'PHP: The Elephant On The Room';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
