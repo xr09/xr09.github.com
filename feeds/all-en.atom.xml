@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2014-04-01T16:42:00-04:00</updated><entry><title>Cron Scheduling For The Fancy</title><link href="http://xr09.github.io/cron-scheduling-for-the-fancy.html" rel="alternate"></link><updated>2014-04-01T16:42:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-01:cron-scheduling-for-the-fancy.html</id><summary type="html">&lt;p&gt;Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2014-04-16T10:28:00-04:00</updated><entry><title>Stripping Down Centos</title><link href="http://xr09.github.io/stripping-down-centos.html" rel="alternate"></link><updated>2014-04-16T10:28:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-16:stripping-down-centos.html</id><summary type="html">&lt;div class="section" id="why-strip"&gt;
+&lt;h2&gt;Why Strip?&lt;/h2&gt;
+&lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling unused services or using lighter alternatives.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="use-htop"&gt;
+&lt;h2&gt;Use htop&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;htop&lt;/em&gt; gives you a great view of how resources are being used in your system. Check any &lt;em&gt;resource hog&lt;/em&gt; and cut it down.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-to-cut-it"&gt;
+&lt;h2&gt;How to cut it?&lt;/h2&gt;
+&lt;p&gt;Cups for example has nothing to do on a web server, let's turn it off.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig cups off
+service cups stop
+chkconfig --list cups
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now cups is down for good, use those resources wisely.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="running-x"&gt;
+&lt;h2&gt;Running X?&lt;/h2&gt;
+&lt;p&gt;Why is that server running X at all? gdm running? This is *nix, if you need X in a server (I never did so far) then &lt;em&gt;startx&lt;/em&gt; is your guy. For X on a server use light stuff like IceWm or similar, not Gnome.&lt;/p&gt;
+&lt;p&gt;By default CentOS installs X with Gnome, the easiest way to disable this is by changing the system runlevel.&lt;/p&gt;
+&lt;p&gt;Before running &lt;strong&gt;init 3&lt;/strong&gt; please save you some troubles and check this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig --list | grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; | grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If by any chance an important service was set up to run on level 5 and not on 3 then my friend you are going to have a bad day.&lt;/p&gt;
+&lt;p&gt;Open /etc/inittab and set &lt;strong&gt;id:5:initdefault:&lt;/strong&gt; to &lt;strong&gt;id:3:initdefault:&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Or just use the &lt;em&gt;l33t way&lt;/em&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sed -i &lt;span class="s1"&gt;&amp;#39;/id:5:initdefault/ s/5/3/&amp;#39;&lt;/span&gt; /etc/inittab
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now open &lt;a class="reference external" href="https://www.google.com.cu/search?q=tmux+tutorial"&gt;tmux&lt;/a&gt; split in half and run &lt;em&gt;htop&lt;/em&gt; in one side and &lt;em&gt;init 3&lt;/em&gt; on the other (or just &lt;em&gt;init 3&lt;/em&gt; if you're not into multiplexing, though you should be) this way you are able to check the resources being released.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="but-dude-i-need-more-speed-1"&gt;
+&lt;h2&gt;But dude I need more speed!!1!&lt;/h2&gt;
+&lt;p&gt;Well, I'm not a wizard (otherwise I would be hanging out with Gandalf and not writing this), sometimes your server really need those resources, you could go deep and tune specific services but YMMV, search for &amp;quot;SERVICE_NAME tuning&amp;quot; on Google. Try not to tune too much, being too clever can cause you the hairiest bugs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="a-great-tip"&gt;
+&lt;h2&gt;A great tip?&lt;/h2&gt;
+&lt;p&gt;Replace Apache with Nginx for static files, one of my CentOS was serving a few distros repositories for like a hundred workstations with Apache 2.2, I tried Nginx, now I smile every time I login and see this: &lt;strong&gt;load average: 0.00, 0.00, 0.00&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important: I do not recommend uninstalling any packages on a legacy system unless you are 120% sure is ok, just disable services instead. Follow this rule or embrace desperation.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="centos"></category><category term="performance"></category><category term="tuning"></category></entry><entry><title>Cron Scheduling For The Fancy</title><link href="http://xr09.github.io/cron-scheduling-for-the-fancy.html" rel="alternate"></link><updated>2014-04-01T16:42:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-01:cron-scheduling-for-the-fancy.html</id><summary type="html">&lt;p&gt;Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.&lt;/p&gt;
 &lt;p&gt;The regular cron is ok for like 99% of the needs, there's no need for anything else unless you want to go fancy.&lt;/p&gt;
 &lt;p&gt;So let's get fancy.&lt;/p&gt;
 &lt;p&gt;Have you ever wanted to run a task the first monday of the month? Or maybe the second friday? Third Thursday?... Last Sunday? You get it.&lt;/p&gt;
