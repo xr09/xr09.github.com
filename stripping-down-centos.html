@@ -7,7 +7,7 @@
   <title>Stripping Down Centos</title>
   <meta name="author" content="Manuel Gutierrez">
 
-  <link href="http://xr09.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+  <link href="http://127.0.0.1:8000/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
         title="DevPad RSS Feed" />
 
 
@@ -16,12 +16,12 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="http://xr09.github.io/favicon.png" rel="icon">
-  <link href="http://xr09.github.io/theme/css/main.css" media="screen, projection"
+  <link href="http://127.0.0.1:8000/favicon.png" rel="icon">
+  <link href="http://127.0.0.1:8000/theme/css/main.css" media="screen, projection"
         rel="stylesheet" type="text/css">
-  <script src="http://xr09.github.io/theme/js/modernizr-2.0.js"></script>
-  <script src="http://xr09.github.io/theme/js/ender.js"></script>
-  <script src="http://xr09.github.io/theme/js/octopress.js" type="text/javascript"></script>
+  <script src="http://127.0.0.1:8000/theme/js/modernizr-2.0.js"></script>
+  <script src="http://127.0.0.1:8000/theme/js/ender.js"></script>
+  <script src="http://127.0.0.1:8000/theme/js/octopress.js" type="text/javascript"></script>
 
   <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
         rel="stylesheet" type="text/css">
@@ -31,26 +31,26 @@
 
 <body>
   <header role="banner"><hgroup>
-  <h1><a href="http://xr09.github.io/">DevPad</a></h1>
+  <h1><a href="http://127.0.0.1:8000/">DevPad</a></h1>
     <h2>clean code, good karma</h2>
 </hgroup></header>
   <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="http://xr09.github.io/feeds/all.rss.xml" rel="subscribe-rss">RSS</a></li>
+  <li><a href="http://127.0.0.1:8000/feeds/all.rss.xml" rel="subscribe-rss">RSS</a></li>
 </ul>
 
 
 
 <ul class="main-navigation">
-      <li><a href="http://xr09.github.io/pages/about.html">About</a></li>
-      <li><a href="http://xr09.github.io/pages/projects.html">Projects</a></li>
+      <li><a href="http://127.0.0.1:8000/pages/about.html">About</a></li>
+      <li><a href="http://127.0.0.1:8000/pages/projects.html">Projects</a></li>
     <li >
-    <a href="http://xr09.github.io/category/server.html">Server</a>
+    <a href="http://127.0.0.1:8000/category/server.html">Server</a>
     </li>
     <li >
-    <a href="http://xr09.github.io/category/os.html">Os</a>
+    <a href="http://127.0.0.1:8000/category/os.html">Os</a>
     </li>
     <li class="active">
-    <a href="http://xr09.github.io/category/dev.html">Dev</a>
+    <a href="http://127.0.0.1:8000/category/dev.html">Dev</a>
     </li>
 </ul></nav>
   <div id="main">
@@ -66,6 +66,10 @@
 <h2>Why Strip?</h2>
 <p>If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling unused services or using lighter alternatives.</p>
 </div>
+<div class="section" id="notice">
+<h2>Notice</h2>
+<p>This is not a step-by-step guide to install a minimal CentOS system, there are millions of those on the web, this aims at a specific use case: when you inherited an old server and you need to tweak it.</p>
+</div>
 <div class="section" id="use-htop">
 <h2>Use htop</h2>
 <p><em>htop</em> gives you a great view of how resources are being used in your system. Check any <em>resource hog</em> and cut it down.</p>
@@ -73,8 +77,8 @@
 <div class="section" id="how-to-cut-it">
 <h2>How to cut it?</h2>
 <p>Cups for example has nothing to do on a web server, let's turn it off.</p>
-<div class="highlight"><pre>chkconfig cups off
-service cups stop
+<div class="highlight"><pre>chkconfig cups off          <span class="c"># disable service on startup</span>
+service cups stop           <span class="c"># stop the service</span>
 chkconfig --list cups
 </pre></div>
 <p>Now cups is down for good, use those resources wisely.</p>
@@ -87,7 +91,15 @@ chkconfig --list cups
 <div class="highlight"><pre>chkconfig --list | grep <span class="s2">&quot;3:off&quot;</span> | grep <span class="s2">&quot;5:on&quot;</span>
 </pre></div>
 <p>If by any chance an important service was set up to run on level 5 and not on 3 then my friend you are going to have a bad day.</p>
-<p>Open /etc/inittab and set <strong>id:5:initdefault:</strong> to <strong>id:3:initdefault:</strong>.</p>
+<div class="highlight"><pre><span class="o">[</span>root@server123 ~<span class="o">]</span>  chkconfig --list | grep <span class="s2">&quot;3:off&quot;</span> | grep <span class="s2">&quot;5:on&quot;</span>
+named           0:off   1:off   2:off   3:off   4:off   5:on    6:off
+readahead_later 0:off   1:off   2:off   3:off   4:off   5:on    6:off
+</pre></div>
+<p>In the example above <em>named</em> and <em>readahead_later</em> are set up to run on runlevel 5 (multiuser with graphics) but not 3 (multiuser), let's fix it.</p>
+<div class="highlight"><pre>chkconfig named on
+chkconfig readahead_later on
+</pre></div>
+<p>To change the system default runlevel open <em>/etc/inittab</em> and set <strong>id:5:initdefault:</strong> to <strong>id:3:initdefault:</strong>.</p>
 <p>Or just use the <em>l33t way</em>:</p>
 <div class="highlight"><pre>sed -i <span class="s1">&#39;/id:5:initdefault/ s/5/3/&#39;</span> /etc/inittab
 </pre></div>
@@ -109,40 +121,36 @@ chkconfig --list cups
     Posted by <span class="fn">Manuel Gutierrez</span>
   </span>
 <time datetime="2014-04-16T10:28:00" pubdate>Wed 16 April 2014</time>  <span class="categories">
-    <a class="category" href="http://xr09.github.io/tag/centos.html">centos</a>
-    <a class="category" href="http://xr09.github.io/tag/performance.html">performance</a>
-    <a class="category" href="http://xr09.github.io/tag/tuning.html">tuning</a>
+    <a class="category" href="http://127.0.0.1:8000/tag/centos.html">centos</a>
+    <a class="category" href="http://127.0.0.1:8000/tag/performance.html">performance</a>
+    <a class="category" href="http://127.0.0.1:8000/tag/tuning.html">tuning</a>
   </span>
 </p><div class="sharing">
 </div>    </footer>
   </article>
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-  </section>
 </div>
 <aside class="sidebar">
   <section>
-	  <img src="http://xr09.github.io/images/xr09.jpg" alt="" width=""/> 
+	  <img src="http://127.0.0.1:8000/images/xr09.jpg" alt="" width=""/> 
   </section>
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://xr09.github.io/stripping-down-centos.html">Stripping Down Centos</a>
+          <a href="http://127.0.0.1:8000/stripping-down-centos.html">Stripping Down Centos</a>
       </li>
       <li class="post">
-          <a href="http://xr09.github.io/cron-scheduling-for-the-fancy.html">Cron Scheduling For The Fancy</a>
+          <a href="http://127.0.0.1:8000/cron-scheduling-for-the-fancy.html">Cron Scheduling For The Fancy</a>
       </li>
       <li class="post">
-          <a href="http://xr09.github.io/porting-twentytwelve.html">Porting TwentyTwelve</a>
+          <a href="http://127.0.0.1:8000/porting-twentytwelve.html">Porting TwentyTwelve</a>
       </li>
       <li class="post">
-          <a href="http://xr09.github.io/fast-git-clone.html">Fast Git Clone</a>
+          <a href="http://127.0.0.1:8000/fast-git-clone.html">Fast Git Clone</a>
       </li>
       <li class="post">
-          <a href="http://xr09.github.io/new-admin-in-town.html">New Admin In Town</a>
+          <a href="http://127.0.0.1:8000/new-admin-in-town.html">New Admin In Town</a>
       </li>
     </ul>
   </section>
@@ -150,16 +158,16 @@ chkconfig --list cups
       
     <h1>Categories</h1>
     <ul id="recent_posts">
-        <li><a href="http://xr09.github.io/category/server.html">server</a></li>
-        <li><a href="http://xr09.github.io/category/os.html">os</a></li>
-        <li><a href="http://xr09.github.io/category/dev.html">dev</a></li>
+        <li><a href="http://127.0.0.1:8000/category/server.html">server</a></li>
+        <li><a href="http://127.0.0.1:8000/category/os.html">os</a></li>
+        <li><a href="http://127.0.0.1:8000/category/dev.html">dev</a></li>
     </ul>
   </section>
  
 
   <section>
   <h1>Tags</h1>
-    <a href="http://xr09.github.io/tag/pelican.html">pelican</a>,    <a href="http://xr09.github.io/tag/git.html">git</a>,    <a href="http://xr09.github.io/tag/tuning.html">tuning</a>,    <a href="http://xr09.github.io/tag/centos.html">centos</a>,    <a href="http://xr09.github.io/tag/admin.html">admin</a>,    <a href="http://xr09.github.io/tag/job.html">job</a>,    <a href="http://xr09.github.io/tag/rolodex.html">rolodex</a>,    <a href="http://xr09.github.io/tag/cron.html">cron</a>,    <a href="http://xr09.github.io/tag/nginx.html">nginx</a>,    <a href="http://xr09.github.io/tag/unix.html">unix</a>,    <a href="http://xr09.github.io/tag/sed.html">sed</a>,    <a href="http://xr09.github.io/tag/static.html">static</a>,    <a href="http://xr09.github.io/tag/blog.html">blog</a>,    <a href="http://xr09.github.io/tag/performance.html">performance</a>,    <a href="http://xr09.github.io/tag/bash.html">bash</a>  </section>
+    <a href="http://127.0.0.1:8000/tag/pelican.html">pelican</a>,    <a href="http://127.0.0.1:8000/tag/git.html">git</a>,    <a href="http://127.0.0.1:8000/tag/tuning.html">tuning</a>,    <a href="http://127.0.0.1:8000/tag/centos.html">centos</a>,    <a href="http://127.0.0.1:8000/tag/admin.html">admin</a>,    <a href="http://127.0.0.1:8000/tag/job.html">job</a>,    <a href="http://127.0.0.1:8000/tag/rolodex.html">rolodex</a>,    <a href="http://127.0.0.1:8000/tag/cron.html">cron</a>,    <a href="http://127.0.0.1:8000/tag/nginx.html">nginx</a>,    <a href="http://127.0.0.1:8000/tag/unix.html">unix</a>,    <a href="http://127.0.0.1:8000/tag/sed.html">sed</a>,    <a href="http://127.0.0.1:8000/tag/static.html">static</a>,    <a href="http://127.0.0.1:8000/tag/blog.html">blog</a>,    <a href="http://127.0.0.1:8000/tag/performance.html">performance</a>,    <a href="http://127.0.0.1:8000/tag/bash.html">bash</a>  </section>
 
 
 
@@ -172,16 +180,5 @@ chkconfig --list cups
       Copyright &copy; 2014 - Manuel E. Gutierrez - 
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
-	<script type="text/javascript">
-	  var disqus_shortname = 'devpad';
-          var disqus_identifier = '/stripping-down-centos.html';
-          var disqus_url = 'http://xr09.github.io/stripping-down-centos.html';
-          var disqus_title = 'Stripping Down Centos';
-	  (function() {
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	   })();
-	</script>
 </body>
 </html>

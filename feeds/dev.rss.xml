@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevPad</title><link>http://xr09.github.io/</link><description>clean code, good karma</description><atom:link href="http://xr09.github.io/feeds/dev.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 16 Apr 2014 10:28:00 -0400</lastBuildDate><item><title>Stripping Down Centos</title><link>http://xr09.github.io/stripping-down-centos.html</link><description>&lt;div class="section" id="why-strip"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevPad</title><link>http://127.0.0.1:8000/</link><description>clean code, good karma</description><atom:link href="http://127.0.0.1:8000/feeds/dev.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 16 Apr 2014 10:28:00 -0400</lastBuildDate><item><title>Stripping Down Centos</title><link>http://127.0.0.1:8000/stripping-down-centos.html</link><description>&lt;div class="section" id="why-strip"&gt;
 &lt;h2&gt;Why Strip?&lt;/h2&gt;
 &lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling unused services or using lighter alternatives.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="notice"&gt;
+&lt;h2&gt;Notice&lt;/h2&gt;
+&lt;p&gt;This is not a step-by-step guide to install a minimal CentOS system, there are millions of those on the web, this aims at a specific use case: when you inherited an old server and you need to tweak it.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="use-htop"&gt;
 &lt;h2&gt;Use htop&lt;/h2&gt;
@@ -10,8 +14,8 @@
 &lt;div class="section" id="how-to-cut-it"&gt;
 &lt;h2&gt;How to cut it?&lt;/h2&gt;
 &lt;p&gt;Cups for example has nothing to do on a web server, let's turn it off.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig cups off
-service cups stop
+&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig cups off          &lt;span class="c"&gt;# disable service on startup&lt;/span&gt;
+service cups stop           &lt;span class="c"&gt;# stop the service&lt;/span&gt;
 chkconfig --list cups
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now cups is down for good, use those resources wisely.&lt;/p&gt;
@@ -24,7 +28,15 @@ chkconfig --list cups
 &lt;div class="highlight"&gt;&lt;pre&gt;chkconfig --list | grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; | grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If by any chance an important service was set up to run on level 5 and not on 3 then my friend you are going to have a bad day.&lt;/p&gt;
-&lt;p&gt;Open /etc/inittab and set &lt;strong&gt;id:5:initdefault:&lt;/strong&gt; to &lt;strong&gt;id:3:initdefault:&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@server123 ~&lt;span class="o"&gt;]&lt;/span&gt;  chkconfig --list | grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; | grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
+named           0:off   1:off   2:off   3:off   4:off   5:on    6:off
+readahead_later 0:off   1:off   2:off   3:off   4:off   5:on    6:off
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the example above &lt;em&gt;named&lt;/em&gt; and &lt;em&gt;readahead_later&lt;/em&gt; are set up to run on runlevel 5 (multiuser with graphics) but not 3 (multiuser), let's fix it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig named on
+chkconfig readahead_later on
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To change the system default runlevel open &lt;em&gt;/etc/inittab&lt;/em&gt; and set &lt;strong&gt;id:5:initdefault:&lt;/strong&gt; to &lt;strong&gt;id:3:initdefault:&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Or just use the &lt;em&gt;l33t way&lt;/em&gt;:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;sed -i &lt;span class="s1"&gt;&amp;#39;/id:5:initdefault/ s/5/3/&amp;#39;&lt;/span&gt; /etc/inittab
 &lt;/pre&gt;&lt;/div&gt;
@@ -39,7 +51,7 @@ chkconfig --list cups
 &lt;p&gt;Replace Apache with Nginx for static files, one of my CentOS was serving a few distros repositories for like a hundred workstations with Apache 2.2, I tried Nginx, now I smile every time I login and see this: &lt;strong&gt;load average: 0.00, 0.00, 0.00&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Important: I do not recommend uninstalling any packages on a legacy system unless you are 120% sure is ok, just disable services instead. Follow this rule or embrace desperation.&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Wed, 16 Apr 2014 10:28:00 -0400</pubDate><guid>tag:xr09.github.io,2014-04-16:stripping-down-centos.html</guid><category>centos</category><category>performance</category><category>tuning</category></item><item><title>Cron Scheduling For The Fancy</title><link>http://xr09.github.io/cron-scheduling-for-the-fancy.html</link><description>&lt;p&gt;Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Wed, 16 Apr 2014 10:28:00 -0400</pubDate><guid>tag:127.0.0.1:8000,2014-04-16:stripping-down-centos.html</guid><category>centos</category><category>performance</category><category>tuning</category></item><item><title>Cron Scheduling For The Fancy</title><link>http://127.0.0.1:8000/cron-scheduling-for-the-fancy.html</link><description>&lt;p&gt;Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.&lt;/p&gt;
 &lt;p&gt;The regular cron is ok for like 99% of the needs, there's no need for anything else unless you want to go fancy.&lt;/p&gt;
 &lt;p&gt;So let's get fancy.&lt;/p&gt;
 &lt;p&gt;Have you ever wanted to run a task the first monday of the month? Or maybe the second friday? Third Thursday?... Last Sunday? You get it.&lt;/p&gt;
@@ -61,10 +73,10 @@ chkconfig --list cups
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Use &lt;strong&gt;L&lt;/strong&gt; or &lt;strong&gt;l&lt;/strong&gt; for last, granted to work on february and leap years. ;)&lt;/p&gt;
 &lt;p&gt;Please read the &lt;a class="reference external" href="https://github.com/xr09/cron-last-sunday/blob/master/run-if-today"&gt;code&lt;/a&gt; if you want to see how it works, it's pretty short and simple. I even put a bad joke or two.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Tue, 01 Apr 2014 16:42:00 -0400</pubDate><guid>tag:xr09.github.io,2014-04-01:cron-scheduling-for-the-fancy.html</guid><category>unix</category><category>cron</category><category>admin</category></item><item><title>Porting TwentyTwelve</title><link>http://xr09.github.io/porting-twentytwelve.html</link><description>&lt;p&gt;I'm working on a port of the &lt;a class="reference external" href="http://twentytwelvedemo.wordpress.com/"&gt;TwentyTwelve&lt;/a&gt; Wordpress theme for Pelican, right now is in alpha state but progressing incrementally. Despite the amount of work and responsabilities I have at the moment, this little project is a stress relief.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Tue, 01 Apr 2014 16:42:00 -0400</pubDate><guid>tag:127.0.0.1:8000,2014-04-01:cron-scheduling-for-the-fancy.html</guid><category>unix</category><category>cron</category><category>admin</category></item><item><title>Porting TwentyTwelve</title><link>http://127.0.0.1:8000/porting-twentytwelve.html</link><description>&lt;p&gt;I'm working on a port of the &lt;a class="reference external" href="http://twentytwelvedemo.wordpress.com/"&gt;TwentyTwelve&lt;/a&gt; Wordpress theme for Pelican, right now is in alpha state but progressing incrementally. Despite the amount of work and responsabilities I have at the moment, this little project is a stress relief.&lt;/p&gt;
 &lt;p&gt;There's a snapshot of this blog with TwentyTwelve right &lt;a class="reference external" href="http://xr09.github.io/TwentyTwelve/"&gt;here&lt;/a&gt;, check it out.&lt;/p&gt;
 &lt;p&gt;If anybody want to help then just &lt;a class="reference external" href="https://github.com/xr09/TwentyTwelve"&gt;fork&lt;/a&gt; it.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Fri, 07 Feb 2014 08:57:00 -0500</pubDate><guid>tag:xr09.github.io,2014-02-07:porting-twentytwelve.html</guid><category>pelican</category><category>blog</category></item><item><title>Fast Git Clone</title><link>http://xr09.github.io/fast-git-clone.html</link><description>&lt;p&gt;Lots of tutorials nowadays recommend using &lt;cite&gt;git clone&lt;/cite&gt; to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Fri, 07 Feb 2014 08:57:00 -0500</pubDate><guid>tag:127.0.0.1:8000,2014-02-07:porting-twentytwelve.html</guid><category>pelican</category><category>blog</category></item><item><title>Fast Git Clone</title><link>http://127.0.0.1:8000/fast-git-clone.html</link><description>&lt;p&gt;Lots of tutorials nowadays recommend using &lt;cite&gt;git clone&lt;/cite&gt; to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.&lt;/p&gt;
 &lt;p&gt;Whenever you need to clone a git repo from the internet and you plan to just use the contents and no need for past history, then the good old &lt;cite&gt;git clone&lt;/cite&gt; is a waste of bandwith, that command gets the whole repo history, that is every line change that has been commited since the beginning of development, you just need the latest state of files so let's tweak a little to simulate the &amp;quot;Download ZIP&amp;quot; button on the github page:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;git clone --depth 1 https://github.com/apenwarr/sshuttle.git
 &lt;/pre&gt;&lt;/div&gt;
@@ -78,9 +90,9 @@ chkconfig --list cups
       history of a large project with a long history, and would want to
       send in fixes as patches.
 &lt;/pre&gt;&lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Fri, 31 Jan 2014 14:07:00 -0500</pubDate><guid>tag:xr09.github.io,2014-01-31:fast-git-clone.html</guid><category>git</category></item><item><title>New Admin In Town</title><link>http://xr09.github.io/new-admin-in-town.html</link><description>&lt;p&gt;Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task, interesting stuff.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Fri, 31 Jan 2014 14:07:00 -0500</pubDate><guid>tag:127.0.0.1:8000,2014-01-31:fast-git-clone.html</guid><category>git</category></item><item><title>New Admin In Town</title><link>http://127.0.0.1:8000/new-admin-in-town.html</link><description>&lt;p&gt;Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task, interesting stuff.&lt;/p&gt;
 &lt;p&gt;I'm trying hard to keep up the pace with my personal projects (new ideas to code), but lately bash is more common than python in my &lt;strong&gt;workspace&lt;/strong&gt; folder, ain't no shame in that since bash is mandatory on every admin toolbox.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Wed, 29 Jan 2014 12:13:00 -0500</pubDate><guid>tag:xr09.github.io,2014-01-29:new-admin-in-town.html</guid><category>job</category><category>admin</category></item><item><title>Bash Rolodex</title><link>http://xr09.github.io/bash-rolodex.html</link><description>&lt;p&gt;There's been a while since I have a &lt;em&gt;rolodex.txt&lt;/em&gt; in my &lt;em&gt;ideas_for_projects&lt;/em&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Wed, 29 Jan 2014 12:13:00 -0500</pubDate><guid>tag:127.0.0.1:8000,2014-01-29:new-admin-in-town.html</guid><category>job</category><category>admin</category></item><item><title>Bash Rolodex</title><link>http://127.0.0.1:8000/bash-rolodex.html</link><description>&lt;p&gt;There's been a while since I have a &lt;em&gt;rolodex.txt&lt;/em&gt; in my &lt;em&gt;ideas_for_projects&lt;/em&gt;
 directory, although there are &lt;a class="reference external" href="https://www.google.com/search?q=rolodex+programs"&gt;several&lt;/a&gt; options out there, &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Rolodex"&gt;this&lt;/a&gt; is the
 kind of program nobody resists to reimplement, so here I go.&lt;/p&gt;
 &lt;p&gt;My first idea was a PyQt UI with a SQlite db, simple, fast and pragmatic,
@@ -124,10 +136,10 @@ simple text file.&lt;/p&gt;
 &lt;p&gt;No big fancy buttons this time but as I promised you have your rolodex in bash,
 as pragmatic as it gets.&lt;/p&gt;
 &lt;/div&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Fri, 04 Oct 2013 08:15:00 -0400</pubDate><guid>tag:xr09.github.io,2013-10-04:bash-rolodex.html</guid><category>rolodex</category><category>unix</category><category>bash</category></item><item><title>Pelican looks great</title><link>http://xr09.github.io/pelican-looks-great.html</link><description>&lt;p&gt;Just got my pelican working, awesome, I struggled for a while with dependencies and even wanted to give up and check some alternatives but in the end I got it, loving Pelican so far.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Fri, 04 Oct 2013 08:15:00 -0400</pubDate><guid>tag:127.0.0.1:8000,2013-10-04:bash-rolodex.html</guid><category>rolodex</category><category>unix</category><category>bash</category></item><item><title>Pelican looks great</title><link>http://127.0.0.1:8000/pelican-looks-great.html</link><description>&lt;p&gt;Just got my pelican working, awesome, I struggled for a while with dependencies and even wanted to give up and check some alternatives but in the end I got it, loving Pelican so far.&lt;/p&gt;
 &lt;p&gt;For begginers trying to get a Pelican site, you should get acquainted with virtualenv, pip and I'd say virtualenvwrapper too, this is bread and butter on python world nowadays, so go for it right now.&lt;/p&gt;
 &lt;p&gt;Create a virtualenv, install pelican on it, create you blog directory with the respective settings.py, source and output folders inside, then just write your posts on Restructured Text or Markdown as you prefer and compile with a command like:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;pelican blog/ -s settings.py -r
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I was thinking on writing just-another-pelican-tutorial but I'll recommend one of the many I've found, read &lt;a class="reference external" href="http://fjavieralba.com/pelican-a-static-blog-generator-for-pythonistas.html"&gt;this&lt;/a&gt; one and enjoy Pelican.&lt;/p&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Tue, 01 Oct 2013 13:13:00 -0400</pubDate><guid>tag:xr09.github.io,2013-10-01:pelican-looks-great.html</guid><category>pelican</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Tue, 01 Oct 2013 13:13:00 -0400</pubDate><guid>tag:127.0.0.1:8000,2013-10-01:pelican-looks-great.html</guid><category>pelican</category></item></channel></rss>
