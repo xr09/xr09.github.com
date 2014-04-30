@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevPad</title><link>http://xr09.github.io/</link><description>clean code, good karma</description><atom:link href="http://xr09.github.io/feeds/os.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 16 Apr 2014 10:28:00 -0400</lastBuildDate><item><title>Stripping Down Centos</title><link>http://xr09.github.io/stripping-down-centos.html</link><description>&lt;div class="section" id="why-strip"&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DevPad</title><link>http://xr09.github.io/</link><description>clean code, good karma</description><atom:link href="http://xr09.github.io/feeds/os.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 30 Apr 2014 14:59:00 -0400</lastBuildDate><item><title>Running The Latest Debmirror On CentOS 5</title><link>http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html</link><description>&lt;div class="section" id="to-sync-a-deb-repo"&gt;
+&lt;h2&gt;To sync a deb repo&lt;/h2&gt;
+&lt;p&gt;So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.&lt;/p&gt;
+&lt;p&gt;The advantage of apt-mirror is the ability to download a repo with multiple threads, if bandwith is not an issue then your downloads will fly, on the bad side you can't filter unwanted sections of a repo, it's all or nothing.&lt;/p&gt;
+&lt;p&gt;Debmirror on the other side gives you the ability to filter by repo sections or even regular expressions, over the years I've tuned my filters and now Debian Wheezy fits on just ~12 GB, avoiding nearly 40 Gb of unused packages.&lt;/p&gt;
+&lt;p&gt;On the bad side debmirror doesn't supports threads, but let's face it, the ability of pruning a repo is priceless, not only because of space but also bandwith, if your company maintains a local Debian/Ubuntu repo then having around 10 GB of games and 5 more on debug packages is pointless.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="pruning-method"&gt;
+&lt;h2&gt;Pruning method&lt;/h2&gt;
+&lt;p&gt;Our pruning technique will be shared in a future post, but just to have an idea is nothing more than using the &lt;em&gt;--exclude&lt;/em&gt; and &lt;em&gt;--exclude-deb-section&lt;/em&gt; options from debmirror:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;--exclude-deb-section&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(games|debug|news|electronics)&amp;#39;&lt;/span&gt;
+--exclude&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/myspell-pt.*&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+--exclude&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(/libhdf5-doc.*)&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="current-status"&gt;
+&lt;h2&gt;Current status&lt;/h2&gt;
+&lt;p&gt;This procedure is fairly easy on a recent distro, but let's assume we have CentOS 5.9 with Perl 5.8 and debmirror &lt;em&gt;20090807&lt;/em&gt; and we want the latest debmirror which needs a recent Perl interpreter.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="attack-plan"&gt;
+&lt;h2&gt;Attack plan&lt;/h2&gt;
+&lt;p&gt;Is not a good idea to start messing with the default Perl installation, the safest choice is installing a new version somewhere like &lt;em&gt;/opt/&lt;/em&gt; and using it from there.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.activestate.com/activeperl/downloads"&gt;ActivePerl&lt;/a&gt; is a perfect choice for this case, just download and install on &lt;em&gt;/opt/ActivePerl/&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Now check the interpreter:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;/opt/ActivePerl/bin/perl -v
+This is perl 5, version 16, subversion 3 &lt;span class="o"&gt;(&lt;/span&gt;v5.16.3&lt;span class="o"&gt;)&lt;/span&gt; built &lt;span class="k"&gt;for &lt;/span&gt;i686-linux-thread-multi
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Perfect, now just drop in a recent &lt;a class="reference external" href="http://ftp.de.debian.org/debian/pool/main/d/debmirror/debmirror_2.16.tar.gz"&gt;debmirror&lt;/a&gt; script and change the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29"&gt;shebang&lt;/a&gt; to point to the new Perl.&lt;/p&gt;
+&lt;p&gt;Like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/opt/ActivePerl-5.16/bin/perl -w&lt;/span&gt;
+
+&lt;span class="o"&gt;=&lt;/span&gt;head1 NAME
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="perl-modules"&gt;
+&lt;h2&gt;Perl Modules&lt;/h2&gt;
+&lt;p&gt;If you try to use this you'll get an error, debmirror needs a module not included in ActivePerl by default &amp;quot;LockFile::Simple&amp;quot;, easy fix, just have to &lt;a class="reference external" href="http://www.activestate.com/blog/2010/10/how-install-cpan-modules-activeperl"&gt;install&lt;/a&gt; it from CPAN.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;/opt/ActivePerl/bin/cpan LockFile::Simple
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Remember to export http_proxy in case you need it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sync-baby-sync"&gt;
+&lt;h2&gt;Sync Baby, Sync!&lt;/h2&gt;
+&lt;p&gt;The rest is easy cake, now you have a recent debmirror with a brand new Perl interpreter running on top of the old crusty CentOS 5. Rejoice.&lt;/p&gt;
+&lt;/div&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Manuel Gutierrez</dc:creator><pubDate>Wed, 30 Apr 2014 14:59:00 -0400</pubDate><guid>tag:xr09.github.io,2014-04-30:running-the-latest-debmirror-on-centos-5.html</guid><category>centos</category><category>perl</category><category>debmirror</category><category>debian</category><category>ubuntu</category></item><item><title>Stripping Down Centos</title><link>http://xr09.github.io/stripping-down-centos.html</link><description>&lt;div class="section" id="why-strip"&gt;
 &lt;h2&gt;Why Strip?&lt;/h2&gt;
 &lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling unused services or using lighter alternatives.&lt;/p&gt;
 &lt;/div&gt;
