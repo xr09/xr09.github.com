@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Fast Git Clone</title>
+  <title>Ferm - IPtables The Right Way</title>
   <meta name="author" content="Manuel Gutierrez">
 
   <link href="http://xr09.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
@@ -58,23 +58,51 @@
 <div>
   <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">Fast Git Clone</h1>
-      <p class="meta"><time datetime="2014-01-31T14:07:00" pubdate>Fri 31 January 2014</time></p>
+      <h1 class="entry-title">Ferm - IPtables The Right Way</h1>
+      <p class="meta"><time datetime="2014-10-14T14:15:00" pubdate>Tue 14 October 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>Lots of tutorials nowadays recommend using <cite>git clone</cite> to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.</p>
-<p>Whenever you need to clone a git repo from the internet and you plan to just use the contents and no need for past history, then the good old <cite>git clone</cite> is a waste of bandwith, that command gets the whole repo history, that is every line change that has been commited since the beginning of development, you just need the latest state of files so let's tweak a little to simulate the &quot;Download ZIP&quot; button on the github page:</p>
-<div class="highlight"><pre>git clone --depth 1 https://github.com/apenwarr/sshuttle.git
+  <div class="entry-content"><p>This is a small post but totally worth it. Just wanted to point out I've finally found the ultimate meta language for managing iptables: <a class="reference external" href="http://ferm.foo-projects.org/">ferm</a>.</p>
+<p>To keep this brief let's say Ferm is to IPtables as C is to ASM. It gives you plenty of high level constructs to manage list of ports, ip addresses and so forth, heck you can even create functions with parameters and all.</p>
+<p>Let's give it a try:</p>
+<div class="highlight"><pre><span class="nv">$ </span>aptitude install ferm     <span class="c"># Debian/Ubuntu</span>
+<span class="nv">$ </span>yum install ferm          <span class="c"># Fedora/CentOS</span>
 </pre></div>
-<p>This way you get the latest copy of a project's master branch, no history and minimize usage of network resources. That's fast!</p>
-<p>From <strong>man git clone</strong>:</p>
-<div class="highlight"><pre>--depth &lt;depth&gt;
-      Create a shallow clone with a history truncated to the specified
-      number of revisions. A shallow repository has a number of
-      limitations (you cannot clone or fetch from it, nor push from nor
-      into it), but is adequate if you are only interested in the recent
-      history of a large project with a long history, and would want to
-      send in fixes as patches.
+<p>Now you have two new commands in your path: <em>ferm</em> and <em>import-ferm</em></p>
+<p>Reading the man page and command help is a good start.</p>
+<p>Basically ferm reads the rule file and compiles to iptables, then it loads everything to the system with <em>iptables-restore</em>, I recommend using <em>ferm -nl rules.ferm</em> and keep tuning the file until you get what you need.</p>
+<p>The <em>import-ferm</em> command reads you current iptables rules and prints the equivalent ferm rules to stdout. Of course it will be too explicit, you should define arrays and use all the cool features ferm provides.</p>
+<div class="highlight"><pre>import-ferm &gt; /etc/ferm/rules.ferm <span class="c"># this could be a starting point</span>
+</pre></div>
+<p>On Debian the ferm package also provides a service (something like iptables-persistent), this makes possible to have the rules written only with ferm syntax, they will be parsed each time the ferm service is started.</p>
+<p>Some simple rules to get you interested:</p>
+<div class="highlight"><pre>@def <span class="nv">$TRUSTED</span> <span class="o">=</span> <span class="o">(</span>10.0.3.5 10.0.5.0/24 10.0.3.8<span class="o">)</span>;
+
+table filter <span class="o">{</span>
+chain INPUT <span class="o">{</span>
+    policy DROP;
+
+    <span class="c"># connection tracking</span>
+    mod state state <span class="o">(</span>ESTABLISHED RELATED<span class="o">)</span> ACCEPT;
+
+    <span class="c"># allow local connections</span>
+    interface lo ACCEPT;
+
+    <span class="c"># respond to ping</span>
+    proto icmp icmp-type <span class="nb">echo</span>-request ACCEPT;
+
+    <span class="c"># allow SSH connections to trusted addresses</span>
+    saddr <span class="nv">$TRUSTED</span> <span class="o">{</span>
+        proto tcp dport ssh ACCEPT;
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c"># outgoing connections are not limited</span>
+chain OUTPUT policy ACCEPT;
+
+<span class="c"># this is not a router</span>
+chain FORWARD policy DROP;
+<span class="o">}</span>
 </pre></div>
 </div>
     <footer>
@@ -82,8 +110,8 @@
   <span class="byline author vcard">
     Posted by <span class="fn">Manuel Gutierrez</span>
   </span>
-<time datetime="2014-01-31T14:07:00" pubdate>Fri 31 January 2014</time>  <span class="categories">
-    <a class="category" href="http://xr09.github.io/tag/git.html">git</a>
+<time datetime="2014-10-14T14:15:00" pubdate>Tue 14 October 2014</time>  <span class="categories">
+    <a class="category" href="http://xr09.github.io/tag/.html"></a>
   </span>
 </p><div class="sharing">
 </div>    </footer>
@@ -146,9 +174,9 @@
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'devpad';
-          var disqus_identifier = '/fast-git-clone.html';
-          var disqus_url = 'http://xr09.github.io/fast-git-clone.html';
-          var disqus_title = 'Fast Git Clone';
+          var disqus_identifier = '/ferm-iptables-the-right-way.html';
+          var disqus_url = 'http://xr09.github.io/ferm-iptables-the-right-way.html';
+          var disqus_title = 'Ferm - IPtables The Right Way';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

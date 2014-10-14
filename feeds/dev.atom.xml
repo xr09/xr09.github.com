@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/dev.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2014-04-01T16:42:00-04:00</updated><entry><title>Cron Scheduling For The Fancy</title><link href="http://xr09.github.io/cron-scheduling-for-the-fancy.html" rel="alternate"></link><updated>2014-04-01T16:42:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-01:cron-scheduling-for-the-fancy.html</id><summary type="html">&lt;p&gt;Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/dev.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2014-10-14T14:15:00-04:00</updated><entry><title>Ferm - IPtables The Right Way</title><link href="http://xr09.github.io/ferm-iptables-the-right-way.html" rel="alternate"></link><updated>2014-10-14T14:15:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-10-14:ferm-iptables-the-right-way.html</id><summary type="html">&lt;p&gt;This is a small post but totally worth it. Just wanted to point out I've finally found the ultimate meta language for managing iptables: &lt;a class="reference external" href="http://ferm.foo-projects.org/"&gt;ferm&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To keep this brief let's say Ferm is to IPtables as C is to ASM. It gives you plenty of high level constructs to manage list of ports, ip addresses and so forth, heck you can even create functions with parameters and all.&lt;/p&gt;
+&lt;p&gt;Let's give it a try:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;aptitude install ferm     &lt;span class="c"&gt;# Debian/Ubuntu&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;yum install ferm          &lt;span class="c"&gt;# Fedora/CentOS&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now you have two new commands in your path: &lt;em&gt;ferm&lt;/em&gt; and &lt;em&gt;import-ferm&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Reading the man page and command help is a good start.&lt;/p&gt;
+&lt;p&gt;Basically ferm reads the rule file and compiles to iptables, then it loads everything to the system with &lt;em&gt;iptables-restore&lt;/em&gt;, I recommend using &lt;em&gt;ferm -nl rules.ferm&lt;/em&gt; and keep tuning the file until you get what you need.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;import-ferm&lt;/em&gt; command reads you current iptables rules and prints the equivalent ferm rules to stdout. Of course it will be too explicit, you should define arrays and use all the cool features ferm provides.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;import-ferm &amp;gt; /etc/ferm/rules.ferm &lt;span class="c"&gt;# this could be a starting point&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On Debian the ferm package also provides a service (something like iptables-persistent), this makes possible to have the rules written only with ferm syntax, they will be parsed each time the ferm service is started.&lt;/p&gt;
+&lt;p&gt;Some simple rules to get you interested:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;@def &lt;span class="nv"&gt;$TRUSTED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;10.0.3.5 10.0.5.0/24 10.0.3.8&lt;span class="o"&gt;)&lt;/span&gt;;
+
+table filter &lt;span class="o"&gt;{&lt;/span&gt;
+chain INPUT &lt;span class="o"&gt;{&lt;/span&gt;
+    policy DROP;
+
+    &lt;span class="c"&gt;# connection tracking&lt;/span&gt;
+    mod state state &lt;span class="o"&gt;(&lt;/span&gt;ESTABLISHED RELATED&lt;span class="o"&gt;)&lt;/span&gt; ACCEPT;
+
+    &lt;span class="c"&gt;# allow local connections&lt;/span&gt;
+    interface lo ACCEPT;
+
+    &lt;span class="c"&gt;# respond to ping&lt;/span&gt;
+    proto icmp icmp-type &lt;span class="nb"&gt;echo&lt;/span&gt;-request ACCEPT;
+
+    &lt;span class="c"&gt;# allow SSH connections to trusted addresses&lt;/span&gt;
+    saddr &lt;span class="nv"&gt;$TRUSTED&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        proto tcp dport ssh ACCEPT;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c"&gt;# outgoing connections are not limited&lt;/span&gt;
+chain OUTPUT policy ACCEPT;
+
+&lt;span class="c"&gt;# this is not a router&lt;/span&gt;
+chain FORWARD policy DROP;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+</summary><category term=""></category></entry><entry><title>Debian Repo - Minimal Edition</title><link href="http://xr09.github.io/debian-repo-minimal-edition.html" rel="alternate"></link><updated>2014-09-12T11:37:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-09-12:debian-repo-minimal-edition.html</id><summary type="html">&lt;p&gt;Usually a Debian software repository is around 50 GB, it contains lots of software, documentation and debug packages, unless you are providing services to a wide range of clients then is likely you only need a fraction of those packages.&lt;/p&gt;
+&lt;p&gt;Most people use &lt;a class="reference external" href="http://apt-mirror.github.io/"&gt;apt-mirror&lt;/a&gt; to download their repos but althought is pretty fast due to the multithread support (actually this only matters if you have a fast connection) I haven't found a way to filter packages, so we'll stick with &lt;a class="reference external" href="https://tracker.debian.org/pkg/debmirror"&gt;debmirror&lt;/a&gt; for now which has amazing results in this area.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;debmirror&lt;/em&gt; script has two main options for filtering the repo, &lt;em&gt;exclude-deb-section&lt;/em&gt; and &lt;em&gt;exclude&lt;/em&gt;, the former filters by package &lt;a class="reference external" href="https://packages.debian.org/stable/"&gt;section&lt;/a&gt; and the later by url, both options use regular &lt;a class="reference external" href="http://xkcd.com/1171/"&gt;expressions&lt;/a&gt; which can be tricky sometimes but we'll keep it simple.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;some code bla bla
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; This config works ok for me, somebody else may have to &lt;em&gt;unfilter&lt;/em&gt; some packages.&lt;/p&gt;
+</summary><category term="debian"></category><category term="debmirror"></category><category term="repo"></category></entry><entry><title>Cron Scheduling For The Fancy</title><link href="http://xr09.github.io/cron-scheduling-for-the-fancy.html" rel="alternate"></link><updated>2014-04-01T16:42:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-01:cron-scheduling-for-the-fancy.html</id><summary type="html">&lt;p&gt;Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.&lt;/p&gt;
 &lt;p&gt;The regular cron is ok for like 99% of the needs, there's no need for anything else unless you want to go fancy.&lt;/p&gt;
 &lt;p&gt;So let's get fancy.&lt;/p&gt;
 &lt;p&gt;Have you ever wanted to run a task the first monday of the month? Or maybe the second friday? Third Thursday?... Last Sunday? You get it.&lt;/p&gt;

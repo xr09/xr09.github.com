@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Fast Git Clone</title>
+  <title>DevPad - repo</title>
   <meta name="author" content="Manuel Gutierrez">
 
   <link href="http://xr09.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
@@ -49,51 +49,30 @@
     <li >
     <a href="http://xr09.github.io/category/os.html">Os</a>
     </li>
-    <li class="active">
+    <li >
     <a href="http://xr09.github.io/category/dev.html">Dev</a>
     </li>
 </ul></nav>
   <div id="main">
     <div id="content">
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">Fast Git Clone</h1>
-      <p class="meta"><time datetime="2014-01-31T14:07:00" pubdate>Fri 31 January 2014</time></p>
+      <h1 class="entry-title">
+        <a href="http://xr09.github.io/debian-repo-minimal-edition.html">Debian Repo - Minimal Edition</a>
+      </h1>
+      <p class="meta"><time datetime="2014-09-12T11:37:00" pubdate>Fri 12 September 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>Lots of tutorials nowadays recommend using <cite>git clone</cite> to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.</p>
-<p>Whenever you need to clone a git repo from the internet and you plan to just use the contents and no need for past history, then the good old <cite>git clone</cite> is a waste of bandwith, that command gets the whole repo history, that is every line change that has been commited since the beginning of development, you just need the latest state of files so let's tweak a little to simulate the &quot;Download ZIP&quot; button on the github page:</p>
-<div class="highlight"><pre>git clone --depth 1 https://github.com/apenwarr/sshuttle.git
-</pre></div>
-<p>This way you get the latest copy of a project's master branch, no history and minimize usage of network resources. That's fast!</p>
-<p>From <strong>man git clone</strong>:</p>
-<div class="highlight"><pre>--depth &lt;depth&gt;
-      Create a shallow clone with a history truncated to the specified
-      number of revisions. A shallow repository has a number of
-      limitations (you cannot clone or fetch from it, nor push from nor
-      into it), but is adequate if you are only interested in the recent
-      history of a large project with a long history, and would want to
-      send in fixes as patches.
-</pre></div>
-</div>
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">Manuel Gutierrez</span>
-  </span>
-<time datetime="2014-01-31T14:07:00" pubdate>Fri 31 January 2014</time>  <span class="categories">
-    <a class="category" href="http://xr09.github.io/tag/git.html">git</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
+  <div class="entry-content"><p>Usually a Debian software repository is around 50 GB, it contains lots of software, documentation and debug packages, unless you are providing services to a wide range of clients then is likely you only need a fraction of those packages ...</p></div>
+  <footer>
+    <a rel="full-article" href="http://xr09.github.io/debian-repo-minimal-edition.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
 
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-  </section>
-</div>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
 	  <img src="http://xr09.github.io/images/xr09.jpg" alt="" width=""/> 
@@ -102,19 +81,7 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://xr09.github.io/ferm-iptables-the-right-way.html">Ferm - IPtables The Right Way</a>
-      </li>
-      <li class="post">
           <a href="http://xr09.github.io/debian-repo-minimal-edition.html">Debian Repo - Minimal Edition</a>
-      </li>
-      <li class="post">
-          <a href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html">Running The Latest Debmirror On CentOS 5</a>
-      </li>
-      <li class="post">
-          <a href="http://xr09.github.io/stripping-down-centos.html">Stripping Down Centos</a>
-      </li>
-      <li class="post">
-          <a href="http://xr09.github.io/cron-scheduling-for-the-fancy.html">Cron Scheduling For The Fancy</a>
       </li>
     </ul>
   </section>
@@ -146,9 +113,6 @@
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'devpad';
-          var disqus_identifier = '/fast-git-clone.html';
-          var disqus_url = 'http://xr09.github.io/fast-git-clone.html';
-          var disqus_title = 'Fast Git Clone';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
