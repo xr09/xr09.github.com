@@ -4,11 +4,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Debian Repo - Minimal Edition</title>
+  <title>Debian Repo - Minimal Edition &mdash; DevPad</title>
   <meta name="author" content="Manuel Gutierrez">
 
   <link href="http://xr09.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
         title="DevPad RSS Feed" />
+
+
+
 
 
   <!-- http://t.co/dKP3o1e -->
@@ -16,16 +19,15 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="http://xr09.github.io/favicon.png" rel="icon">
+
+    <link href="http://xr09.github.io/favicon.png" rel="icon">
+
   <link href="http://xr09.github.io/theme/css/main.css" media="screen, projection"
         rel="stylesheet" type="text/css">
-  <script src="http://xr09.github.io/theme/js/modernizr-2.0.js"></script>
-  <script src="http://xr09.github.io/theme/js/ender.js"></script>
-  <script src="http://xr09.github.io/theme/js/octopress.js" type="text/javascript"></script>
 
-  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
         rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
         rel="stylesheet" type="text/css">
 </head>
 
@@ -39,19 +41,18 @@
 </ul>
 
 
-
 <ul class="main-navigation">
       <li><a href="http://xr09.github.io/pages/about.html">About</a></li>
       <li><a href="http://xr09.github.io/pages/projects.html">Projects</a></li>
-    <li >
-    <a href="http://xr09.github.io/category/server.html">Server</a>
-    </li>
-    <li >
-    <a href="http://xr09.github.io/category/os.html">Os</a>
-    </li>
-    <li class="active">
-    <a href="http://xr09.github.io/category/dev.html">Dev</a>
-    </li>
+      <li >
+        <a href="http://xr09.github.io/category/server.html">Server</a>
+      </li>
+      <li >
+        <a href="http://xr09.github.io/category/os.html">Os</a>
+      </li>
+      <li class="active">
+        <a href="http://xr09.github.io/category/dev.html">Dev</a>
+      </li>
 </ul></nav>
   <div id="main">
     <div id="content">
@@ -59,26 +60,42 @@
   <article class="hentry" role="article">
 <header>
       <h1 class="entry-title">Debian Repo - Minimal Edition</h1>
-      <p class="meta"><time datetime="2014-09-12T11:37:00" pubdate>Fri 12 September 2014</time></p>
+    <p class="meta">
+<time datetime="2014-09-12T11:37:00-04:00" pubdate>Fri 12 September 2014</time>    </p>
 </header>
 
   <div class="entry-content"><p>Usually a Debian software repository is around 50 GB, it contains lots of software, documentation and debug packages, unless you are providing services to a wide range of clients then is likely you only need a fraction of those packages.</p>
-<p>Most people use <a class="reference external" href="http://apt-mirror.github.io/">apt-mirror</a> to download their repos but althought is pretty fast due to the multithread support (actually this only matters if you have a fast connection) I haven't found a way to filter packages, so we'll stick with <a class="reference external" href="https://tracker.debian.org/pkg/debmirror">debmirror</a> for now which has amazing results in this area.</p>
+<p>Most people use <a class="reference external" href="http://apt-mirror.github.io/">apt-mirror</a> to download their repos but althought is pretty fast due to the multithread support (actually this only matters if you have a really good connection) I haven't found a way to filter packages, so we'll stick with <a class="reference external" href="https://tracker.debian.org/pkg/debmirror">debmirror</a> for now which has amazing results in this area.</p>
 <p>The <em>debmirror</em> script has two main options for filtering the repo, <em>exclude-deb-section</em> and <em>exclude</em>, the former filters by package <a class="reference external" href="https://packages.debian.org/stable/">section</a> and the later by url, both options use regular <a class="reference external" href="http://xkcd.com/1171/">expressions</a> which can be tricky sometimes but we'll keep it simple.</p>
-<div class="highlight"><pre>some code bla bla
+<p>With a script like this you keep pruning the repository until the desired size is reached, thanks to this technique all my repos are smaller than 15GB nowadays.</p>
+<div class="highlight"><pre>debmirror --method<span class="o">=</span>http --config-file<span class="o">=</span>/opt/get-wheezy/wheezy.conf <span class="se">\</span>
+--nosource /ftp/repos/debian/wheezy/debian/ --ignore-release-gpg <span class="se">\</span>
+--nosource --no-check-gpg --postcleanup --allow-dist-rename <span class="se">\</span>
+--root<span class="o">=</span>debian --rsync-extra<span class="o">=</span>none -d stretch <span class="se">\</span>
+--exclude-deb-section<span class="o">=</span><span class="s1">&#39;(games|debug|news|gnustep|ocaml|hamradio|gnu-r)&#39;</span> <span class="se">\</span>
+      --exclude<span class="o">=</span><span class="s1">&#39;(/i18n/Translation-.*\.bz2)&#39;</span> <span class="se">\</span>
+      --exclude<span class="o">=</span><span class="s1">&#39;(kfreebsd-.*)&#39;</span> <span class="se">\</span>
+      --include<span class="o">=</span><span class="s1">&#39;(/python[0-9.]*-doc)&#39;</span> <span class="se">\</span>
+      --include<span class="o">=</span><span class="s1">&#39;(/.*coinor.*)&#39;</span> <span class="se">\</span>
+      --exclude<span class="o">=</span><span class="s1">&#39;(.*java.*doc.*)&#39;</span> <span class="se">\</span>
+      --exclude<span class="o">=</span><span class="s1">&#39;(.*debian.*reference.*)&#39;</span> <span class="se">\</span>
 </pre></div>
-<p><strong>Warning:</strong> This config works ok for me, somebody else may have to <em>unfilter</em> some packages.</p>
+<p>To save you some <em>du</em> and <em>find</em> hacking, I've set up a github <a class="reference external" href="https://github.com/xr09/debian-mini-repo">repo</a> with all my working filters, take into account I'm running Debian Stable (or testing sometimes) with KDE and my main programming language is Python, however I do not filter necesary packages to compile other software.</p>
+<p>If you find any new package to filter please make a pull request and I'll take it into consideration.</p>
+<p><strong>Warning:</strong> This config works ok for me, you may have to <em>unfilter</em> some packages according to your own needs.</p>
 </div>
     <footer>
 <p class="meta">
   <span class="byline author vcard">
-    Posted by <span class="fn">Manuel Gutierrez</span>
+    Posted by <span class="fn">
+        Manuel Gutierrez
+    </span>
   </span>
-<time datetime="2014-09-12T11:37:00" pubdate>Fri 12 September 2014</time>  <span class="categories">
-    <a class="category" href="http://xr09.github.io/tag/debian.html">debian</a>
-    <a class="category" href="http://xr09.github.io/tag/debmirror.html">debmirror</a>
-    <a class="category" href="http://xr09.github.io/tag/repo.html">repo</a>
+<time datetime="2014-09-12T11:37:00-04:00" pubdate>Fri 12 September 2014</time>  <span class="categories">
+    <a class='category' href='http://xr09.github.io/category/dev.html'>dev</a>
   </span>
+  <span class="categories">
+    <a class="category" href="http://xr09.github.io/tag/debian.html">debian</a>,    <a class="category" href="http://xr09.github.io/tag/debmirror.html">debmirror</a>,    <a class="category" href="http://xr09.github.io/tag/repo.html">repo</a>  </span>
 </p><div class="sharing">
 </div>    </footer>
   </article>
@@ -138,16 +155,19 @@
       Copyright &copy; 2014 - Manuel E. Gutierrez - 
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
-	<script type="text/javascript">
-	  var disqus_shortname = 'devpad';
-          var disqus_identifier = '/debian-repo-minimal-edition.html';
-          var disqus_url = 'http://xr09.github.io/debian-repo-minimal-edition.html';
-          var disqus_title = 'Debian Repo - Minimal Edition';
-	  (function() {
-	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	   })();
-	</script>
+  <script src="http://xr09.github.io/theme/js/modernizr-2.0.js"></script>
+  <script src="http://xr09.github.io/theme/js/ender.js"></script>
+  <script src="http://xr09.github.io/theme/js/octopress.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var disqus_shortname = 'devpad';
+    var disqus_identifier = '/debian-repo-minimal-edition.html';
+    var disqus_url = 'http://xr09.github.io/debian-repo-minimal-edition.html';
+    var disqus_title = 'Debian Repo - Minimal Edition';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
 </body>
 </html>
