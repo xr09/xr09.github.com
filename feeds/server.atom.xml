@@ -18,7 +18,7 @@ chmod a+rw /var/www/static -R
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now the folder is accessible by &lt;code&gt;http://your_ip_address:8080&lt;/code&gt;, go nuts downloading anything there with wget.&lt;/p&gt;
 &lt;p&gt;As a bonus here is the way of using wget as if were curl:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;wget -q -O - 192.168.1.123:8080/somescript | bash
+&lt;div class="highlight"&gt;&lt;pre&gt;wget -q -O - 192.168.1.123:8080/somescript &lt;span class="p"&gt;|&lt;/span&gt; bash
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;-q is for quiet, -O is to redirect the output and the - is an alias to std-out, this way is a shortcut for downloading &lt;em&gt;somescript&lt;/em&gt; and running it with bash.&lt;/p&gt;
 </summary><category term="nginx"></category><category term="static"></category></entry></feed>

@@ -61,7 +61,7 @@
 <header>
       <h1 class="entry-title">Debian Repo - Minimal Edition</h1>
     <p class="meta">
-<time datetime="2014-09-12T11:37:00-04:00" pubdate>Fri 12 September 2014</time>    </p>
+<time datetime="2014-09-12T11:37:00" pubdate>Fri 12 September 2014</time>    </p>
 </header>
 
   <div class="entry-content"><p>Usually a Debian software repository is around 50 GB, it contains lots of software, documentation and debug packages, unless you are providing services to a wide range of clients then is likely you only need a fraction of those packages.</p>
@@ -71,7 +71,7 @@
 <div class="highlight"><pre>debmirror --method<span class="o">=</span>http --config-file<span class="o">=</span>/opt/get-wheezy/wheezy.conf <span class="se">\</span>
 --nosource /ftp/repos/debian/wheezy/debian/ --ignore-release-gpg <span class="se">\</span>
 --nosource --no-check-gpg --postcleanup --allow-dist-rename <span class="se">\</span>
---root<span class="o">=</span>debian --rsync-extra<span class="o">=</span>none -d stretch <span class="se">\</span>
+--root<span class="o">=</span>debian --rsync-extra<span class="o">=</span>none -d wheezy <span class="se">\</span>
 --exclude-deb-section<span class="o">=</span><span class="s1">&#39;(games|debug|news|gnustep|ocaml|hamradio|gnu-r)&#39;</span> <span class="se">\</span>
       --exclude<span class="o">=</span><span class="s1">&#39;(/i18n/Translation-.*\.bz2)&#39;</span> <span class="se">\</span>
       --exclude<span class="o">=</span><span class="s1">&#39;(kfreebsd-.*)&#39;</span> <span class="se">\</span>
@@ -91,7 +91,7 @@
         Manuel Gutierrez
     </span>
   </span>
-<time datetime="2014-09-12T11:37:00-04:00" pubdate>Fri 12 September 2014</time>  <span class="categories">
+<time datetime="2014-09-12T11:37:00" pubdate>Fri 12 September 2014</time>  <span class="categories">
     <a class='category' href='http://xr09.github.io/category/dev.html'>dev</a>
   </span>
   <span class="categories">

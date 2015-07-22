@@ -61,7 +61,7 @@
 <header>
       <h1 class="entry-title">Ferm - IPtables The Right Way</h1>
     <p class="meta">
-<time datetime="2014-10-14T14:15:00-04:00" pubdate>Tue 14 October 2014</time>    </p>
+<time datetime="2014-10-14T14:15:00" pubdate>Tue 14 October 2014</time>    </p>
 </header>
 
   <div class="entry-content"><p>This is a small post but totally worth it. Just wanted to point out I've finally found the ultimate meta language for managing iptables: <a class="reference external" href="http://ferm.foo-projects.org/">ferm</a>.</p>
@@ -78,32 +78,32 @@
 </pre></div>
 <p>On Debian the ferm package also provides a service (something like iptables-persistent), this makes possible to have the rules written only with ferm syntax, they will be parsed each time the ferm service is started.</p>
 <p>Some simple rules to get you interested:</p>
-<div class="highlight"><pre>@def <span class="nv">$TRUSTED</span> <span class="o">=</span> <span class="o">(</span>10.0.3.5 10.0.5.0/24 10.0.3.8<span class="o">)</span>;
+<div class="highlight"><pre>@def <span class="nv">$TRUSTED</span> <span class="o">=</span> <span class="o">(</span>10.0.3.5 10.0.5.0/24 10.0.3.8<span class="o">)</span><span class="p">;</span>
 
 table filter <span class="o">{</span>
 chain INPUT <span class="o">{</span>
-    policy DROP;
+    policy DROP<span class="p">;</span>
 
     <span class="c"># connection tracking</span>
-    mod state state <span class="o">(</span>ESTABLISHED RELATED<span class="o">)</span> ACCEPT;
+    mod state state <span class="o">(</span>ESTABLISHED RELATED<span class="o">)</span> ACCEPT<span class="p">;</span>
 
     <span class="c"># allow local connections</span>
-    interface lo ACCEPT;
+    interface lo ACCEPT<span class="p">;</span>
 
     <span class="c"># respond to ping</span>
-    proto icmp icmp-type <span class="nb">echo</span>-request ACCEPT;
+    proto icmp icmp-type <span class="nb">echo</span>-request ACCEPT<span class="p">;</span>
 
     <span class="c"># allow SSH connections to trusted addresses</span>
     saddr <span class="nv">$TRUSTED</span> <span class="o">{</span>
-        proto tcp dport ssh ACCEPT;
+        proto tcp dport ssh ACCEPT<span class="p">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="c"># outgoing connections are not limited</span>
-chain OUTPUT policy ACCEPT;
+chain OUTPUT policy ACCEPT<span class="p">;</span>
 
 <span class="c"># this is not a router</span>
-chain FORWARD policy DROP;
+chain FORWARD policy DROP<span class="p">;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -114,7 +114,7 @@ chain FORWARD policy DROP;
         Manuel Gutierrez
     </span>
   </span>
-<time datetime="2014-10-14T14:15:00-04:00" pubdate>Tue 14 October 2014</time>  <span class="categories">
+<time datetime="2014-10-14T14:15:00" pubdate>Tue 14 October 2014</time>  <span class="categories">
     <a class='category' href='http://xr09.github.io/category/dev.html'>dev</a>
   </span>
   <span class="categories">

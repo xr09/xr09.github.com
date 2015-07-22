@@ -61,7 +61,7 @@
 <header>
       <h1 class="entry-title">Stripping Down Centos</h1>
     <p class="meta">
-<time datetime="2014-04-16T10:28:00-04:00" pubdate>Wed 16 April 2014</time>    </p>
+<time datetime="2014-04-16T10:28:00" pubdate>Wed 16 April 2014</time>    </p>
 </header>
 
   <div class="entry-content"><div class="section" id="why-strip">
@@ -90,10 +90,10 @@ chkconfig --list cups
 <p>Why is that server running X at all? gdm running? This is *nix, if you need X in a server (I never did so far) then <em>startx</em> is your guy. For X on a server use light stuff like IceWm or similar, not Gnome.</p>
 <p>By default CentOS installs X with Gnome, the easiest way to disable this is by changing the system runlevel.</p>
 <p>Before running <strong>init 3</strong> please save you some troubles and check this.</p>
-<div class="highlight"><pre>chkconfig --list | grep <span class="s2">&quot;3:off&quot;</span> | grep <span class="s2">&quot;5:on&quot;</span>
+<div class="highlight"><pre>chkconfig --list <span class="p">|</span> grep <span class="s2">&quot;3:off&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;5:on&quot;</span>
 </pre></div>
 <p>If by any chance an important service was set up to run on level 5 and not on 3 then my friend you are going to have a bad day.</p>
-<div class="highlight"><pre><span class="o">[</span>root@server123 ~<span class="o">]</span>  chkconfig --list | grep <span class="s2">&quot;3:off&quot;</span> | grep <span class="s2">&quot;5:on&quot;</span>
+<div class="highlight"><pre><span class="o">[</span>root@server123 ~<span class="o">]</span>  chkconfig --list <span class="p">|</span> grep <span class="s2">&quot;3:off&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;5:on&quot;</span>
 named           0:off   1:off   2:off   3:off   4:off   5:on    6:off
 readahead_later 0:off   1:off   2:off   3:off   4:off   5:on    6:off
 </pre></div>
@@ -124,7 +124,7 @@ chkconfig readahead_later on
         Manuel Gutierrez
     </span>
   </span>
-<time datetime="2014-04-16T10:28:00-04:00" pubdate>Wed 16 April 2014</time>  <span class="categories">
+<time datetime="2014-04-16T10:28:00" pubdate>Wed 16 April 2014</time>  <span class="categories">
     <a class='category' href='http://xr09.github.io/category/os.html'>os</a>
   </span>
   <span class="categories">

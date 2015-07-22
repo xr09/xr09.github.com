@@ -61,12 +61,12 @@
 <header>
       <h1 class="entry-title">Fast Git Clone</h1>
     <p class="meta">
-<time datetime="2014-01-31T14:07:00-05:00" pubdate>Fri 31 January 2014</time>    </p>
+<time datetime="2014-01-31T14:07:00" pubdate>Fri 31 January 2014</time>    </p>
 </header>
 
   <div class="entry-content"><p>Lots of tutorials nowadays recommend using <cite>git clone</cite> to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.</p>
 <p>Whenever you need to clone a git repo from the internet and you plan to just use the contents and no need for past history, then the good old <cite>git clone</cite> is a waste of bandwith, that command gets the whole repo history, that is every line change that has been commited since the beginning of development, you just need the latest state of files so let's tweak a little to simulate the &quot;Download ZIP&quot; button on the github page:</p>
-<div class="highlight"><pre>git clone --depth 1 https://github.com/apenwarr/sshuttle.git
+<div class="highlight"><pre>git clone --depth <span class="m">1</span> https://github.com/apenwarr/sshuttle.git
 </pre></div>
 <p>This way you get the latest copy of a project's master branch, no history and minimize usage of network resources. That's fast!</p>
 <p>From <strong>man git clone</strong>:</p>
@@ -86,7 +86,7 @@
         Manuel Gutierrez
     </span>
   </span>
-<time datetime="2014-01-31T14:07:00-05:00" pubdate>Fri 31 January 2014</time>  <span class="categories">
+<time datetime="2014-01-31T14:07:00" pubdate>Fri 31 January 2014</time>  <span class="categories">
     <a class='category' href='http://xr09.github.io/category/dev.html'>dev</a>
   </span>
   <span class="categories">

@@ -24,7 +24,7 @@
 &lt;p&gt;&lt;a class="reference external" href="http://www.activestate.com/activeperl/downloads"&gt;ActivePerl&lt;/a&gt; is a perfect choice for this case, just download and install on &lt;em&gt;/opt/ActivePerl/&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Now check the interpreter:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;/opt/ActivePerl/bin/perl -v
-This is perl 5, version 16, subversion 3 &lt;span class="o"&gt;(&lt;/span&gt;v5.16.3&lt;span class="o"&gt;)&lt;/span&gt; built &lt;span class="k"&gt;for &lt;/span&gt;i686-linux-thread-multi
+This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;v5.16.3&lt;span class="o"&gt;)&lt;/span&gt; built &lt;span class="k"&gt;for&lt;/span&gt; i686-linux-thread-multi
 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Perfect, now just drop in a recent &lt;a class="reference external" href="http://ftp.de.debian.org/debian/pool/main/d/debmirror/debmirror_2.16.tar.gz"&gt;debmirror&lt;/a&gt; script and change the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29"&gt;shebang&lt;/a&gt; to point to the new Perl.&lt;/p&gt;
@@ -71,10 +71,10 @@ chkconfig --list cups
 &lt;p&gt;Why is that server running X at all? gdm running? This is *nix, if you need X in a server (I never did so far) then &lt;em&gt;startx&lt;/em&gt; is your guy. For X on a server use light stuff like IceWm or similar, not Gnome.&lt;/p&gt;
 &lt;p&gt;By default CentOS installs X with Gnome, the easiest way to disable this is by changing the system runlevel.&lt;/p&gt;
 &lt;p&gt;Before running &lt;strong&gt;init 3&lt;/strong&gt; please save you some troubles and check this.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig --list | grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; | grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If by any chance an important service was set up to run on level 5 and not on 3 then my friend you are going to have a bad day.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@server123 ~&lt;span class="o"&gt;]&lt;/span&gt;  chkconfig --list | grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; | grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@server123 ~&lt;span class="o"&gt;]&lt;/span&gt;  chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
 named           0:off   1:off   2:off   3:off   4:off   5:on    6:off
 readahead_later 0:off   1:off   2:off   3:off   4:off   5:on    6:off
 &lt;/pre&gt;&lt;/div&gt;

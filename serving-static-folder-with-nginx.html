@@ -61,7 +61,7 @@
 <header>
       <h1 class="entry-title">Serving Static Folder with NGINX</h1>
     <p class="meta">
-<time datetime="2013-10-30T09:18:00-04:00" pubdate>Wed 30 October 2013</time>    </p>
+<time datetime="2013-10-30T09:18:00" pubdate>Wed 30 October 2013</time>    </p>
 </header>
 
   <div class="entry-content"><p>At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it daily), as I'm already running nginx for my local web development I had the idea of serving a static folder with all our quick'n'dirty scripts to get always the latest and shiniest.</p>
@@ -83,7 +83,7 @@ chmod a+rw /var/www/static -R
 </pre></div>
 <p>Now the folder is accessible by <code>http://your_ip_address:8080</code>, go nuts downloading anything there with wget.</p>
 <p>As a bonus here is the way of using wget as if were curl:</p>
-<div class="highlight"><pre>wget -q -O - 192.168.1.123:8080/somescript | bash
+<div class="highlight"><pre>wget -q -O - 192.168.1.123:8080/somescript <span class="p">|</span> bash
 </pre></div>
 <p>-q is for quiet, -O is to redirect the output and the - is an alias to std-out, this way is a shortcut for downloading <em>somescript</em> and running it with bash.</p>
 </div>
@@ -94,7 +94,7 @@ chmod a+rw /var/www/static -R
         Manuel Gutierrez
     </span>
   </span>
-<time datetime="2013-10-30T09:18:00-04:00" pubdate>Wed 30 October 2013</time>  <span class="categories">
+<time datetime="2013-10-30T09:18:00" pubdate>Wed 30 October 2013</time>  <span class="categories">
     <a class='category' href='http://xr09.github.io/category/server.html'>server</a>
   </span>
   <span class="categories">
