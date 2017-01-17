@@ -31,7 +31,7 @@
 <p>Most people use <a class="reference external" href="http://apt-mirror.github.io/">apt-mirror</a> to download their repos but althought is pretty fast due to the multithread support (actually this only matters if you have a really good connection) I haven't found a way to filter packages, so we'll stick with <a class="reference external" href="https://tracker.debian.org/pkg/debmirror">debmirror</a> for now which has amazing results in this area.</p>
 <p>The <em>debmirror</em> script has two main options for filtering the repo, <em>exclude-deb-section</em> and <em>exclude</em>, the former filters by package <a class="reference external" href="https://packages.debian.org/stable/">section</a> and the later by url, both options use regular <a class="reference external" href="http://xkcd.com/1171/">expressions</a> which can be tricky sometimes but we'll keep it simple.</p>
 <p>With a script like this you keep pruning the repository until the desired size is reached, thanks to this technique all my repos are smaller than 15GB nowadays.</p>
-<div class="highlight"><pre>debmirror --method<span class="o">=</span>http --config-file<span class="o">=</span>/opt/get-wheezy/wheezy.conf <span class="se">\</span>
+<div class="highlight"><pre><span></span>debmirror --method<span class="o">=</span>http --config-file<span class="o">=</span>/opt/get-wheezy/wheezy.conf <span class="se">\</span>
 --nosource /ftp/repos/debian/wheezy/debian/ --ignore-release-gpg <span class="se">\</span>
 --nosource --no-check-gpg --postcleanup --allow-dist-rename <span class="se">\</span>
 --root<span class="o">=</span>debian --rsync-extra<span class="o">=</span>none -d wheezy <span class="se">\</span>

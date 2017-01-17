@@ -1,51 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/manuel-gutierrez.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2014-10-14T14:15:00-04:00</updated><entry><title>Ferm - IPtables The Right Way</title><link href="http://xr09.github.io/ferm-iptables-the-right-way.html" rel="alternate"></link><updated>2014-10-14T14:15:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-10-14:ferm-iptables-the-right-way.html</id><summary type="html">&lt;p&gt;This is a small post but totally worth it. Just wanted to point out I've finally found the ultimate meta language for managing iptables: &lt;a class="reference external" href="http://ferm.foo-projects.org/"&gt;ferm&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad - Manuel Gutierrez</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/manuel-gutierrez.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2017-01-17T14:11:00-05:00</updated><entry><title>Use Smart Solutions</title><link href="http://xr09.github.io/use-smart-solutions.html" rel="alternate"></link><published>2017-01-17T14:11:00-05:00</published><updated>2017-01-17T14:11:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2017-01-17:/use-smart-solutions.html</id><summary type="html">&lt;p&gt;I refuse to use stupid solutions. Stupid solutions wear you off, make you angry with your work, often you'll find yourself setting due-date to &amp;quot;someday&amp;quot; in order to avoid the hassle.&lt;/p&gt;
+&lt;img alt="Proffesor Farnsworth: &amp;quot;I don wan't to live on this planet anymore&amp;quot;" class="align-center" src="../images/proffesor.jpg" /&gt;
+&lt;p&gt;On the other side smart solutions are golden, require …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I refuse to use stupid solutions. Stupid solutions wear you off, make you angry with your work, often you'll find yourself setting due-date to &amp;quot;someday&amp;quot; in order to avoid the hassle.&lt;/p&gt;
+&lt;img alt="Proffesor Farnsworth: &amp;quot;I don wan't to live on this planet anymore&amp;quot;" class="align-center" src="../images/proffesor.jpg" /&gt;
+&lt;p&gt;On the other side smart solutions are golden, require you to step back and think the right way, you'll learn new things, you get to enjoy the &amp;quot;solving&amp;quot; part and on top of that... well you get to actually solve the problem. It's a win-win situation.&lt;/p&gt;
+&lt;p&gt;Say NO to repetitive tasks and use your head.&lt;/p&gt;
+</content></entry><entry><title>2015</title><link href="http://xr09.github.io/2015.html" rel="alternate"></link><published>2015-12-31T12:41:00-05:00</published><updated>2015-12-31T12:41:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2015-12-31:/2015.html</id><summary type="html">&lt;p&gt;This is my only post this year. Kind of a busy year.&lt;/p&gt;
+&lt;p&gt;I've played a lot with some new technologies, dug deeper with some of the old ones.&lt;/p&gt;
+&lt;p&gt;Below you can read a summary of some of the best stuff …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is my only post this year. Kind of a busy year.&lt;/p&gt;
+&lt;p&gt;I've played a lot with some new technologies, dug deeper with some of the old ones.&lt;/p&gt;
+&lt;p&gt;Below you can read a summary of some of the best stuff I've discovered (or re-discovered) this year.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Ansible: Configuration management, devops best friend, loving it!&lt;/li&gt;
+&lt;li&gt;Mosh: Mobile shell, SSH on UDP, great for roaming users&lt;/li&gt;
+&lt;li&gt;Monit: Restart a service if crashed, send report by mail&lt;/li&gt;
+&lt;li&gt;Gunicorn: Great Python server, simple to use, great performance&lt;/li&gt;
+&lt;li&gt;Debian 8: Best server operating system I've used, can't believe it's free&lt;/li&gt;
+&lt;li&gt;Python: The more I use it, the more I like it&lt;/li&gt;
+&lt;li&gt;Laravel: When restrained to use PHP, this is the less painful&lt;/li&gt;
+&lt;li&gt;Gitlab: Your own self-hosted github&lt;/li&gt;
+&lt;/ul&gt;
+</content></entry><entry><title>Ferm - IPtables The Right Way</title><link href="http://xr09.github.io/ferm-iptables-the-right-way.html" rel="alternate"></link><published>2014-10-14T14:15:00-04:00</published><updated>2014-10-14T14:15:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-10-14:/ferm-iptables-the-right-way.html</id><summary type="html">&lt;p&gt;This is a small post but totally worth it. Just wanted to point out I've finally found the ultimate meta language for managing iptables: &lt;a class="reference external" href="http://ferm.foo-projects.org/"&gt;ferm&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To keep this brief let's say Ferm is to IPtables as C is to ASM …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is a small post but totally worth it. Just wanted to point out I've finally found the ultimate meta language for managing iptables: &lt;a class="reference external" href="http://ferm.foo-projects.org/"&gt;ferm&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To keep this brief let's say Ferm is to IPtables as C is to ASM. It gives you plenty of high level constructs to manage list of ports, ip addresses and so forth, heck you can even create functions with parameters and all.&lt;/p&gt;
 &lt;p&gt;Let's give it a try:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;aptitude install ferm     &lt;span class="c"&gt;# Debian/Ubuntu&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;yum install ferm          &lt;span class="c"&gt;# Fedora/CentOS&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ aptitude install ferm     &lt;span class="c1"&gt;# Debian/Ubuntu&lt;/span&gt;
+$ yum install ferm          &lt;span class="c1"&gt;# Fedora/CentOS&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now you have two new commands in your path: &lt;em&gt;ferm&lt;/em&gt; and &lt;em&gt;import-ferm&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Reading the man page and command help is a good start.&lt;/p&gt;
 &lt;p&gt;Basically ferm reads the rule file and compiles to iptables, then it loads everything to the system with &lt;em&gt;iptables-restore&lt;/em&gt;, I recommend using &lt;em&gt;ferm -nl rules.ferm&lt;/em&gt; and keep tuning the file until you get what you need.&lt;/p&gt;
 &lt;p&gt;The &lt;em&gt;import-ferm&lt;/em&gt; command reads you current iptables rules and prints the equivalent ferm rules to stdout. Of course it will be too explicit, you should define arrays and use all the cool features ferm provides.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;import-ferm &amp;gt; /etc/ferm/rules.ferm &lt;span class="c"&gt;# this could be a starting point&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;import-ferm &amp;gt; /etc/ferm/rules.ferm &lt;span class="c1"&gt;# this could be a starting point&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;On Debian the ferm package also provides a service (something like iptables-persistent), this makes possible to have the rules written only with ferm syntax, they will be parsed each time the ferm service is started.&lt;/p&gt;
 &lt;p&gt;Some simple rules to get you interested:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;@def &lt;span class="nv"&gt;$TRUSTED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;10.0.3.5 10.0.5.0/24 10.0.3.8&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;@def &lt;span class="nv"&gt;$TRUSTED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;10.0.3.5 10.0.5.0/24 10.0.3.8&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
 table filter &lt;span class="o"&gt;{&lt;/span&gt;
 chain INPUT &lt;span class="o"&gt;{&lt;/span&gt;
     policy DROP&lt;span class="p"&gt;;&lt;/span&gt;
 
-    &lt;span class="c"&gt;# connection tracking&lt;/span&gt;
+    &lt;span class="c1"&gt;# connection tracking&lt;/span&gt;
     mod state state &lt;span class="o"&gt;(&lt;/span&gt;ESTABLISHED RELATED&lt;span class="o"&gt;)&lt;/span&gt; ACCEPT&lt;span class="p"&gt;;&lt;/span&gt;
 
-    &lt;span class="c"&gt;# allow local connections&lt;/span&gt;
+    &lt;span class="c1"&gt;# allow local connections&lt;/span&gt;
     interface lo ACCEPT&lt;span class="p"&gt;;&lt;/span&gt;
 
-    &lt;span class="c"&gt;# respond to ping&lt;/span&gt;
-    proto icmp icmp-type &lt;span class="nb"&gt;echo&lt;/span&gt;-request ACCEPT&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;# respond to ping&lt;/span&gt;
+    proto icmp icmp-type echo-request ACCEPT&lt;span class="p"&gt;;&lt;/span&gt;
 
-    &lt;span class="c"&gt;# allow SSH connections to trusted addresses&lt;/span&gt;
+    &lt;span class="c1"&gt;# allow SSH connections to trusted addresses&lt;/span&gt;
     saddr &lt;span class="nv"&gt;$TRUSTED&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
         proto tcp dport ssh ACCEPT&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
 
-&lt;span class="c"&gt;# outgoing connections are not limited&lt;/span&gt;
+&lt;span class="c1"&gt;# outgoing connections are not limited&lt;/span&gt;
 chain OUTPUT policy ACCEPT&lt;span class="p"&gt;;&lt;/span&gt;
 
-&lt;span class="c"&gt;# this is not a router&lt;/span&gt;
+&lt;span class="c1"&gt;# this is not a router&lt;/span&gt;
 chain FORWARD policy DROP&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-</summary></entry><entry><title>Debian Repo - Minimal Edition</title><link href="http://xr09.github.io/debian-repo-minimal-edition.html" rel="alternate"></link><updated>2014-09-12T11:37:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-09-12:debian-repo-minimal-edition.html</id><summary type="html">&lt;p&gt;Usually a Debian software repository is around 50 GB, it contains lots of software, documentation and debug packages, unless you are providing services to a wide range of clients then is likely you only need a fraction of those packages.&lt;/p&gt;
+</content></entry><entry><title>Debian Repo - Minimal Edition</title><link href="http://xr09.github.io/debian-repo-minimal-edition.html" rel="alternate"></link><published>2014-09-12T11:37:00-04:00</published><updated>2014-09-12T11:37:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-09-12:/debian-repo-minimal-edition.html</id><summary type="html">&lt;p&gt;Usually a Debian software repository is around 50 GB, it contains lots of software, documentation and debug packages, unless you are providing services to a wide range of clients then is likely you only need a fraction of those packages …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Usually a Debian software repository is around 50 GB, it contains lots of software, documentation and debug packages, unless you are providing services to a wide range of clients then is likely you only need a fraction of those packages.&lt;/p&gt;
 &lt;p&gt;Most people use &lt;a class="reference external" href="http://apt-mirror.github.io/"&gt;apt-mirror&lt;/a&gt; to download their repos but althought is pretty fast due to the multithread support (actually this only matters if you have a really good connection) I haven't found a way to filter packages, so we'll stick with &lt;a class="reference external" href="https://tracker.debian.org/pkg/debmirror"&gt;debmirror&lt;/a&gt; for now which has amazing results in this area.&lt;/p&gt;
 &lt;p&gt;The &lt;em&gt;debmirror&lt;/em&gt; script has two main options for filtering the repo, &lt;em&gt;exclude-deb-section&lt;/em&gt; and &lt;em&gt;exclude&lt;/em&gt;, the former filters by package &lt;a class="reference external" href="https://packages.debian.org/stable/"&gt;section&lt;/a&gt; and the later by url, both options use regular &lt;a class="reference external" href="http://xkcd.com/1171/"&gt;expressions&lt;/a&gt; which can be tricky sometimes but we'll keep it simple.&lt;/p&gt;
 &lt;p&gt;With a script like this you keep pruning the repository until the desired size is reached, thanks to this technique all my repos are smaller than 15GB nowadays.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;debmirror --method&lt;span class="o"&gt;=&lt;/span&gt;http --config-file&lt;span class="o"&gt;=&lt;/span&gt;/opt/get-wheezy/wheezy.conf &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;debmirror --method&lt;span class="o"&gt;=&lt;/span&gt;http --config-file&lt;span class="o"&gt;=&lt;/span&gt;/opt/get-wheezy/wheezy.conf &lt;span class="se"&gt;\&lt;/span&gt;
 --nosource /ftp/repos/debian/wheezy/debian/ --ignore-release-gpg &lt;span class="se"&gt;\&lt;/span&gt;
 --nosource --no-check-gpg --postcleanup --allow-dist-rename &lt;span class="se"&gt;\&lt;/span&gt;
 --root&lt;span class="o"&gt;=&lt;/span&gt;debian --rsync-extra&lt;span class="o"&gt;=&lt;/span&gt;none -d wheezy &lt;span class="se"&gt;\&lt;/span&gt;
@@ -60,7 +82,10 @@ chain FORWARD policy DROP&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;p&gt;To save you some &lt;em&gt;du&lt;/em&gt; and &lt;em&gt;find&lt;/em&gt; hacking, I've set up a github &lt;a class="reference external" href="https://github.com/xr09/debian-mini-repo"&gt;repo&lt;/a&gt; with all my working filters, take into account I'm running Debian Stable (or testing sometimes) with KDE and my main programming language is Python, however I do not filter necesary packages to compile other software.&lt;/p&gt;
 &lt;p&gt;If you find any new package to filter please make a pull request and I'll take it into consideration.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Warning:&lt;/strong&gt; This config works ok for me, you may have to &lt;em&gt;unfilter&lt;/em&gt; some packages according to your own needs.&lt;/p&gt;
-</summary><category term="debian"></category><category term="debmirror"></category><category term="repo"></category></entry><entry><title>Running The Latest Debmirror On CentOS 5</title><link href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html" rel="alternate"></link><updated>2014-04-30T14:59:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-30:running-the-latest-debmirror-on-centos-5.html</id><summary type="html">&lt;div class="section" id="to-sync-a-deb-repo"&gt;
+</content><category term="debian"></category><category term="debmirror"></category><category term="repo"></category></entry><entry><title>Running The Latest Debmirror On CentOS 5</title><link href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html" rel="alternate"></link><published>2014-04-30T14:59:00-04:00</published><updated>2014-04-30T14:59:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-30:/running-the-latest-debmirror-on-centos-5.html</id><summary type="html">&lt;div class="section" id="to-sync-a-deb-repo"&gt;
+&lt;h2&gt;To sync a deb repo&lt;/h2&gt;
+&lt;p&gt;So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.&lt;/p&gt;
+&lt;p&gt;The advantage of apt-mirror is the ability to download a repo …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="to-sync-a-deb-repo"&gt;
 &lt;h2&gt;To sync a deb repo&lt;/h2&gt;
 &lt;p&gt;So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.&lt;/p&gt;
 &lt;p&gt;The advantage of apt-mirror is the ability to download a repo with multiple threads, if bandwith is not an issue then your downloads will fly, on the bad side you can't filter unwanted sections of a repo, it's all or nothing.&lt;/p&gt;
@@ -70,7 +95,7 @@ chain FORWARD policy DROP&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;div class="section" id="pruning-method"&gt;
 &lt;h2&gt;Pruning method&lt;/h2&gt;
 &lt;p&gt;Our pruning technique will be shared in a future post, but just to have an idea is nothing more than using the &lt;em&gt;--exclude&lt;/em&gt; and &lt;em&gt;--exclude-deb-section&lt;/em&gt; options from debmirror:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;--exclude-deb-section&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(games|debug|news|electronics)&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;--exclude-deb-section&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(games|debug|news|electronics)&amp;#39;&lt;/span&gt;
 --exclude&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/myspell-pt.*&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
 --exclude&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(/libhdf5-doc.*)&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -84,13 +109,13 @@ chain FORWARD policy DROP&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;p&gt;Is not a good idea to start messing with the default Perl installation, the safest choice is installing a new version somewhere like &lt;em&gt;/opt/&lt;/em&gt; and using it from there.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.activestate.com/activeperl/downloads"&gt;ActivePerl&lt;/a&gt; is a perfect choice for this case, just download and install on &lt;em&gt;/opt/ActivePerl/&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Now check the interpreter:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;/opt/ActivePerl/bin/perl -v
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/opt/ActivePerl/bin/perl -v
 This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;v5.16.3&lt;span class="o"&gt;)&lt;/span&gt; built &lt;span class="k"&gt;for&lt;/span&gt; i686-linux-thread-multi
 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Perfect, now just drop in a recent &lt;a class="reference external" href="http://ftp.de.debian.org/debian/pool/main/d/debmirror/debmirror_2.16.tar.gz"&gt;debmirror&lt;/a&gt; script and change the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29"&gt;shebang&lt;/a&gt; to point to the new Perl.&lt;/p&gt;
 &lt;p&gt;Like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/opt/ActivePerl-5.16/bin/perl -w&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/opt/ActivePerl-5.16/bin/perl -w&lt;/span&gt;
 
 &lt;span class="o"&gt;=&lt;/span&gt;head1 NAME
 &lt;/pre&gt;&lt;/div&gt;
@@ -98,7 +123,7 @@ This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;
 &lt;div class="section" id="perl-modules"&gt;
 &lt;h2&gt;Perl Modules&lt;/h2&gt;
 &lt;p&gt;If you try to use this you'll get an error, debmirror needs a module not included in ActivePerl by default &amp;quot;LockFile::Simple&amp;quot;, easy fix, just have to &lt;a class="reference external" href="http://www.activestate.com/blog/2010/10/how-install-cpan-modules-activeperl"&gt;install&lt;/a&gt; it from CPAN.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;/opt/ActivePerl/bin/cpan LockFile::Simple
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/opt/ActivePerl/bin/cpan LockFile::Simple
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Remember to export http_proxy in case you need it.&lt;/p&gt;
 &lt;/div&gt;
@@ -106,7 +131,9 @@ This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;
 &lt;h2&gt;Sync Baby, Sync!&lt;/h2&gt;
 &lt;p&gt;The rest is easy cake, now you have a recent debmirror with a brand new Perl interpreter running on top of the old crusty CentOS 5. Rejoice.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="centos"></category><category term="perl"></category><category term="debmirror"></category><category term="debian"></category><category term="ubuntu"></category></entry><entry><title>Stripping Down Centos</title><link href="http://xr09.github.io/stripping-down-centos.html" rel="alternate"></link><updated>2014-04-16T10:28:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-16:stripping-down-centos.html</id><summary type="html">&lt;div class="section" id="why-strip"&gt;
+</content><category term="centos"></category><category term="perl"></category><category term="debmirror"></category><category term="debian"></category><category term="ubuntu"></category></entry><entry><title>Stripping Down Centos</title><link href="http://xr09.github.io/stripping-down-centos.html" rel="alternate"></link><published>2014-04-16T10:28:00-04:00</published><updated>2014-04-16T10:28:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-16:/stripping-down-centos.html</id><summary type="html">&lt;div class="section" id="why-strip"&gt;
+&lt;h2&gt;Why Strip?&lt;/h2&gt;
+&lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="why-strip"&gt;
 &lt;h2&gt;Why Strip?&lt;/h2&gt;
 &lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling unused services or using lighter alternatives.&lt;/p&gt;
 &lt;/div&gt;
@@ -121,8 +148,8 @@ This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;
 &lt;div class="section" id="how-to-cut-it"&gt;
 &lt;h2&gt;How to cut it?&lt;/h2&gt;
 &lt;p&gt;Cups for example has nothing to do on a web server, let's turn it off.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig cups off          &lt;span class="c"&gt;# disable service on startup&lt;/span&gt;
-service cups stop           &lt;span class="c"&gt;# stop the service&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig cups off          &lt;span class="c1"&gt;# disable service on startup&lt;/span&gt;
+service cups stop           &lt;span class="c1"&gt;# stop the service&lt;/span&gt;
 chkconfig --list cups
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now cups is down for good, use those resources wisely.&lt;/p&gt;
@@ -132,20 +159,20 @@ chkconfig --list cups
 &lt;p&gt;Why is that server running X at all? gdm running? This is *nix, if you need X in a server (I never did so far) then &lt;em&gt;startx&lt;/em&gt; is your guy. For X on a server use light stuff like IceWm or similar, not Gnome.&lt;/p&gt;
 &lt;p&gt;By default CentOS installs X with Gnome, the easiest way to disable this is by changing the system runlevel.&lt;/p&gt;
 &lt;p&gt;Before running &lt;strong&gt;init 3&lt;/strong&gt; please save you some troubles and check this.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If by any chance an important service was set up to run on level 5 and not on 3 then my friend you are going to have a bad day.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@server123 ~&lt;span class="o"&gt;]&lt;/span&gt;  chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@server123 ~&lt;span class="o"&gt;]&lt;/span&gt;  chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
 named           0:off   1:off   2:off   3:off   4:off   5:on    6:off
 readahead_later 0:off   1:off   2:off   3:off   4:off   5:on    6:off
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In the example above &lt;em&gt;named&lt;/em&gt; and &lt;em&gt;readahead_later&lt;/em&gt; are set up to run on runlevel 5 (multiuser with graphics) but not 3 (multiuser), let's fix it.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig named on
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig named on
 chkconfig readahead_later on
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To change the system default runlevel open &lt;em&gt;/etc/inittab&lt;/em&gt; and set &lt;strong&gt;id:5:initdefault:&lt;/strong&gt; to &lt;strong&gt;id:3:initdefault:&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Or just use the &lt;em&gt;l33t way&lt;/em&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sed -i &lt;span class="s1"&gt;&amp;#39;/id:5:initdefault/ s/5/3/&amp;#39;&lt;/span&gt; /etc/inittab
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sed -i &lt;span class="s1"&gt;&amp;#39;/id:5:initdefault/ s/5/3/&amp;#39;&lt;/span&gt; /etc/inittab
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now open &lt;a class="reference external" href="https://www.google.com.cu/search?q=tmux+tutorial"&gt;tmux&lt;/a&gt; split in half and run &lt;em&gt;htop&lt;/em&gt; in one side and &lt;em&gt;init 3&lt;/em&gt; on the other (or just &lt;em&gt;init 3&lt;/em&gt; if you're not into multiplexing, though you should be) this way you are able to check the resources being released.&lt;/p&gt;
 &lt;/div&gt;
@@ -158,38 +185,40 @@ chkconfig readahead_later on
 &lt;p&gt;Replace Apache with Nginx for static files, one of my CentOS was serving a few distros repositories for like a hundred workstations with Apache 2.2, I tried Nginx, now I smile every time I login and see this: &lt;strong&gt;load average: 0.00, 0.00, 0.00&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Important: I do not recommend uninstalling any packages on a legacy system unless you are 120% sure is ok, just disable services instead. Follow this rule or embrace desperation.&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="centos"></category><category term="performance"></category><category term="tuning"></category></entry><entry><title>Cron Scheduling For The Fancy</title><link href="http://xr09.github.io/cron-scheduling-for-the-fancy.html" rel="alternate"></link><updated>2014-04-01T16:42:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-01:cron-scheduling-for-the-fancy.html</id><summary type="html">&lt;p&gt;Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.&lt;/p&gt;
+</content><category term="centos"></category><category term="performance"></category><category term="tuning"></category></entry><entry><title>Cron Scheduling For The Fancy</title><link href="http://xr09.github.io/cron-scheduling-for-the-fancy.html" rel="alternate"></link><published>2014-04-01T16:42:00-04:00</published><updated>2014-04-01T16:42:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-01:/cron-scheduling-for-the-fancy.html</id><summary type="html">&lt;p&gt;Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.&lt;/p&gt;
+&lt;p&gt;The regular cron is ok for like 99% of the needs, there's no need for anything …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.&lt;/p&gt;
 &lt;p&gt;The regular cron is ok for like 99% of the needs, there's no need for anything else unless you want to go fancy.&lt;/p&gt;
 &lt;p&gt;So let's get fancy.&lt;/p&gt;
 &lt;p&gt;Have you ever wanted to run a task the first monday of the month? Or maybe the second friday? Third Thursday?... Last Sunday? You get it.&lt;/p&gt;
 &lt;p&gt;That's fancy requirements, the regular implementation of cron on most distros can't do it, but there's an easy fix.&lt;/p&gt;
 &lt;p&gt;By taking advantage of the fact that what cron actually executes is a bash command we can hack its behavior a little. You can check for the desired date with bash and execute the desired command according to the obtained result.&lt;/p&gt;
 &lt;p&gt;Check this for running a task only the first saturday of the month.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; 1-7 * * root &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date &lt;span class="s1"&gt;&amp;#39;+\%a&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sat&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/myfirstsaturdaybackup.sh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; 1-7 * * root &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date &lt;span class="s1"&gt;&amp;#39;+\%a&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sat&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/myfirstsaturdaybackup.sh
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The cron will run from day 1 to 7, but the script is executed only when the &lt;em&gt;[date]&lt;/em&gt; check is true i.e. the only saturday between day 1 and 7.&lt;/p&gt;
 &lt;p&gt;This looks like a good ad-hoc solution but I wanted something less error prone and easier to use.&lt;/p&gt;
 &lt;p&gt;So I created &lt;a class="reference external" href="https://github.com/xr09/cron-last-sunday"&gt;cron-last-sunday&lt;/a&gt; just for that.&lt;/p&gt;
 &lt;p&gt;To install it, just copy the script &lt;em&gt;run-if-today&lt;/em&gt; to /usr/bin/ or anywhere on the path&lt;/p&gt;
 &lt;p&gt;You can use it like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; * * &lt;span class="m"&gt;6&lt;/span&gt; root run-if-today &lt;span class="m"&gt;1&lt;/span&gt; Sat &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/myfirstsaturdaybackup.sh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; * * &lt;span class="m"&gt;6&lt;/span&gt; root run-if-today &lt;span class="m"&gt;1&lt;/span&gt; Sat &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/myfirstsaturdaybackup.sh
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This task will run every saturday (see the 6 before &lt;em&gt;root&lt;/em&gt;), but the script will trigger only on the first one, you could even run the task every day &amp;quot;* * *&amp;quot; and the script would only run on the first saturday.&lt;/p&gt;
 &lt;p&gt;Check out a task for last sunday of the month:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; * * &lt;span class="m"&gt;7&lt;/span&gt; root run-if-today L Sun &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; touch /opt/last-sunday
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; * * &lt;span class="m"&gt;7&lt;/span&gt; root run-if-today L Sun &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; touch /opt/last-sunday
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Use &lt;strong&gt;L&lt;/strong&gt; or &lt;strong&gt;l&lt;/strong&gt; for last, granted to work on february and leap years. ;)&lt;/p&gt;
 &lt;p&gt;Please read the &lt;a class="reference external" href="https://github.com/xr09/cron-last-sunday/blob/master/run-if-today"&gt;code&lt;/a&gt; if you want to see how it works, it's pretty short and simple. I even put a bad joke or two.&lt;/p&gt;
-</summary><category term="unix"></category><category term="cron"></category><category term="admin"></category></entry><entry><title>Porting TwentyTwelve</title><link href="http://xr09.github.io/porting-twentytwelve.html" rel="alternate"></link><updated>2014-02-07T08:57:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-02-07:porting-twentytwelve.html</id><summary type="html">&lt;p&gt;I'm working on a port of the &lt;a class="reference external" href="http://twentytwelvedemo.wordpress.com/"&gt;TwentyTwelve&lt;/a&gt; Wordpress theme for Pelican, right now is in alpha state but progressing incrementally. Despite the amount of work and responsabilities I have at the moment, this little project is a stress relief.&lt;/p&gt;
+</content><category term="unix"></category><category term="cron"></category><category term="admin"></category></entry><entry><title>Porting TwentyTwelve</title><link href="http://xr09.github.io/porting-twentytwelve.html" rel="alternate"></link><published>2014-02-07T08:57:00-05:00</published><updated>2014-02-07T08:57:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-02-07:/porting-twentytwelve.html</id><summary type="html">&lt;p&gt;I'm working on a port of the &lt;a class="reference external" href="http://twentytwelvedemo.wordpress.com/"&gt;TwentyTwelve&lt;/a&gt; Wordpress theme for Pelican, right now is in alpha state but progressing incrementally. Despite the amount of work and responsabilities I have at the moment, this little project is a stress relief …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I'm working on a port of the &lt;a class="reference external" href="http://twentytwelvedemo.wordpress.com/"&gt;TwentyTwelve&lt;/a&gt; Wordpress theme for Pelican, right now is in alpha state but progressing incrementally. Despite the amount of work and responsabilities I have at the moment, this little project is a stress relief.&lt;/p&gt;
 &lt;p&gt;There's a snapshot of this blog with TwentyTwelve right &lt;a class="reference external" href="http://xr09.github.io/TwentyTwelve/"&gt;here&lt;/a&gt;, check it out.&lt;/p&gt;
 &lt;p&gt;If anybody want to help then just &lt;a class="reference external" href="https://github.com/xr09/TwentyTwelve"&gt;fork&lt;/a&gt; it.&lt;/p&gt;
-</summary><category term="pelican"></category><category term="blog"></category></entry><entry><title>Fast Git Clone</title><link href="http://xr09.github.io/fast-git-clone.html" rel="alternate"></link><updated>2014-01-31T14:07:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-01-31:fast-git-clone.html</id><summary type="html">&lt;p&gt;Lots of tutorials nowadays recommend using &lt;cite&gt;git clone&lt;/cite&gt; to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.&lt;/p&gt;
+</content><category term="pelican"></category><category term="blog"></category></entry><entry><title>Fast Git Clone</title><link href="http://xr09.github.io/fast-git-clone.html" rel="alternate"></link><published>2014-01-31T14:07:00-05:00</published><updated>2014-01-31T14:07:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-01-31:/fast-git-clone.html</id><summary type="html">&lt;p&gt;Lots of tutorials nowadays recommend using &lt;cite&gt;git clone&lt;/cite&gt; to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.&lt;/p&gt;
+&lt;p&gt;Whenever you need …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Lots of tutorials nowadays recommend using &lt;cite&gt;git clone&lt;/cite&gt; to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.&lt;/p&gt;
 &lt;p&gt;Whenever you need to clone a git repo from the internet and you plan to just use the contents and no need for past history, then the good old &lt;cite&gt;git clone&lt;/cite&gt; is a waste of bandwith, that command gets the whole repo history, that is every line change that has been commited since the beginning of development, you just need the latest state of files so let's tweak a little to simulate the &amp;quot;Download ZIP&amp;quot; button on the github page:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;git clone --depth &lt;span class="m"&gt;1&lt;/span&gt; https://github.com/apenwarr/sshuttle.git
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone --depth &lt;span class="m"&gt;1&lt;/span&gt; https://github.com/apenwarr/sshuttle.git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This way you get the latest copy of a project's master branch, no history and minimize usage of network resources. That's fast!&lt;/p&gt;
 &lt;p&gt;From &lt;strong&gt;man git clone&lt;/strong&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;--depth &amp;lt;depth&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;--depth &amp;lt;depth&amp;gt;
       Create a shallow clone with a history truncated to the specified
       number of revisions. A shallow repository has a number of
       limitations (you cannot clone or fetch from it, nor push from nor
@@ -197,17 +226,17 @@ chkconfig readahead_later on
       history of a large project with a long history, and would want to
       send in fixes as patches.
 &lt;/pre&gt;&lt;/div&gt;
-</summary><category term="git"></category></entry><entry><title>New Admin In Town</title><link href="http://xr09.github.io/new-admin-in-town.html" rel="alternate"></link><updated>2014-01-29T12:13:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-01-29:new-admin-in-town.html</id><summary type="html">&lt;p&gt;Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task, interesting stuff.&lt;/p&gt;
+</content><category term="git"></category></entry><entry><title>New Admin In Town</title><link href="http://xr09.github.io/new-admin-in-town.html" rel="alternate"></link><published>2014-01-29T12:13:00-05:00</published><updated>2014-01-29T12:13:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-01-29:/new-admin-in-town.html</id><summary type="html">&lt;p&gt;Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task, interesting stuff.&lt;/p&gt;
 &lt;p&gt;I'm trying hard to keep up the pace with my personal projects (new ideas to code), but lately bash is more common than python in my &lt;strong&gt;workspace&lt;/strong&gt; folder, ain't no shame in that since bash is mandatory on every admin toolbox.&lt;/p&gt;
-</summary><category term="job"></category><category term="admin"></category></entry><entry><title>Serving Static Folder with NGINX</title><link href="http://xr09.github.io/serving-static-folder-with-nginx.html" rel="alternate"></link><updated>2013-10-30T09:18:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-30:serving-static-folder-with-nginx.html</id><summary type="html">&lt;p&gt;At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it daily), as I'm already running nginx for my local web development I had the idea of serving a static folder with all our quick'n'dirty scripts to get always the latest and shiniest.&lt;/p&gt;
+</content><category term="job"></category><category term="admin"></category></entry><entry><title>Serving Static Folder with NGINX</title><link href="http://xr09.github.io/serving-static-folder-with-nginx.html" rel="alternate"></link><published>2013-10-30T09:18:00-04:00</published><updated>2013-10-30T09:18:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-30:/serving-static-folder-with-nginx.html</id><summary type="html">&lt;p&gt;At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it …&lt;/p&gt;</summary><content type="html">&lt;p&gt;At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it daily), as I'm already running nginx for my local web development I had the idea of serving a static folder with all our quick'n'dirty scripts to get always the latest and shiniest.&lt;/p&gt;
 &lt;p&gt;So here it is, I need to serve one folder by HTTP, I'll put several files I need to download from time to time from others workstations.&lt;/p&gt;
 &lt;p&gt;Solution:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;mkdir /var/www/static
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir /var/www/static
 chmod a+rw /var/www/static -R
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Create the static folder and give permissions for a normal user to copy there.&lt;/p&gt;
 &lt;p&gt;Then set up nginx to serve it and we're done: &lt;code&gt;vim /etc/nginx/sites/static.conf&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="kn"&gt;listen&lt;/span&gt;       &lt;span class="mi"&gt;8080&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
       &lt;span class="kn"&gt;location&lt;/span&gt; &lt;span class="s"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
         &lt;span class="kn"&gt;root&lt;/span&gt;    &lt;span class="s"&gt;/var/www/static/&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -218,10 +247,13 @@ chmod a+rw /var/www/static -R
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now the folder is accessible by &lt;code&gt;http://your_ip_address:8080&lt;/code&gt;, go nuts downloading anything there with wget.&lt;/p&gt;
 &lt;p&gt;As a bonus here is the way of using wget as if were curl:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;wget -q -O - 192.168.1.123:8080/somescript &lt;span class="p"&gt;|&lt;/span&gt; bash
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;wget -q -O - 192.168.1.123:8080/somescript &lt;span class="p"&gt;|&lt;/span&gt; bash
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;-q is for quiet, -O is to redirect the output and the - is an alias to std-out, this way is a shortcut for downloading &lt;em&gt;somescript&lt;/em&gt; and running it with bash.&lt;/p&gt;
-</summary><category term="nginx"></category><category term="static"></category></entry><entry><title>Bash Rolodex</title><link href="http://xr09.github.io/bash-rolodex.html" rel="alternate"></link><updated>2013-10-04T08:15:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-04:bash-rolodex.html</id><summary type="html">&lt;p&gt;There's been a while since I have a &lt;em&gt;rolodex.txt&lt;/em&gt; in my &lt;em&gt;ideas_for_projects&lt;/em&gt;
+</content><category term="nginx"></category><category term="static"></category></entry><entry><title>Bash Rolodex</title><link href="http://xr09.github.io/bash-rolodex.html" rel="alternate"></link><published>2013-10-04T08:15:00-04:00</published><updated>2013-10-04T08:15:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-04:/bash-rolodex.html</id><summary type="html">&lt;p&gt;There's been a while since I have a &lt;em&gt;rolodex.txt&lt;/em&gt; in my &lt;em&gt;ideas_for_projects&lt;/em&gt;
+directory, although there are &lt;a class="reference external" href="https://www.google.com/search?q=rolodex+programs"&gt;several&lt;/a&gt; options out there, &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Rolodex"&gt;this&lt;/a&gt; is the
+kind of program nobody resists to reimplement, so here I go.&lt;/p&gt;
+&lt;p&gt;My first idea was a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;There's been a while since I have a &lt;em&gt;rolodex.txt&lt;/em&gt; in my &lt;em&gt;ideas_for_projects&lt;/em&gt;
 directory, although there are &lt;a class="reference external" href="https://www.google.com/search?q=rolodex+programs"&gt;several&lt;/a&gt; options out there, &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Rolodex"&gt;this&lt;/a&gt; is the
 kind of program nobody resists to reimplement, so here I go.&lt;/p&gt;
 &lt;p&gt;My first idea was a PyQt UI with a SQlite db, simple, fast and pragmatic,
@@ -237,14 +269,14 @@ pragmatism, is just plain talk with the system, so lets make a rolodex with bash
 &lt;h2&gt;The Thing&lt;/h2&gt;
 &lt;p&gt;First, this rolodex uses a text file with all the info using one line
 per contact. Like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;dave number
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dave number
 john number1 number2
 ana number
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The file will be in: &lt;em&gt;~/.my_contacts&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Then all we need is a way to add new contacts to that file and search them later.&lt;/p&gt;
 &lt;p&gt;Easy cake with Bash, just put these two functions on &lt;em&gt;~/.bashrc&lt;/em&gt; and we're done.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;addnumber&lt;span class="o"&gt;(){&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;addnumber&lt;span class="o"&gt;(){&lt;/span&gt;
   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; ~/.my_contacts
 &lt;span class="o"&gt;}&lt;/span&gt;
 
@@ -253,11 +285,11 @@ number&lt;span class="o"&gt;(){&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;So the workflow for using this rolodex would be:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;addnumber moss the nerd 45645456
-&lt;span class="nv"&gt;$ &lt;/span&gt;addnumber jennifer public relations 98989898
-&lt;span class="nv"&gt;$ &lt;/span&gt;addnumber roy the mad irish 12121212
-&lt;span class="nv"&gt;$ &lt;/span&gt;number jen
-&lt;span class="nv"&gt;$ &lt;/span&gt;jennifer public relations 98989898
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ addnumber moss the nerd 45645456
+$ addnumber jennifer public relations 98989898
+$ addnumber roy the mad irish 12121212
+$ number jen
+$ jennifer public relations 98989898
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Maybe you want to mess with the contacts, fix bad info, remove some old entry, etc..
 in that case, fire up your editor and go nuts changing everything, is just a
@@ -265,18 +297,20 @@ simple text file.&lt;/p&gt;
 &lt;p&gt;No big fancy buttons this time but as I promised you have your rolodex in bash,
 as pragmatic as it gets.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="rolodex"></category><category term="unix"></category><category term="bash"></category></entry><entry><title>sed is unix</title><link href="http://xr09.github.io/sed-is-unix.html" rel="alternate"></link><updated>2013-10-03T14:23:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-03:sed-is-unix.html</id><summary type="html">&lt;p&gt;The UNIX concept of &amp;quot;do one thing and do it well&amp;quot; is so beautiful it's inspiring.&lt;/p&gt;
+</content><category term="rolodex"></category><category term="unix"></category><category term="bash"></category></entry><entry><title>sed is unix</title><link href="http://xr09.github.io/sed-is-unix.html" rel="alternate"></link><published>2013-10-03T14:23:00-04:00</published><updated>2013-10-03T14:23:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-03:/sed-is-unix.html</id><summary type="html">&lt;p&gt;The UNIX concept of &amp;quot;do one thing and do it well&amp;quot; is so beautiful it's inspiring.&lt;/p&gt;
+&lt;p&gt;Back in 2005 as a beginner Linux user I used vim for everything text related, now I use it relatively less, I just found …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The UNIX concept of &amp;quot;do one thing and do it well&amp;quot; is so beautiful it's inspiring.&lt;/p&gt;
 &lt;p&gt;Back in 2005 as a beginner Linux user I used vim for everything text related, now I use it relatively less, I just found sed a while ago.&lt;/p&gt;
 &lt;p&gt;For example, this is how I change my IceWm wallpaper with sed.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sed -i  &lt;span class="s1"&gt;&amp;#39;/jpg/ s/old_wallpaper/new_wallpaper/&amp;#39;&lt;/span&gt; .icewm/preferences
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sed -i  &lt;span class="s1"&gt;&amp;#39;/jpg/ s/old_wallpaper/new_wallpaper/&amp;#39;&lt;/span&gt; .icewm/preferences
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A rather simple task, any visual text editor could do but I find this way extremely simple and pragmatic (and scriptable).&lt;/p&gt;
 &lt;p&gt;Some argue this is a waste of time, the time of text tools is over. Until they have to change a humongous 2GB text file and no editor can handle it, but sed will.&lt;/p&gt;
 &lt;p&gt;Do one thing and do it well. Nice play UNIX.&lt;/p&gt;
-</summary><category term="unix"></category><category term="sed"></category></entry><entry><title>Pelican looks great</title><link href="http://xr09.github.io/pelican-looks-great.html" rel="alternate"></link><updated>2013-10-01T13:13:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-01:pelican-looks-great.html</id><summary type="html">&lt;p&gt;Just got my pelican working, awesome, I struggled for a while with dependencies and even wanted to give up and check some alternatives but in the end I got it, loving Pelican so far.&lt;/p&gt;
+</content><category term="unix"></category><category term="sed"></category></entry><entry><title>Pelican looks great</title><link href="http://xr09.github.io/pelican-looks-great.html" rel="alternate"></link><published>2013-10-01T13:13:00-04:00</published><updated>2013-10-01T13:13:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-01:/pelican-looks-great.html</id><summary type="html">&lt;p&gt;Just got my pelican working, awesome, I struggled for a while with dependencies and even wanted to give up and check some alternatives but in the end I got it, loving Pelican so far.&lt;/p&gt;
+&lt;p&gt;For begginers trying to get a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Just got my pelican working, awesome, I struggled for a while with dependencies and even wanted to give up and check some alternatives but in the end I got it, loving Pelican so far.&lt;/p&gt;
 &lt;p&gt;For begginers trying to get a Pelican site, you should get acquainted with virtualenv, pip and I'd say virtualenvwrapper too, this is bread and butter on python world nowadays, so go for it right now.&lt;/p&gt;
 &lt;p&gt;Create a virtualenv, install pelican on it, create you blog directory with the respective settings.py, source and output folders inside, then just write your posts on Restructured Text or Markdown as you prefer and compile with a command like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;pelican blog/ -s settings.py -r
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pelican blog/ -s settings.py -r
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;I was thinking on writing just-another-pelican-tutorial but I'll recommend one of the many I've found, read &lt;a class="reference external" href="http://fjavieralba.com/pelican-a-static-blog-generator-for-pythonistas.html"&gt;this&lt;/a&gt; one and enjoy Pelican.&lt;/p&gt;
-</summary><category term="pelican"></category></entry></feed>
+</content><category term="pelican"></category></entry></feed>

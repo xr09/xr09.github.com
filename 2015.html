@@ -4,7 +4,7 @@
     <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title> Fast Git Clone | DevPad </title>
+    <title> 2015 | DevPad </title>
 
     <link rel="stylesheet" href="http://xr09.github.io/theme/css/style.css" type="text/css" />
     <link rel="stylesheet" href="http://xr09.github.io/theme/css/pygments.css" type="text/css" />
@@ -25,31 +25,27 @@
 </div>
 <div class=separator></div>        
         <div class=body>
-    <h1 class="title"> Fast Git Clone</h1>
-    <p class=date> Fri 31 January 2014 </p>
-    <p>Lots of tutorials nowadays recommend using <cite>git clone</cite> to get a project's source code, that's fine for little projects but for the big ones is a waste of bandwith, space, and more importantly, of your precious time.</p>
-<p>Whenever you need to clone a git repo from the internet and you plan to just use the contents and no need for past history, then the good old <cite>git clone</cite> is a waste of bandwith, that command gets the whole repo history, that is every line change that has been commited since the beginning of development, you just need the latest state of files so let's tweak a little to simulate the &quot;Download ZIP&quot; button on the github page:</p>
-<div class="highlight"><pre><span></span>git clone --depth <span class="m">1</span> https://github.com/apenwarr/sshuttle.git
-</pre></div>
-<p>This way you get the latest copy of a project's master branch, no history and minimize usage of network resources. That's fast!</p>
-<p>From <strong>man git clone</strong>:</p>
-<div class="highlight"><pre><span></span>--depth &lt;depth&gt;
-      Create a shallow clone with a history truncated to the specified
-      number of revisions. A shallow repository has a number of
-      limitations (you cannot clone or fetch from it, nor push from nor
-      into it), but is adequate if you are only interested in the recent
-      history of a large project with a long history, and would want to
-      send in fixes as patches.
-</pre></div>
+    <h1 class="title"> 2015</h1>
+    <p class=date> Thu 31 December 2015 </p>
+    <p>This is my only post this year. Kind of a busy year.</p>
+<p>I've played a lot with some new technologies, dug deeper with some of the old ones.</p>
+<p>Below you can read a summary of some of the best stuff I've discovered (or re-discovered) this year.</p>
+<ul class="simple">
+<li>Ansible: Configuration management, devops best friend, loving it!</li>
+<li>Mosh: Mobile shell, SSH on UDP, great for roaming users</li>
+<li>Monit: Restart a service if crashed, send report by mail</li>
+<li>Gunicorn: Great Python server, simple to use, great performance</li>
+<li>Debian 8: Best server operating system I've used, can't believe it's free</li>
+<li>Python: The more I use it, the more I like it</li>
+<li>Laravel: When restrained to use PHP, this is the less painful</li>
+<li>Gitlab: Your own self-hosted github</li>
+</ul>
 
     
 <div class=twitter>
 <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
-    <p class=tags>This entry was tagged as
-      <a href="http://xr09.github.io/tag/git.html">git</a>
-    </p>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

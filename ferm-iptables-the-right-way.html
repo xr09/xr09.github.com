@@ -30,42 +30,42 @@
     <p>This is a small post but totally worth it. Just wanted to point out I've finally found the ultimate meta language for managing iptables: <a class="reference external" href="http://ferm.foo-projects.org/">ferm</a>.</p>
 <p>To keep this brief let's say Ferm is to IPtables as C is to ASM. It gives you plenty of high level constructs to manage list of ports, ip addresses and so forth, heck you can even create functions with parameters and all.</p>
 <p>Let's give it a try:</p>
-<div class="highlight"><pre><span class="nv">$ </span>aptitude install ferm     <span class="c"># Debian/Ubuntu</span>
-<span class="nv">$ </span>yum install ferm          <span class="c"># Fedora/CentOS</span>
+<div class="highlight"><pre><span></span>$ aptitude install ferm     <span class="c1"># Debian/Ubuntu</span>
+$ yum install ferm          <span class="c1"># Fedora/CentOS</span>
 </pre></div>
 <p>Now you have two new commands in your path: <em>ferm</em> and <em>import-ferm</em></p>
 <p>Reading the man page and command help is a good start.</p>
 <p>Basically ferm reads the rule file and compiles to iptables, then it loads everything to the system with <em>iptables-restore</em>, I recommend using <em>ferm -nl rules.ferm</em> and keep tuning the file until you get what you need.</p>
 <p>The <em>import-ferm</em> command reads you current iptables rules and prints the equivalent ferm rules to stdout. Of course it will be too explicit, you should define arrays and use all the cool features ferm provides.</p>
-<div class="highlight"><pre>import-ferm &gt; /etc/ferm/rules.ferm <span class="c"># this could be a starting point</span>
+<div class="highlight"><pre><span></span>import-ferm &gt; /etc/ferm/rules.ferm <span class="c1"># this could be a starting point</span>
 </pre></div>
 <p>On Debian the ferm package also provides a service (something like iptables-persistent), this makes possible to have the rules written only with ferm syntax, they will be parsed each time the ferm service is started.</p>
 <p>Some simple rules to get you interested:</p>
-<div class="highlight"><pre>@def <span class="nv">$TRUSTED</span> <span class="o">=</span> <span class="o">(</span>10.0.3.5 10.0.5.0/24 10.0.3.8<span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><span></span>@def <span class="nv">$TRUSTED</span> <span class="o">=</span> <span class="o">(</span>10.0.3.5 10.0.5.0/24 10.0.3.8<span class="o">)</span><span class="p">;</span>
 
 table filter <span class="o">{</span>
 chain INPUT <span class="o">{</span>
     policy DROP<span class="p">;</span>
 
-    <span class="c"># connection tracking</span>
+    <span class="c1"># connection tracking</span>
     mod state state <span class="o">(</span>ESTABLISHED RELATED<span class="o">)</span> ACCEPT<span class="p">;</span>
 
-    <span class="c"># allow local connections</span>
+    <span class="c1"># allow local connections</span>
     interface lo ACCEPT<span class="p">;</span>
 
-    <span class="c"># respond to ping</span>
-    proto icmp icmp-type <span class="nb">echo</span>-request ACCEPT<span class="p">;</span>
+    <span class="c1"># respond to ping</span>
+    proto icmp icmp-type echo-request ACCEPT<span class="p">;</span>
 
-    <span class="c"># allow SSH connections to trusted addresses</span>
+    <span class="c1"># allow SSH connections to trusted addresses</span>
     saddr <span class="nv">$TRUSTED</span> <span class="o">{</span>
         proto tcp dport ssh ACCEPT<span class="p">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
 
-<span class="c"># outgoing connections are not limited</span>
+<span class="c1"># outgoing connections are not limited</span>
 chain OUTPUT policy ACCEPT<span class="p">;</span>
 
-<span class="c"># this is not a router</span>
+<span class="c1"># this is not a router</span>
 chain FORWARD policy DROP<span class="p">;</span>
 <span class="o">}</span>
 </pre></div>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/os.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2014-04-30T14:59:00-04:00</updated><entry><title>Running The Latest Debmirror On CentOS 5</title><link href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html" rel="alternate"></link><updated>2014-04-30T14:59:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-30:running-the-latest-debmirror-on-centos-5.html</id><summary type="html">&lt;div class="section" id="to-sync-a-deb-repo"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad - os</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/os.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2014-04-30T14:59:00-04:00</updated><entry><title>Running The Latest Debmirror On CentOS 5</title><link href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html" rel="alternate"></link><published>2014-04-30T14:59:00-04:00</published><updated>2014-04-30T14:59:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-30:/running-the-latest-debmirror-on-centos-5.html</id><summary type="html">&lt;div class="section" id="to-sync-a-deb-repo"&gt;
+&lt;h2&gt;To sync a deb repo&lt;/h2&gt;
+&lt;p&gt;So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.&lt;/p&gt;
+&lt;p&gt;The advantage of apt-mirror is the ability to download a repo …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="to-sync-a-deb-repo"&gt;
 &lt;h2&gt;To sync a deb repo&lt;/h2&gt;
 &lt;p&gt;So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.&lt;/p&gt;
 &lt;p&gt;The advantage of apt-mirror is the ability to download a repo with multiple threads, if bandwith is not an issue then your downloads will fly, on the bad side you can't filter unwanted sections of a repo, it's all or nothing.&lt;/p&gt;
@@ -9,7 +12,7 @@
 &lt;div class="section" id="pruning-method"&gt;
 &lt;h2&gt;Pruning method&lt;/h2&gt;
 &lt;p&gt;Our pruning technique will be shared in a future post, but just to have an idea is nothing more than using the &lt;em&gt;--exclude&lt;/em&gt; and &lt;em&gt;--exclude-deb-section&lt;/em&gt; options from debmirror:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;--exclude-deb-section&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(games|debug|news|electronics)&amp;#39;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;--exclude-deb-section&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(games|debug|news|electronics)&amp;#39;&lt;/span&gt;
 --exclude&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/myspell-pt.*&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
 --exclude&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;(/libhdf5-doc.*)&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -23,13 +26,13 @@
 &lt;p&gt;Is not a good idea to start messing with the default Perl installation, the safest choice is installing a new version somewhere like &lt;em&gt;/opt/&lt;/em&gt; and using it from there.&lt;/p&gt;
 &lt;p&gt;&lt;a class="reference external" href="http://www.activestate.com/activeperl/downloads"&gt;ActivePerl&lt;/a&gt; is a perfect choice for this case, just download and install on &lt;em&gt;/opt/ActivePerl/&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Now check the interpreter:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;/opt/ActivePerl/bin/perl -v
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/opt/ActivePerl/bin/perl -v
 This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;v5.16.3&lt;span class="o"&gt;)&lt;/span&gt; built &lt;span class="k"&gt;for&lt;/span&gt; i686-linux-thread-multi
 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Perfect, now just drop in a recent &lt;a class="reference external" href="http://ftp.de.debian.org/debian/pool/main/d/debmirror/debmirror_2.16.tar.gz"&gt;debmirror&lt;/a&gt; script and change the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29"&gt;shebang&lt;/a&gt; to point to the new Perl.&lt;/p&gt;
 &lt;p&gt;Like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/opt/ActivePerl-5.16/bin/perl -w&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/opt/ActivePerl-5.16/bin/perl -w&lt;/span&gt;
 
 &lt;span class="o"&gt;=&lt;/span&gt;head1 NAME
 &lt;/pre&gt;&lt;/div&gt;
@@ -37,7 +40,7 @@ This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;
 &lt;div class="section" id="perl-modules"&gt;
 &lt;h2&gt;Perl Modules&lt;/h2&gt;
 &lt;p&gt;If you try to use this you'll get an error, debmirror needs a module not included in ActivePerl by default &amp;quot;LockFile::Simple&amp;quot;, easy fix, just have to &lt;a class="reference external" href="http://www.activestate.com/blog/2010/10/how-install-cpan-modules-activeperl"&gt;install&lt;/a&gt; it from CPAN.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;/opt/ActivePerl/bin/cpan LockFile::Simple
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/opt/ActivePerl/bin/cpan LockFile::Simple
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Remember to export http_proxy in case you need it.&lt;/p&gt;
 &lt;/div&gt;
@@ -45,7 +48,9 @@ This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;
 &lt;h2&gt;Sync Baby, Sync!&lt;/h2&gt;
 &lt;p&gt;The rest is easy cake, now you have a recent debmirror with a brand new Perl interpreter running on top of the old crusty CentOS 5. Rejoice.&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="centos"></category><category term="perl"></category><category term="debmirror"></category><category term="debian"></category><category term="ubuntu"></category></entry><entry><title>Stripping Down Centos</title><link href="http://xr09.github.io/stripping-down-centos.html" rel="alternate"></link><updated>2014-04-16T10:28:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-16:stripping-down-centos.html</id><summary type="html">&lt;div class="section" id="why-strip"&gt;
+</content><category term="centos"></category><category term="perl"></category><category term="debmirror"></category><category term="debian"></category><category term="ubuntu"></category></entry><entry><title>Stripping Down Centos</title><link href="http://xr09.github.io/stripping-down-centos.html" rel="alternate"></link><published>2014-04-16T10:28:00-04:00</published><updated>2014-04-16T10:28:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-16:/stripping-down-centos.html</id><summary type="html">&lt;div class="section" id="why-strip"&gt;
+&lt;h2&gt;Why Strip?&lt;/h2&gt;
+&lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="why-strip"&gt;
 &lt;h2&gt;Why Strip?&lt;/h2&gt;
 &lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling unused services or using lighter alternatives.&lt;/p&gt;
 &lt;/div&gt;
@@ -60,8 +65,8 @@ This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;
 &lt;div class="section" id="how-to-cut-it"&gt;
 &lt;h2&gt;How to cut it?&lt;/h2&gt;
 &lt;p&gt;Cups for example has nothing to do on a web server, let's turn it off.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig cups off          &lt;span class="c"&gt;# disable service on startup&lt;/span&gt;
-service cups stop           &lt;span class="c"&gt;# stop the service&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig cups off          &lt;span class="c1"&gt;# disable service on startup&lt;/span&gt;
+service cups stop           &lt;span class="c1"&gt;# stop the service&lt;/span&gt;
 chkconfig --list cups
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now cups is down for good, use those resources wisely.&lt;/p&gt;
@@ -71,20 +76,20 @@ chkconfig --list cups
 &lt;p&gt;Why is that server running X at all? gdm running? This is *nix, if you need X in a server (I never did so far) then &lt;em&gt;startx&lt;/em&gt; is your guy. For X on a server use light stuff like IceWm or similar, not Gnome.&lt;/p&gt;
 &lt;p&gt;By default CentOS installs X with Gnome, the easiest way to disable this is by changing the system runlevel.&lt;/p&gt;
 &lt;p&gt;Before running &lt;strong&gt;init 3&lt;/strong&gt; please save you some troubles and check this.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If by any chance an important service was set up to run on level 5 and not on 3 then my friend you are going to have a bad day.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@server123 ~&lt;span class="o"&gt;]&lt;/span&gt;  chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@server123 ~&lt;span class="o"&gt;]&lt;/span&gt;  chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
 named           0:off   1:off   2:off   3:off   4:off   5:on    6:off
 readahead_later 0:off   1:off   2:off   3:off   4:off   5:on    6:off
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In the example above &lt;em&gt;named&lt;/em&gt; and &lt;em&gt;readahead_later&lt;/em&gt; are set up to run on runlevel 5 (multiuser with graphics) but not 3 (multiuser), let's fix it.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;chkconfig named on
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig named on
 chkconfig readahead_later on
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To change the system default runlevel open &lt;em&gt;/etc/inittab&lt;/em&gt; and set &lt;strong&gt;id:5:initdefault:&lt;/strong&gt; to &lt;strong&gt;id:3:initdefault:&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Or just use the &lt;em&gt;l33t way&lt;/em&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sed -i &lt;span class="s1"&gt;&amp;#39;/id:5:initdefault/ s/5/3/&amp;#39;&lt;/span&gt; /etc/inittab
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sed -i &lt;span class="s1"&gt;&amp;#39;/id:5:initdefault/ s/5/3/&amp;#39;&lt;/span&gt; /etc/inittab
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now open &lt;a class="reference external" href="https://www.google.com.cu/search?q=tmux+tutorial"&gt;tmux&lt;/a&gt; split in half and run &lt;em&gt;htop&lt;/em&gt; in one side and &lt;em&gt;init 3&lt;/em&gt; on the other (or just &lt;em&gt;init 3&lt;/em&gt; if you're not into multiplexing, though you should be) this way you are able to check the resources being released.&lt;/p&gt;
 &lt;/div&gt;
@@ -97,12 +102,13 @@ chkconfig readahead_later on
 &lt;p&gt;Replace Apache with Nginx for static files, one of my CentOS was serving a few distros repositories for like a hundred workstations with Apache 2.2, I tried Nginx, now I smile every time I login and see this: &lt;strong&gt;load average: 0.00, 0.00, 0.00&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Important: I do not recommend uninstalling any packages on a legacy system unless you are 120% sure is ok, just disable services instead. Follow this rule or embrace desperation.&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="centos"></category><category term="performance"></category><category term="tuning"></category></entry><entry><title>sed is unix</title><link href="http://xr09.github.io/sed-is-unix.html" rel="alternate"></link><updated>2013-10-03T14:23:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-03:sed-is-unix.html</id><summary type="html">&lt;p&gt;The UNIX concept of &amp;quot;do one thing and do it well&amp;quot; is so beautiful it's inspiring.&lt;/p&gt;
+</content><category term="centos"></category><category term="performance"></category><category term="tuning"></category></entry><entry><title>sed is unix</title><link href="http://xr09.github.io/sed-is-unix.html" rel="alternate"></link><published>2013-10-03T14:23:00-04:00</published><updated>2013-10-03T14:23:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-03:/sed-is-unix.html</id><summary type="html">&lt;p&gt;The UNIX concept of &amp;quot;do one thing and do it well&amp;quot; is so beautiful it's inspiring.&lt;/p&gt;
+&lt;p&gt;Back in 2005 as a beginner Linux user I used vim for everything text related, now I use it relatively less, I just found …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The UNIX concept of &amp;quot;do one thing and do it well&amp;quot; is so beautiful it's inspiring.&lt;/p&gt;
 &lt;p&gt;Back in 2005 as a beginner Linux user I used vim for everything text related, now I use it relatively less, I just found sed a while ago.&lt;/p&gt;
 &lt;p&gt;For example, this is how I change my IceWm wallpaper with sed.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;sed -i  &lt;span class="s1"&gt;&amp;#39;/jpg/ s/old_wallpaper/new_wallpaper/&amp;#39;&lt;/span&gt; .icewm/preferences
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sed -i  &lt;span class="s1"&gt;&amp;#39;/jpg/ s/old_wallpaper/new_wallpaper/&amp;#39;&lt;/span&gt; .icewm/preferences
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A rather simple task, any visual text editor could do but I find this way extremely simple and pragmatic (and scriptable).&lt;/p&gt;
 &lt;p&gt;Some argue this is a waste of time, the time of text tools is over. Until they have to change a humongous 2GB text file and no editor can handle it, but sed will.&lt;/p&gt;
 &lt;p&gt;Do one thing and do it well. Nice play UNIX.&lt;/p&gt;
-</summary><category term="unix"></category><category term="sed"></category></entry></feed>
+</content><category term="unix"></category><category term="sed"></category></entry></feed>
