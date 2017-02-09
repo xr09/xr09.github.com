@@ -17,6 +17,7 @@
 &lt;ul class="simple"&gt;
 &lt;li&gt;Ansible: Configuration management, devops best friend, loving it!&lt;/li&gt;
 &lt;li&gt;Mosh: Mobile shell, SSH on UDP, great for roaming users&lt;/li&gt;
+&lt;li&gt;Tmux: Terminal multiplexer, detach sessions, keep them running&lt;/li&gt;
 &lt;li&gt;Monit: Restart a service if crashed, send report by mail&lt;/li&gt;
 &lt;li&gt;Gunicorn: Great Python server, simple to use, great performance&lt;/li&gt;
 &lt;li&gt;Debian 8: Best server operating system I've used, can't believe it's free&lt;/li&gt;
