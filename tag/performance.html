@@ -1,75 +1,129 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>DevPad <small>performance</small></title>
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DevPad - performance</title>
+        <link rel="stylesheet" href="http://xr09.github.io/theme/css/main.css" />
+        <link href="http://xr09.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="DevPad Atom Feed" />
 
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/font-awesome.css" type="text/css"/>
-  </head>
-  <body>
-    <div class=container>
-<div class="header">
-    <a href="http://xr09.github.io/">DevPad</a> <span class="muted">clean code, good karma</span>
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://xr09.github.io/">DevPad  <strong>clean code, good karma</strong></a></h1>
+                <nav><ul>
+<!--                  -->
+                    <li><a href="http://xr09.github.io/pages/about.html">About</a></li>
+                    <li><a href="http://xr09.github.io/pages/projects.html">Projects</a></li>
+                    <li><a href="http://xr09.github.io/category/server.html">server</a></li>
+                    <li><a href="http://xr09.github.io/category/os.html">os</a></li>
+                    <li><a href="http://xr09.github.io/category/dev.html">dev</a></li>
+                    <li><a href="http://xr09.github.io/category/brainwork.html">brainwork</a></li>
+                </ul>
+                </nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://xr09.github.io/stripping-down-centos.html">Stripping Down Centos</a></h1>
+<footer class="post-info">
+        <span>Wed 16 April 2014</span>
+<span>| tags: <a href="http://xr09.github.io/tag/centos.html">centos</a><a href="http://xr09.github.io/tag/performance.html">performance</a><a href="http://xr09.github.io/tag/tuning.html">tuning</a></span>
+</footer><!-- /.post-info --><div class="section" id="why-strip">
+<h2>Why Strip?</h2>
+<p>If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling unused services or using lighter alternatives.</p>
 </div>
-
-<div class=navigation>
-    <ul>
-            <li><a href="http://xr09.github.io/pages/projects.html">Projects</a> </li>
-            <li><a href="http://xr09.github.io/archives.html">Archive</a> </li>
-            <li><a href="http://xr09.github.io/pages/about.html">About</a> </li>
-    </ul>
+<div class="section" id="notice">
+<h2>Notice</h2>
+<p>This is not a step-by-step guide to install a minimal CentOS system, there are millions of those on the web, this aims at a specific use case: when you inherited an old server and you need to tweak it.</p>
 </div>
-<div class=separator></div>        
-        <div class=body>
+<div class="section" id="use-htop">
+<h2>Use htop</h2>
+<p><em>htop</em> gives you a great view of how resources are being used in your system. Check any <em>resource hog</em> and cut it down.</p>
+</div>
+<div class="section" id="how-to-cut-it">
+<h2>How to cut it?</h2>
+<p>Cups for example has nothing to do on a web server, let's turn it off.</p>
+<div class="highlight"><pre><span></span>chkconfig cups off          <span class="c1"># disable service on startup</span>
+service cups stop           <span class="c1"># stop the service</span>
+chkconfig --list cups
+</pre></div>
+<p>Now cups is down for good, use those resources wisely.</p>
+</div>
+<div class="section" id="running-x">
+<h2>Running X?</h2>
+<p>Why is that server running X at all? gdm running? This is *nix, if you need X in a server (I never did so far) then <em>startx</em> is your guy. For X on a server use light stuff like IceWm or similar, not Gnome.</p>
+<p>By default CentOS installs X with Gnome, the easiest way to disable this is by changing the system runlevel.</p>
+<p>Before running <strong>init 3</strong> please save you some troubles and check this.</p>
+<div class="highlight"><pre><span></span>chkconfig --list <span class="p">|</span> grep <span class="s2">&quot;3:off&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;5:on&quot;</span>
+</pre></div>
+<p>If by any chance an important service was set up to run on level 5 and not on 3 then my friend you are going to have a bad day.</p>
+<div class="highlight"><pre><span></span><span class="o">[</span>root@server123 ~<span class="o">]</span>  chkconfig --list <span class="p">|</span> grep <span class="s2">&quot;3:off&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;5:on&quot;</span>
+named           0:off   1:off   2:off   3:off   4:off   5:on    6:off
+readahead_later 0:off   1:off   2:off   3:off   4:off   5:on    6:off
+</pre></div>
+<p>In the example above <em>named</em> and <em>readahead_later</em> are set up to run on runlevel 5 (multiuser with graphics) but not 3 (multiuser), let's fix it.</p>
+<div class="highlight"><pre><span></span>chkconfig named on
+chkconfig readahead_later on
+</pre></div>
+<p>To change the system default runlevel open <em>/etc/inittab</em> and set <strong>id:5:initdefault:</strong> to <strong>id:3:initdefault:</strong>.</p>
+<p>Or just use the <em>l33t way</em>:</p>
+<div class="highlight"><pre><span></span>sed -i <span class="s1">&#39;/id:5:initdefault/ s/5/3/&#39;</span> /etc/inittab
+</pre></div>
+<p>Now open <a class="reference external" href="https://www.google.com.cu/search?q=tmux+tutorial">tmux</a> split in half and run <em>htop</em> in one side and <em>init 3</em> on the other (or just <em>init 3</em> if you're not into multiplexing, though you should be) this way you are able to check the resources being released.</p>
+</div>
+<div class="section" id="but-dude-i-need-more-speed-1">
+<h2>But dude I need more speed!!1!</h2>
+<p>Well, I'm not a wizard (otherwise I would be hanging out with Gandalf and not writing this), sometimes your server really need those resources, you could go deep and tune specific services but YMMV, search for &quot;SERVICE_NAME tuning&quot; on Google. Try not to tune too much, being too clever can cause you the hairiest bugs.</p>
+</div>
+<div class="section" id="a-great-tip">
+<h2>A great tip?</h2>
+<p>Replace Apache with Nginx for static files, one of my CentOS was serving a few distros repositories for like a hundred workstations with Apache 2.2, I tried Nginx, now I smile every time I login and see this: <strong>load average: 0.00, 0.00, 0.00</strong></p>
+<p><strong>Important: I do not recommend uninstalling any packages on a legacy system unless you are 120% sure is ok, just disable services instead. Follow this rule or embrace desperation.</strong></p>
+</div>
+<p><a href="http://xr09.github.io/stripping-down-centos.html#disqus_thread">comments</a></p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://xr09.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
-    <div class=entry-overview>
-      <div class=date>Apr 16, 2014</div>
-      <div class=detail>
-          <h1><a href="http://xr09.github.io/stripping-down-centos.html">Stripping Down Centos</a></h1>
-          <div class=summary><p> </p></div>
-      </div>
-    </div>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
 
+        <footer id="contentinfo" class="body">
+                <p>Copyright &copy; 2017 - Manuel Gutierrez -  Powered by <a href="http://getpelican.com/">Pelican</a></p>
+        </footer><!-- /#contentinfo -->
 
-        </div>
-        
-<div class=footer>
-  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Manuel Gutierrez</p>
-  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
-  </p> 
-  <p>
-    <div class=social style="font-size: 27px;">
-      <ul>
-        <script language="JavaScript">
-          u = 'mgp';
-          s = 'nauta.cu';
-          document.write('<a href=\"mailto:' + u + '@' + s + '\" target=\"_blank\">');
-        </script>
-            <li><i class="icon-envelope icon-large"></i> </li>
-        </a>
-        <a href="https://twitter.com/xr09" target="_blank"> <li> <i class="icon-twitter-sign icon-large"> </li></i> </a>
-        <a href="https://github.com/xr09" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
-        <a href="http://xr09.github.io/feeds/all.rss.xml" rel="alternate" title="Recent Blog Posts"><li> <i class="icon-rss icon-large"></i> </li></a>
-      </ul>
-    </div>
-  </p>
-</div>    </div>
     <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-90554639-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-90554639-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    })();
     </script>
-  </body>
+<script type="text/javascript">
+    var disqus_shortname = 'devpad';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
 </html>

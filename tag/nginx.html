@@ -1,75 +1,99 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>DevPad <small>nginx</small></title>
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DevPad - nginx</title>
+        <link rel="stylesheet" href="http://xr09.github.io/theme/css/main.css" />
+        <link href="http://xr09.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="DevPad Atom Feed" />
 
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/font-awesome.css" type="text/css"/>
-  </head>
-  <body>
-    <div class=container>
-<div class="header">
-    <a href="http://xr09.github.io/">DevPad</a> <span class="muted">clean code, good karma</span>
-</div>
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
 
-<div class=navigation>
-    <ul>
-            <li><a href="http://xr09.github.io/pages/projects.html">Projects</a> </li>
-            <li><a href="http://xr09.github.io/archives.html">Archive</a> </li>
-            <li><a href="http://xr09.github.io/pages/about.html">About</a> </li>
-    </ul>
-</div>
-<div class=separator></div>        
-        <div class=body>
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://xr09.github.io/">DevPad  <strong>clean code, good karma</strong></a></h1>
+                <nav><ul>
+<!--                  -->
+                    <li><a href="http://xr09.github.io/pages/about.html">About</a></li>
+                    <li><a href="http://xr09.github.io/pages/projects.html">Projects</a></li>
+                    <li><a href="http://xr09.github.io/category/server.html">server</a></li>
+                    <li><a href="http://xr09.github.io/category/os.html">os</a></li>
+                    <li><a href="http://xr09.github.io/category/dev.html">dev</a></li>
+                    <li><a href="http://xr09.github.io/category/brainwork.html">brainwork</a></li>
+                </ul>
+                </nav>
+        </header><!-- /#banner -->
 
-    <div class=entry-overview>
-      <div class=date>Oct 30, 2013</div>
-      <div class=detail>
-          <h1><a href="http://xr09.github.io/serving-static-folder-with-nginx.html">Serving Static Folder with NGINX</a></h1>
-          <div class=summary><p> </p></div>
-      </div>
-    </div>
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://xr09.github.io/serving-static-folder-with-nginx.html">Serving Static Folder with NGINX</a></h1>
+<footer class="post-info">
+        <span>Wed 30 October 2013</span>
+<span>| tags: <a href="http://xr09.github.io/tag/nginx.html">nginx</a><a href="http://xr09.github.io/tag/static.html">static</a></span>
+</footer><!-- /.post-info --><p>At work we install Lubuntu workstations very often, we have a custom install script for performance tuning and many others details, the problem is we all don't have the latest script version in our thumb drives (sometimes we change it daily), as I'm already running nginx for my local web development I had the idea of serving a static folder with all our quick'n'dirty scripts to get always the latest and shiniest.</p>
+<p>So here it is, I need to serve one folder by HTTP, I'll put several files I need to download from time to time from others workstations.</p>
+<p>Solution:</p>
+<div class="highlight"><pre><span></span>mkdir /var/www/static
+chmod a+rw /var/www/static -R
+</pre></div>
+<p>Create the static folder and give permissions for a normal user to copy there.</p>
+<p>Then set up nginx to serve it and we're done: <code>vim /etc/nginx/sites/static.conf</code></p>
+<div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">8080</span><span class="p">;</span>
+      <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="kn">root</span>    <span class="s">/var/www/static/</span><span class="p">;</span>
+        <span class="kn">access_log</span>   <span class="no">on</span><span class="p">;</span>
+        <span class="kn">autoindex</span>  <span class="no">on</span><span class="p">;</span>
+      <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>Now the folder is accessible by <code>http://your_ip_address:8080</code>, go nuts downloading anything there with wget.</p>
+<p>As a bonus here is the way of using wget as if were curl:</p>
+<div class="highlight"><pre><span></span>wget -q -O - 192.168.1.123:8080/somescript <span class="p">|</span> bash
+</pre></div>
+<p>-q is for quiet, -O is to redirect the output and the - is an alias to std-out, this way is a shortcut for downloading <em>somescript</em> and running it with bash.</p>
+<p><a href="http://xr09.github.io/serving-static-folder-with-nginx.html#disqus_thread">comments</a></p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://xr09.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
 
-        </div>
-        
-<div class=footer>
-  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Manuel Gutierrez</p>
-  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
-  </p> 
-  <p>
-    <div class=social style="font-size: 27px;">
-      <ul>
-        <script language="JavaScript">
-          u = 'mgp';
-          s = 'nauta.cu';
-          document.write('<a href=\"mailto:' + u + '@' + s + '\" target=\"_blank\">');
-        </script>
-            <li><i class="icon-envelope icon-large"></i> </li>
-        </a>
-        <a href="https://twitter.com/xr09" target="_blank"> <li> <i class="icon-twitter-sign icon-large"> </li></i> </a>
-        <a href="https://github.com/xr09" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
-        <a href="http://xr09.github.io/feeds/all.rss.xml" rel="alternate" title="Recent Blog Posts"><li> <i class="icon-rss icon-large"></i> </li></a>
-      </ul>
-    </div>
-  </p>
-</div>    </div>
+        <footer id="contentinfo" class="body">
+                <p>Copyright &copy; 2017 - Manuel Gutierrez -  Powered by <a href="http://getpelican.com/">Pelican</a></p>
+        </footer><!-- /#contentinfo -->
+
     <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-90554639-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-90554639-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    })();
     </script>
-  </body>
+<script type="text/javascript">
+    var disqus_shortname = 'devpad';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
 </html>

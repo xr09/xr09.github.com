@@ -1,69 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link href='http://fonts.googleapis.com/css?family=Noticia+Text:400,700' rel='stylesheet' type='text/css' />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title> DevPad </title>
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DevPad</title>
+        <link rel="stylesheet" href="http://xr09.github.io/theme/css/main.css" />
+        <link href="http://xr09.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="DevPad Atom Feed" />
 
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/style.css" type="text/css" />
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="http://xr09.github.io/theme/css/font-awesome.css" type="text/css"/>
-  </head>
-  <body>
-    <div class=container>
-<div class="header">
-    <a href="http://xr09.github.io/">DevPad</a> <span class="muted">clean code, good karma</span>
-</div>
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
 
-<div class=navigation>
-    <ul>
-            <li><a href="http://xr09.github.io/pages/projects.html">Projects</a> </li>
-            <li><a href="http://xr09.github.io/archives.html">Archive</a> </li>
-            <li><a href="http://xr09.github.io/pages/about.html">About</a> </li>
-    </ul>
-</div>
-<div class=separator></div>        
-        <div class=body>
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://xr09.github.io/">DevPad  <strong>clean code, good karma</strong></a></h1>
+                <nav><ul>
+<!--                  -->
+                    <li><a href="http://xr09.github.io/pages/about.html">About</a></li>
+                    <li><a href="http://xr09.github.io/pages/projects.html">Projects</a></li>
+                    <li><a href="http://xr09.github.io/category/server.html">server</a></li>
+                    <li><a href="http://xr09.github.io/category/os.html">os</a></li>
+                    <li><a href="http://xr09.github.io/category/dev.html">dev</a></li>
+                    <li><a href="http://xr09.github.io/category/brainwork.html">brainwork</a></li>
+                </ul>
+                </nav>
+        </header><!-- /#banner -->
 <ul>
     <li><a href="http://xr09.github.io/category/server.html">server</a></li>
     <li><a href="http://xr09.github.io/category/os.html">os</a></li>
     <li><a href="http://xr09.github.io/category/dev.html">dev</a></li>
     <li><a href="http://xr09.github.io/category/brainwork.html">brainwork</a></li>
 </ul>
-        </div>
-        
-<div class=footer>
-  <p>&copy; Copyright <script language="JavaScript">var date = new Date(); document.write(date.getFullYear());</script> by Manuel Gutierrez</p>
-  <p> Powered by <a href="http://pypi.python.org/pypi/pelican/" target="_blank">Pelican</a>.  
-  </p> 
-  <p>
-    <div class=social style="font-size: 27px;">
-      <ul>
-        <script language="JavaScript">
-          u = 'mgp';
-          s = 'nauta.cu';
-          document.write('<a href=\"mailto:' + u + '@' + s + '\" target=\"_blank\">');
-        </script>
-            <li><i class="icon-envelope icon-large"></i> </li>
-        </a>
-        <a href="https://twitter.com/xr09" target="_blank"> <li> <i class="icon-twitter-sign icon-large"> </li></i> </a>
-        <a href="https://github.com/xr09" target="_blank"> <li> <i class="icon-github-sign icon-large"></i> </li> </a>
-        <a href="http://xr09.github.io/feeds/all.rss.xml" rel="alternate" title="Recent Blog Posts"><li> <i class="icon-rss icon-large"></i> </li></a>
-      </ul>
-    </div>
-  </p>
-</div>    </div>
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-90554639-1']);
-      _gaq.push(['_trackPageview']);
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://xr09.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
-      (function() {
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <p>Copyright &copy; 2017 - Manuel Gutierrez -  Powered by <a href="http://getpelican.com/">Pelican</a></p>
+        </footer><!-- /#contentinfo -->
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-90554639-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    })();
     </script>
-  </body>
+<script type="text/javascript">
+    var disqus_shortname = 'devpad';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
 </html>

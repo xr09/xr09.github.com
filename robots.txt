@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /drafts/
+Disallow: /images/
+Disallow: /theme/
+Disallow: /feeds/
+Disallow: /category/
+Disallow: /author/
+Disallow: /tag/
