@@ -68,6 +68,7 @@
 
                             <li><a href="https://www.twitter.com/xr09">Twitter</a></li>
                             <li><a href="https://github.com/xr09">Github</a></li>
+                            <li><a id="email" href="mailto:john@example.com">john@example.com</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
@@ -95,5 +96,12 @@
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
+    <script type="text/javascript">
+        var user = "mgp.xr09",
+        domain = "gmail.com",
+        element = document.getElementById('email');
+        element.innerHTML = user + '@' + domain;
+        element.href = 'mailto:' + user + '@' + domain;
+    </script>
 </body>
 </html>

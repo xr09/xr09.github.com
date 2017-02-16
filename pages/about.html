@@ -33,7 +33,7 @@
 <p>For my development workflow I use mostly <strong>Git</strong>, though <strong>Mercurial</strong> is highly appreciated.</p>
 <p>Check some of my personal <a class="reference external" href="https://github.com/xr09">projects</a> on Github.</p>
 <p>This Pelican theme is a fork of a <a class="reference external" href="https://github.com/Ajoo/pelican-blueidea">fork</a> of <a class="reference external" href="https://github.com/blueicefield/pelican-blueidea">BlueIdea</a>.</p>
-<p>You can hit me on <a class="reference external" href="https://telegram.me/mgpxr">Telegram</a> or by mail at: <cite>'&#64;'.join(['mgp', 'nauta.cu'])</cite></p>
+<p>You can hit me on <a class="reference external" href="https://telegram.me/mgpxr">Telegram</a> or mgp.xr09 at gmail.</p>
 
 </section>
         <section id="extras" class="body">
@@ -44,6 +44,7 @@
 
                             <li><a href="https://www.twitter.com/xr09">Twitter</a></li>
                             <li><a href="https://github.com/xr09">Github</a></li>
+                            <li><a id="email" href="mailto:john@example.com">john@example.com</a></li>
                         </ul>
                 </div><!-- /.social -->
         </section><!-- /#extras -->
@@ -71,5 +72,12 @@
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
+    <script type="text/javascript">
+        var user = "mgp.xr09",
+        domain = "gmail.com",
+        element = document.getElementById('email');
+        element.innerHTML = user + '@' + domain;
+        element.href = 'mailto:' + user + '@' + domain;
+    </script>
 </body>
 </html>
