@@ -27,62 +27,52 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html">Running The Latest Debmirror On CentOS 5</a></h1>
+                    <h1 class="entry-title"><a href="http://xr09.github.io/compiling-the-linux-kernel.html">Compiling The Linux Kernel</a></h1>
+<footer class="post-info">
+        <span>Tue 14 March 2017</span>
+<span>| tags: <a href="http://xr09.github.io/tag/linux.html">linux</a><a href="http://xr09.github.io/tag/kernel.html">kernel</a><a href="http://xr09.github.io/tag/debian.html">debian</a><a href="http://xr09.github.io/tag/ubuntu.html">ubuntu</a></span>
+</footer><!-- /.post-info --><div class="section" id="the-little-guide-on-how-to-compile-the-linux-kernel">
+<h2>The Little Guide on how to compile the Linux Kernel</h2>
+<p>This works for Debian/Ubuntu and other distros with minor tweaks.</p>
+<div class="highlight"><pre><span></span>apt install build-essential fakeroot libncurses5-dev
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.2.tar.xz
+tar xf linux-4.10.2.tar.xz
+<span class="nb">cd</span> linux-4.10.2/
+cp /boot/config-<span class="sb">`</span>uname -r<span class="sb">`</span> .config
+make olddefconfig
+make nconfig <span class="c1"># tweak any settings, modules, etc (safe to skip)</span>
+nice fakeroot make -j5 bindeb-pkg
+</pre></div>
+<p>After these steps you will have the kernel ready to install in a deb package.</p>
+<p>For other distros like Fedora/OpenSUSE it is pretty much the same, you just have to install the corresponding required packages with dnf/zypper and the final make target would be <cite>binrpm-pkg</cite>.</p>
+</div>
+<p><a href="http://xr09.github.io/compiling-the-linux-kernel.html#disqus_thread">comments</a></p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html" rel="bookmark"
+                           title="Permalink to Running The Latest Debmirror On CentOS 5">Running The Latest Debmirror On CentOS 5</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <span>Wed 30 April 2014</span>
 <span>| tags: <a href="http://xr09.github.io/tag/centos.html">centos</a><a href="http://xr09.github.io/tag/perl.html">perl</a><a href="http://xr09.github.io/tag/debmirror.html">debmirror</a><a href="http://xr09.github.io/tag/debian.html">debian</a><a href="http://xr09.github.io/tag/ubuntu.html">ubuntu</a></span>
-</footer><!-- /.post-info --><div class="section" id="to-sync-a-deb-repo">
+</footer><!-- /.post-info -->                <div class="section" id="to-sync-a-deb-repo">
 <h2>To sync a deb repo</h2>
 <p>So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.</p>
-<p>The advantage of apt-mirror is the ability to download a repo with multiple threads, if bandwith is not an issue then your downloads will fly, on the bad side you can't filter unwanted sections of a repo, it's all or nothing.</p>
-<p>Debmirror on the other side gives you the ability to filter by repo sections or even regular expressions, over the years I've tuned my filters and now Debian Wheezy fits on just ~12 GB, avoiding nearly 40 Gb of unused packages.</p>
-<p>On the bad side debmirror doesn't supports threads, but let's face it, the ability of pruning a repo is priceless, not only because of space but also bandwith, if your company maintains a local Debian/Ubuntu repo then having around 10 GB of games and 5 more on debug packages is pointless.</p>
-</div>
-<div class="section" id="pruning-method">
-<h2>Pruning method</h2>
-<p>Our pruning technique will be shared in a future post, but just to have an idea is nothing more than using the <em>--exclude</em> and <em>--exclude-deb-section</em> options from debmirror:</p>
-<div class="highlight"><pre><span></span>--exclude-deb-section<span class="o">=</span><span class="s1">&#39;(games|debug|news|electronics)&#39;</span>
---exclude<span class="o">=</span><span class="s1">&#39;/myspell-pt.*&#39;</span> <span class="se">\</span>
---exclude<span class="o">=</span><span class="s1">&#39;(/libhdf5-doc.*)&#39;</span> <span class="se">\</span>
-</pre></div>
-</div>
-<div class="section" id="current-status">
-<h2>Current status</h2>
-<p>This procedure is fairly easy on a recent distro, but let's assume we have CentOS 5.9 with Perl 5.8 and debmirror <em>20090807</em> and we want the latest debmirror which needs a recent Perl interpreter.</p>
-</div>
-<div class="section" id="attack-plan">
-<h2>Attack plan</h2>
-<p>Is not a good idea to start messing with the default Perl installation, the safest choice is installing a new version somewhere like <em>/opt/</em> and using it from there.</p>
-<p><a class="reference external" href="http://www.activestate.com/activeperl/downloads">ActivePerl</a> is a perfect choice for this case, just download and install on <em>/opt/ActivePerl/</em>.</p>
-<p>Now check the interpreter:</p>
-<div class="highlight"><pre><span></span>/opt/ActivePerl/bin/perl -v
-This is perl 5, version 16, subversion <span class="m">3</span> <span class="o">(</span>v5.16.3<span class="o">)</span> built <span class="k">for</span> i686-linux-thread-multi
-...
-</pre></div>
-<p>Perfect, now just drop in a recent <a class="reference external" href="http://ftp.de.debian.org/debian/pool/main/d/debmirror/debmirror_2.16.tar.gz">debmirror</a> script and change the <a class="reference external" href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29">shebang</a> to point to the new Perl.</p>
-<p>Like this:</p>
-<div class="highlight"><pre><span></span><span class="ch">#!/opt/ActivePerl-5.16/bin/perl -w</span>
-
-<span class="o">=</span>head1 NAME
-</pre></div>
-</div>
-<div class="section" id="perl-modules">
-<h2>Perl Modules</h2>
-<p>If you try to use this you'll get an error, debmirror needs a module not included in ActivePerl by default &quot;LockFile::Simple&quot;, easy fix, just have to <a class="reference external" href="http://www.activestate.com/blog/2010/10/how-install-cpan-modules-activeperl">install</a> it from CPAN.</p>
-<div class="highlight"><pre><span></span>/opt/ActivePerl/bin/cpan LockFile::Simple
-</pre></div>
-<p>Remember to export http_proxy in case you need it.</p>
-</div>
-<div class="section" id="sync-baby-sync">
-<h2>Sync Baby, Sync!</h2>
-<p>The rest is easy cake, now you have a recent debmirror with a brand new Perl interpreter running on top of the old crusty CentOS 5. Rejoice.</p>
-</div>
-<p><a href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html#disqus_thread">comments</a></p>                </article>
+<p>The advantage of apt-mirror is the ability to download a repo …</p></div>
+                <a class="readmore" href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html">read more</a>
+<p><a href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 1
 </p>
-            </aside><!-- /#featured -->
-            </ol><!-- /#posts-list -->
             </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="social">

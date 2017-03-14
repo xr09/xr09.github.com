@@ -3,7 +3,7 @@
 <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DevPad - Tags</title>
+        <title>DevPad - linux</title>
         <link rel="stylesheet" href="http://xr09.github.io/theme/css/main.css" />
         <link href="http://xr09.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="DevPad Atom Feed" />
 
@@ -25,31 +25,34 @@
                 </nav>
         </header><!-- /#banner -->
 
-<section id="content" class="body">
-    <h1>Tags for DevPad</h1>        <li><a href="http://xr09.github.io/tag/admin.html">admin</a> (2)</li>
-        <li><a href="http://xr09.github.io/tag/bash.html">bash</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/blog.html">blog</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/centos.html">centos</a> (2)</li>
-        <li><a href="http://xr09.github.io/tag/cron.html">cron</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/debian.html">debian</a> (3)</li>
-        <li><a href="http://xr09.github.io/tag/debmirror.html">debmirror</a> (2)</li>
-        <li><a href="http://xr09.github.io/tag/git.html">git</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/job.html">job</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/kernel.html">kernel</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/linux.html">linux</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/nginx.html">nginx</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/pelican.html">pelican</a> (3)</li>
-        <li><a href="http://xr09.github.io/tag/performance.html">performance</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/perl.html">perl</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/repo.html">repo</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/rolodex.html">rolodex</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/sed.html">sed</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/static.html">static</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/tuning.html">tuning</a> (1)</li>
-        <li><a href="http://xr09.github.io/tag/ubuntu.html">ubuntu</a> (2)</li>
-        <li><a href="http://xr09.github.io/tag/unix.html">unix</a> (3)</li>
-</section>
-
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://xr09.github.io/compiling-the-linux-kernel.html">Compiling The Linux Kernel</a></h1>
+<footer class="post-info">
+        <span>Tue 14 March 2017</span>
+<span>| tags: <a href="http://xr09.github.io/tag/linux.html">linux</a><a href="http://xr09.github.io/tag/kernel.html">kernel</a><a href="http://xr09.github.io/tag/debian.html">debian</a><a href="http://xr09.github.io/tag/ubuntu.html">ubuntu</a></span>
+</footer><!-- /.post-info --><div class="section" id="the-little-guide-on-how-to-compile-the-linux-kernel">
+<h2>The Little Guide on how to compile the Linux Kernel</h2>
+<p>This works for Debian/Ubuntu and other distros with minor tweaks.</p>
+<div class="highlight"><pre><span></span>apt install build-essential fakeroot libncurses5-dev
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.2.tar.xz
+tar xf linux-4.10.2.tar.xz
+<span class="nb">cd</span> linux-4.10.2/
+cp /boot/config-<span class="sb">`</span>uname -r<span class="sb">`</span> .config
+make olddefconfig
+make nconfig <span class="c1"># tweak any settings, modules, etc (safe to skip)</span>
+nice fakeroot make -j5 bindeb-pkg
+</pre></div>
+<p>After these steps you will have the kernel ready to install in a deb package.</p>
+<p>For other distros like Fedora/OpenSUSE it is pretty much the same, you just have to install the corresponding required packages with dnf/zypper and the final make target would be <cite>binrpm-pkg</cite>.</p>
+</div>
+<p><a href="http://xr09.github.io/compiling-the-linux-kernel.html#disqus_thread">comments</a></p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>

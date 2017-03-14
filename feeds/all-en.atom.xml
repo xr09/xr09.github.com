@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2017-02-09T11:12:00-05:00</updated><entry><title>Responsive At Last</title><link href="http://xr09.github.io/responsive-at-last.html" rel="alternate"></link><published>2017-02-09T11:12:00-05:00</published><updated>2017-02-09T11:12:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2017-02-09:/responsive-at-last.html</id><summary type="html">&lt;p&gt;Finally took the time and upgraded this blog with a responsive theme, this time with a variation of the default theme: &lt;a class="reference external" href="https://github.com/blueicefield/pelican-blueidea"&gt;BlueIdea&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/all-en.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2017-03-14T09:38:00-04:00</updated><entry><title>Compiling The Linux Kernel</title><link href="http://xr09.github.io/compiling-the-linux-kernel.html" rel="alternate"></link><published>2017-03-14T09:38:00-04:00</published><updated>2017-03-14T09:38:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2017-03-14:/compiling-the-linux-kernel.html</id><summary type="html">&lt;div class="section" id="the-little-guide-on-how-to-compile-the-linux-kernel"&gt;
+&lt;h2&gt;The Little Guide on how to compile the Linux Kernel&lt;/h2&gt;
+&lt;p&gt;This works for Debian/Ubuntu and other distros with minor tweaks.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt install build-essential fakeroot libncurses5-dev
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.2.tar …&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="the-little-guide-on-how-to-compile-the-linux-kernel"&gt;
+&lt;h2&gt;The Little Guide on how to compile the Linux Kernel&lt;/h2&gt;
+&lt;p&gt;This works for Debian/Ubuntu and other distros with minor tweaks.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt install build-essential fakeroot libncurses5-dev
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.2.tar.xz
+tar xf linux-4.10.2.tar.xz
+&lt;span class="nb"&gt;cd&lt;/span&gt; linux-4.10.2/
+cp /boot/config-&lt;span class="sb"&gt;`&lt;/span&gt;uname -r&lt;span class="sb"&gt;`&lt;/span&gt; .config
+make olddefconfig
+make nconfig &lt;span class="c1"&gt;# tweak any settings, modules, etc (safe to skip)&lt;/span&gt;
+nice fakeroot make -j5 bindeb-pkg
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After these steps you will have the kernel ready to install in a deb package.&lt;/p&gt;
+&lt;p&gt;For other distros like Fedora/OpenSUSE it is pretty much the same, you just have to install the corresponding required packages with dnf/zypper and the final make target would be &lt;cite&gt;binrpm-pkg&lt;/cite&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="linux"></category><category term="kernel"></category><category term="debian"></category><category term="ubuntu"></category></entry><entry><title>Responsive At Last</title><link href="http://xr09.github.io/responsive-at-last.html" rel="alternate"></link><published>2017-02-09T11:12:00-05:00</published><updated>2017-02-09T11:12:00-05:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2017-02-09:/responsive-at-last.html</id><summary type="html">&lt;p&gt;Finally took the time and upgraded this blog with a responsive theme, this time with a variation of the default theme: &lt;a class="reference external" href="https://github.com/blueicefield/pelican-blueidea"&gt;BlueIdea&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I like a lot how it looks on mobile: clean and simple, lately so many themes out there …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Finally took the time and upgraded this blog with a responsive theme, this time with a variation of the default theme: &lt;a class="reference external" href="https://github.com/blueicefield/pelican-blueidea"&gt;BlueIdea&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I like a lot how it looks on mobile: clean and simple, lately so many themes out there look like a CSS Framework showcase.&lt;/p&gt;
 &lt;p&gt;Few changes are being made to the theme, expect some turbulence. :)&lt;/p&gt;

@@ -27,18 +27,46 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://xr09.github.io/responsive-at-last.html">Responsive At Last</a></h1>
+                    <h1 class="entry-title"><a href="http://xr09.github.io/compiling-the-linux-kernel.html">Compiling The Linux Kernel</a></h1>
 <footer class="post-info">
-        <span>Thu 09 February 2017</span>
-<span>| tags: <a href="http://xr09.github.io/tag/pelican.html">pelican</a></span>
-</footer><!-- /.post-info --><p>Finally took the time and upgraded this blog with a responsive theme, this time with a variation of the default theme: <a class="reference external" href="https://github.com/blueicefield/pelican-blueidea">BlueIdea</a>.</p>
-<p>I like a lot how it looks on mobile: clean and simple, lately so many themes out there look like a CSS Framework showcase.</p>
-<p>Few changes are being made to the theme, expect some turbulence. :)</p>
-<p><a href="http://xr09.github.io/responsive-at-last.html#disqus_thread">comments</a></p>                </article>
+        <span>Tue 14 March 2017</span>
+<span>| tags: <a href="http://xr09.github.io/tag/linux.html">linux</a><a href="http://xr09.github.io/tag/kernel.html">kernel</a><a href="http://xr09.github.io/tag/debian.html">debian</a><a href="http://xr09.github.io/tag/ubuntu.html">ubuntu</a></span>
+</footer><!-- /.post-info --><div class="section" id="the-little-guide-on-how-to-compile-the-linux-kernel">
+<h2>The Little Guide on how to compile the Linux Kernel</h2>
+<p>This works for Debian/Ubuntu and other distros with minor tweaks.</p>
+<div class="highlight"><pre><span></span>apt install build-essential fakeroot libncurses5-dev
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.2.tar.xz
+tar xf linux-4.10.2.tar.xz
+<span class="nb">cd</span> linux-4.10.2/
+cp /boot/config-<span class="sb">`</span>uname -r<span class="sb">`</span> .config
+make olddefconfig
+make nconfig <span class="c1"># tweak any settings, modules, etc (safe to skip)</span>
+nice fakeroot make -j5 bindeb-pkg
+</pre></div>
+<p>After these steps you will have the kernel ready to install in a deb package.</p>
+<p>For other distros like Fedora/OpenSUSE it is pretty much the same, you just have to install the corresponding required packages with dnf/zypper and the final make target would be <cite>binrpm-pkg</cite>.</p>
+</div>
+<p><a href="http://xr09.github.io/compiling-the-linux-kernel.html#disqus_thread">comments</a></p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://xr09.github.io/responsive-at-last.html" rel="bookmark"
+                           title="Permalink to Responsive At Last">Responsive At Last</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Thu 09 February 2017</span>
+<span>| tags: <a href="http://xr09.github.io/tag/pelican.html">pelican</a></span>
+</footer><!-- /.post-info -->                <p>Finally took the time and upgraded this blog with a responsive theme, this time with a variation of the default theme: <a class="reference external" href="https://github.com/blueicefield/pelican-blueidea">BlueIdea</a>.</p>
+<p>I like a lot how it looks on mobile: clean and simple, lately so many themes out there …</p>
+                <a class="readmore" href="http://xr09.github.io/responsive-at-last.html">read more</a>
+<p><a href="http://xr09.github.io/responsive-at-last.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -103,24 +131,6 @@
 </footer><!-- /.post-info -->                <p>Usually a Debian software repository is around 50 GB, it contains lots of software, documentation and debug packages, unless you are providing services to a wide range of clients then is likely you only need a fraction of those packages …</p>
                 <a class="readmore" href="http://xr09.github.io/debian-repo-minimal-edition.html">read more</a>
 <p><a href="http://xr09.github.io/debian-repo-minimal-edition.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html" rel="bookmark"
-                           title="Permalink to Running The Latest Debmirror On CentOS 5">Running The Latest Debmirror On CentOS 5</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Wed 30 April 2014</span>
-<span>| tags: <a href="http://xr09.github.io/tag/centos.html">centos</a><a href="http://xr09.github.io/tag/perl.html">perl</a><a href="http://xr09.github.io/tag/debmirror.html">debmirror</a><a href="http://xr09.github.io/tag/debian.html">debian</a><a href="http://xr09.github.io/tag/ubuntu.html">ubuntu</a></span>
-</footer><!-- /.post-info -->                <div class="section" id="to-sync-a-deb-repo">
-<h2>To sync a deb repo</h2>
-<p>So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.</p>
-<p>The advantage of apt-mirror is the ability to download a repo …</p></div>
-                <a class="readmore" href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html">read more</a>
-<p><a href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
