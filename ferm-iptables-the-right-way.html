@@ -51,7 +51,7 @@ $ yum install ferm          <span class="c1"># Fedora/CentOS</span>
 </pre></div>
 <p>On Debian the ferm package also provides a service (something like iptables-persistent), this makes possible to have the rules written only with ferm syntax, they will be parsed each time the ferm service is started.</p>
 <p>Some simple rules to get you interested:</p>
-<div class="highlight"><pre><span></span>@def <span class="nv">$TRUSTED</span> <span class="o">=</span> <span class="o">(</span>10.0.3.5 10.0.5.0/24 10.0.3.8<span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><span></span>@def <span class="nv">$TRUSTED</span> <span class="o">=</span> <span class="o">(</span><span class="m">10</span>.0.3.5 <span class="m">10</span>.0.5.0/24 <span class="m">10</span>.0.3.8<span class="o">)</span><span class="p">;</span>
 
 table filter <span class="o">{</span>
 chain INPUT <span class="o">{</span>
@@ -81,19 +81,6 @@ chain FORWARD policy DROP<span class="p">;</span>
 </pre></div>
 
     </div><!-- /.entry-content -->
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_identifier = "ferm-iptables-the-right-way.html";
-        var disqus_url = "http://xr09.github.io/ferm-iptables-the-right-way.html";
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//devpad.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-    </div>
 
   </article>
 </section>
@@ -124,15 +111,6 @@ chain FORWARD policy DROP<span class="p">;</span>
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
     </script>
-<script type="text/javascript">
-    var disqus_shortname = 'devpad';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
     <script type="text/javascript">
         var user = "mgp.xr09",
         domain = "gmail.com",

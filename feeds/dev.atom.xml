@@ -53,7 +53,7 @@ $ yum install ferm          &lt;span class="c1"&gt;# Fedora/CentOS&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;On Debian the ferm package also provides a service (something like iptables-persistent), this makes possible to have the rules written only with ferm syntax, they will be parsed each time the ferm service is started.&lt;/p&gt;
 &lt;p&gt;Some simple rules to get you interested:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;@def &lt;span class="nv"&gt;$TRUSTED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;10.0.3.5 10.0.5.0/24 10.0.3.8&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;@def &lt;span class="nv"&gt;$TRUSTED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;.0.3.5 &lt;span class="m"&gt;10&lt;/span&gt;.0.5.0/24 &lt;span class="m"&gt;10&lt;/span&gt;.0.3.8&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
 table filter &lt;span class="o"&gt;{&lt;/span&gt;
 chain INPUT &lt;span class="o"&gt;{&lt;/span&gt;
@@ -108,7 +108,7 @@ chain FORWARD policy DROP&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;p&gt;That's fancy requirements, the regular implementation of cron on most distros can't do it, but there's an easy fix.&lt;/p&gt;
 &lt;p&gt;By taking advantage of the fact that what cron actually executes is a bash command we can hack its behavior a little. You can check for the desired date with bash and execute the desired command according to the obtained result.&lt;/p&gt;
 &lt;p&gt;Check this for running a task only the first saturday of the month.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; 1-7 * * root &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date &lt;span class="s1"&gt;&amp;#39;+\%a&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sat&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/myfirstsaturdaybackup.sh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="m"&gt;6&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;-7 * * root &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;date &lt;span class="s1"&gt;&amp;#39;+\%a&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sat&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; /root/myfirstsaturdaybackup.sh
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The cron will run from day 1 to 7, but the script is executed only when the &lt;em&gt;[date]&lt;/em&gt; check is true i.e. the only saturday between day 1 and 7.&lt;/p&gt;
 &lt;p&gt;This looks like a good ad-hoc solution but I wanted something less error prone and easier to use.&lt;/p&gt;
@@ -178,11 +178,11 @@ number&lt;span class="o"&gt;(){&lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;So the workflow for using this rolodex would be:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ addnumber moss the nerd 45645456
-$ addnumber jennifer public relations 98989898
-$ addnumber roy the mad irish 12121212
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ addnumber moss the nerd &lt;span class="m"&gt;45645456&lt;/span&gt;
+$ addnumber jennifer public relations &lt;span class="m"&gt;98989898&lt;/span&gt;
+$ addnumber roy the mad irish &lt;span class="m"&gt;12121212&lt;/span&gt;
 $ number jen
-$ jennifer public relations 98989898
+$ jennifer public relations &lt;span class="m"&gt;98989898&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Maybe you want to mess with the contacts, fix bad info, remove some old entry, etc..
 in that case, fire up your editor and go nuts changing everything, is just a

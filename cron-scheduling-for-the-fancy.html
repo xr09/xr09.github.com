@@ -44,7 +44,7 @@
 <p>That's fancy requirements, the regular implementation of cron on most distros can't do it, but there's an easy fix.</p>
 <p>By taking advantage of the fact that what cron actually executes is a bash command we can hack its behavior a little. You can check for the desired date with bash and execute the desired command according to the obtained result.</p>
 <p>Check this for running a task only the first saturday of the month.</p>
-<div class="highlight"><pre><span></span><span class="m">30</span> <span class="m">6</span> 1-7 * * root <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>date <span class="s1">&#39;+\%a&#39;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Sat&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> /root/myfirstsaturdaybackup.sh
+<div class="highlight"><pre><span></span><span class="m">30</span> <span class="m">6</span> <span class="m">1</span>-7 * * root <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>date <span class="s1">&#39;+\%a&#39;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Sat&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> /root/myfirstsaturdaybackup.sh
 </pre></div>
 <p>The cron will run from day 1 to 7, but the script is executed only when the <em>[date]</em> check is true i.e. the only saturday between day 1 and 7.</p>
 <p>This looks like a good ad-hoc solution but I wanted something less error prone and easier to use.</p>
@@ -61,19 +61,6 @@
 <p>Please read the <a class="reference external" href="https://github.com/xr09/cron-last-sunday/blob/master/run-if-today">code</a> if you want to see how it works, it's pretty short and simple. I even put a bad joke or two.</p>
 
     </div><!-- /.entry-content -->
-    <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_identifier = "cron-scheduling-for-the-fancy.html";
-        var disqus_url = "http://xr09.github.io/cron-scheduling-for-the-fancy.html";
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//devpad.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-    </div>
 
   </article>
 </section>
@@ -104,15 +91,6 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
     </script>
-<script type="text/javascript">
-    var disqus_shortname = 'devpad';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
     <script type="text/javascript">
         var user = "mgp.xr09",
         domain = "gmail.com",

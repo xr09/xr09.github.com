@@ -27,7 +27,7 @@
 &lt;p&gt;&lt;a class="reference external" href="http://www.activestate.com/activeperl/downloads"&gt;ActivePerl&lt;/a&gt; is a perfect choice for this case, just download and install on &lt;em&gt;/opt/ActivePerl/&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Now check the interpreter:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/opt/ActivePerl/bin/perl -v
-This is perl 5, version 16, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;v5.16.3&lt;span class="o"&gt;)&lt;/span&gt; built &lt;span class="k"&gt;for&lt;/span&gt; i686-linux-thread-multi
+This is perl &lt;span class="m"&gt;5&lt;/span&gt;, version &lt;span class="m"&gt;16&lt;/span&gt;, subversion &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;v5.16.3&lt;span class="o"&gt;)&lt;/span&gt; built &lt;span class="k"&gt;for&lt;/span&gt; i686-linux-thread-multi
 ...
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Perfect, now just drop in a recent &lt;a class="reference external" href="http://ftp.de.debian.org/debian/pool/main/d/debmirror/debmirror_2.16.tar.gz"&gt;debmirror&lt;/a&gt; script and change the &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Shebang_%28Unix%29"&gt;shebang&lt;/a&gt; to point to the new Perl.&lt;/p&gt;
@@ -80,8 +80,8 @@ chkconfig --list cups
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If by any chance an important service was set up to run on level 5 and not on 3 then my friend you are going to have a bad day.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;root@server123 ~&lt;span class="o"&gt;]&lt;/span&gt;  chkconfig --list &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;3:off&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep &lt;span class="s2"&gt;&amp;quot;5:on&amp;quot;&lt;/span&gt;
-named           0:off   1:off   2:off   3:off   4:off   5:on    6:off
-readahead_later 0:off   1:off   2:off   3:off   4:off   5:on    6:off
+named           &lt;span class="m"&gt;0&lt;/span&gt;:off   &lt;span class="m"&gt;1&lt;/span&gt;:off   &lt;span class="m"&gt;2&lt;/span&gt;:off   &lt;span class="m"&gt;3&lt;/span&gt;:off   &lt;span class="m"&gt;4&lt;/span&gt;:off   &lt;span class="m"&gt;5&lt;/span&gt;:on    &lt;span class="m"&gt;6&lt;/span&gt;:off
+readahead_later &lt;span class="m"&gt;0&lt;/span&gt;:off   &lt;span class="m"&gt;1&lt;/span&gt;:off   &lt;span class="m"&gt;2&lt;/span&gt;:off   &lt;span class="m"&gt;3&lt;/span&gt;:off   &lt;span class="m"&gt;4&lt;/span&gt;:off   &lt;span class="m"&gt;5&lt;/span&gt;:on    &lt;span class="m"&gt;6&lt;/span&gt;:off
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In the example above &lt;em&gt;named&lt;/em&gt; and &lt;em&gt;readahead_later&lt;/em&gt; are set up to run on runlevel 5 (multiuser with graphics) but not 3 (multiuser), let's fix it.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig named on
