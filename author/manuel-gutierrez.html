@@ -32,30 +32,101 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://xr09.github.io/compiling-the-linux-kernel.html">Compiling The Linux Kernel</a></h1>
+                    <h1 class="entry-title"><a href="http://xr09.github.io/gitea-as-personal-git-ui.html">Gitea As Personal Git Ui</a></h1>
 <footer class="post-info">
-        <span>Tue 14 March 2017</span>
-<span>| tags: <a href="http://xr09.github.io/tag/linux.html">linux</a><a href="http://xr09.github.io/tag/kernel.html">kernel</a><a href="http://xr09.github.io/tag/debian.html">debian</a><a href="http://xr09.github.io/tag/ubuntu.html">ubuntu</a></span>
-</footer><!-- /.post-info --><div class="section" id="the-little-guide-on-how-to-compile-the-linux-kernel">
-<h2>The Little Guide on how to compile the Linux Kernel</h2>
-<p>This works for Debian/Ubuntu and other distros with minor tweaks.</p>
-<div class="highlight"><pre><span></span>apt install build-essential fakeroot libncurses5-dev
-wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.2.tar.xz
-tar xf linux-4.10.2.tar.xz
-<span class="nb">cd</span> linux-4.10.2/
-cp /boot/config-<span class="sb">`</span>uname -r<span class="sb">`</span> .config
-make olddefconfig
-make nconfig <span class="c1"># tweak any settings, modules, etc (safe to skip)</span>
-nice fakeroot make -j5 bindeb-pkg
+        <span>Tue 21 March 2017</span>
+<span>| tags: <a href="http://xr09.github.io/tag/git.html">git</a><a href="http://xr09.github.io/tag/ideas.html">ideas</a></span>
+</footer><!-- /.post-info --><p>At work we've been running <a class="reference external" href="https://about.gitlab.com/">Gitlab</a> CE for the last 3 years and everyone is thrilled, amazing features, great user experience, and it gets better with every new release. Totally recommend Gitlab for heavy enterprise self-hosted Git. (and their <a class="reference external" href="https://packages.gitlab.com/gitlab/gitlab-ce/">Omnibus</a> Package is a breeze to get it up and running)</p>
+<p>But recently they launched <a class="reference external" href="https://gitea.io/">Gitea</a> (a patch friendly <a class="reference external" href="https://gogs.io/">Gogs</a> fork), written in Go (really fast, low on resources), very nice UI. With Gitlab covering all your needs... what is Gitea good for?</p>
+<p>Since Internet (or company network) is not always at my reach, I have one strong use case for a small personal Git service, with a beautiful git history empowered with issues, labels, milestones, all the good stuff. This is 2017, tracking issues and features with <em>TODO.txt</em> is no fun.</p>
+<p>I'm now running Gitea on my laptop, it goes with me everywhere. No connection at home? It's okay, carry on. On vacations far away without any connectivity? It's okay, keep coding. Shipwreck on a desert island? It's okay, just fix the bug and eat bananas.</p>
+<p>I hope the devs keep it small and light, there's no competition in this niche and they're doing an amazing job.</p>
+<p>There are <a class="reference external" href="https://github.com/go-gitea/gitea/blob/master/conf/app.ini">several</a> <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-gogs-on-ubuntu-14-04">tutorials</a> about <a class="reference external" href="https://docs.gitea.io/en-us/install-from-binary/">installing</a> Gitea, mix these with a local alias on <strong>/etc/hosts</strong> and you're good to go. I'm using <strong>git.local</strong> as my personal URL, so my git remotes look like <strong>https://git.local:3000/xr09/project.git</strong>.</p>
+<p>This is my <strong>app.ini</strong>, you can use to tweak your own Gitea.</p>
+<div class="section" id="app-ini">
+<h2>app.ini</h2>
+<div class="highlight"><pre><span></span><span class="nv">APP_NAME</span> <span class="o">=</span> Local Git
+<span class="nv">RUN_USER</span> <span class="o">=</span> your.user
+<span class="nv">RUN_MODE</span> <span class="o">=</span> prod
+
+<span class="o">[</span>database<span class="o">]</span>
+<span class="nv">DB_TYPE</span>  <span class="o">=</span> sqlite3
+<span class="nv">HOST</span>     <span class="o">=</span>
+<span class="nv">NAME</span>     <span class="o">=</span>
+<span class="nv">USER</span>     <span class="o">=</span>
+<span class="nv">PASSWD</span>   <span class="o">=</span>
+<span class="nv">SSL_MODE</span> <span class="o">=</span> disable
+<span class="nv">PATH</span>     <span class="o">=</span> data/gitea.db
+
+<span class="o">[</span>repository<span class="o">]</span>
+<span class="nv">ROOT</span> <span class="o">=</span> data/repos
+
+<span class="o">[</span>server<span class="o">]</span>
+<span class="nv">PROTOCOL</span>     <span class="o">=</span> https
+<span class="nv">DOMAIN</span>       <span class="o">=</span> git.local
+<span class="nv">ROOT_URL</span>     <span class="o">=</span> https://git.local:3000/
+<span class="nv">HTTP_ADDR</span>    <span class="o">=</span> <span class="m">127</span>.0.0.1
+<span class="nv">HTTP_PORT</span>    <span class="o">=</span> <span class="m">3000</span>
+<span class="nv">DISABLE_SSH</span>  <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">OFFLINE_MODE</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">LANDING_PAGE</span> <span class="o">=</span> explore
+<span class="nv">ENABLE_GZIP</span>  <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">CERT_FILE</span>    <span class="o">=</span> cert.pem
+<span class="nv">KEY_FILE</span>     <span class="o">=</span> key.pem
+
+<span class="o">[</span>mailer<span class="o">]</span>
+<span class="nv">ENABLED</span> <span class="o">=</span> <span class="nb">false</span>
+
+<span class="o">[</span>cache<span class="o">]</span>
+<span class="nv">ADAPTER</span> <span class="o">=</span> memory
+<span class="nv">INTERVAL</span> <span class="o">=</span> <span class="m">300</span>
+
+<span class="o">[</span>service<span class="o">]</span>
+<span class="nv">REGISTER_EMAIL_CONFIRM</span> <span class="o">=</span> <span class="nb">false</span>
+<span class="nv">ENABLE_NOTIFY_MAIL</span>     <span class="o">=</span> <span class="nb">false</span>
+<span class="nv">DISABLE_REGISTRATION</span>   <span class="o">=</span> <span class="nb">false</span>
+<span class="nv">ENABLE_CAPTCHA</span>         <span class="o">=</span> <span class="nb">false</span>
+<span class="nv">REQUIRE_SIGNIN_VIEW</span>    <span class="o">=</span> <span class="nb">false</span>
+
+<span class="o">[</span>picture<span class="o">]</span>
+<span class="nv">DISABLE_GRAVATAR</span>        <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">ENABLE_FEDERATED_AVATAR</span> <span class="o">=</span> <span class="nb">false</span>
+
+<span class="o">[</span>attachment<span class="o">]</span>
+<span class="nv">ENABLED</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">ALLOWED_TYPES</span> <span class="o">=</span> image/jpeg<span class="p">|</span>image/png
+<span class="nv">MAX_SIZE</span> <span class="o">=</span> <span class="m">4</span>
+<span class="nv">MAX_FILES</span> <span class="o">=</span> <span class="m">3</span>
+
+<span class="o">[</span>session<span class="o">]</span>
+<span class="nv">PROVIDER</span> <span class="o">=</span> file
+<span class="nv">COOKIE_SECURE</span> <span class="o">=</span> yes
 </pre></div>
-<p>After these steps you will have the kernel ready to install in a deb package.</p>
-<p>For other distros like Fedora/OpenSUSE it is pretty much the same, you just have to install the corresponding required packages with dnf/zypper and the final make target would be <cite>binrpm-pkg</cite>.</p>
 </div>
-                </article>
+<p><a href="http://xr09.github.io/gitea-as-personal-git-ui.html#disqus_thread">comments</a></p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
                     <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://xr09.github.io/compiling-the-linux-kernel.html" rel="bookmark"
+                           title="Permalink to Compiling The Linux Kernel">Compiling The Linux Kernel</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Tue 14 March 2017</span>
+<span>| tags: <a href="http://xr09.github.io/tag/linux.html">linux</a><a href="http://xr09.github.io/tag/kernel.html">kernel</a><a href="http://xr09.github.io/tag/debian.html">debian</a><a href="http://xr09.github.io/tag/ubuntu.html">ubuntu</a></span>
+</footer><!-- /.post-info -->                <div class="section" id="the-little-guide-on-how-to-compile-the-linux-kernel">
+<h2>The Little Guide on how to compile the Linux Kernel</h2>
+<p>This works for Debian/Ubuntu and other distros with minor tweaks.</p>
+<div class="highlight"><pre><span></span>apt install build-essential fakeroot libncurses5-dev
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.10.2.tar …</pre></div></div>
+                <a class="readmore" href="http://xr09.github.io/compiling-the-linux-kernel.html">read more</a>
+<p><a href="http://xr09.github.io/compiling-the-linux-kernel.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -70,7 +141,7 @@ nice fakeroot make -j5 bindeb-pkg
 </footer><!-- /.post-info -->                <p>Finally took the time and upgraded this blog with a responsive theme, this time with a variation of the default theme: <a class="reference external" href="https://github.com/blueicefield/pelican-blueidea">BlueIdea</a>.</p>
 <p>I like a lot how it looks on mobile: clean and simple, lately so many themes out there …</p>
                 <a class="readmore" href="http://xr09.github.io/responsive-at-last.html">read more</a>
-                </div><!-- /.entry-content -->
+<p><a href="http://xr09.github.io/responsive-at-last.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
@@ -87,7 +158,7 @@ nice fakeroot make -j5 bindeb-pkg
 <img alt="Proffesor Farnsworth: &quot;I don wan't to live on this planet anymore&quot;" class="align-center" src="../images/proffesor.jpg" />
 <p>On the other side smart solutions are golden, require …</p>
                 <a class="readmore" href="http://xr09.github.io/use-smart-solutions.html">read more</a>
-                </div><!-- /.entry-content -->
+<p><a href="http://xr09.github.io/use-smart-solutions.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
@@ -104,7 +175,7 @@ nice fakeroot make -j5 bindeb-pkg
 <p>I've played a lot with some new technologies, dug deeper with some of the old ones.</p>
 <p>Below you can read a summary of some of the best stuff …</p>
                 <a class="readmore" href="http://xr09.github.io/2015.html">read more</a>
-                </div><!-- /.entry-content -->
+<p><a href="http://xr09.github.io/2015.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
@@ -120,7 +191,7 @@ nice fakeroot make -j5 bindeb-pkg
 </footer><!-- /.post-info -->                <p>This is a small post but totally worth it. Just wanted to point out I've finally found the ultimate meta language for managing iptables: <a class="reference external" href="http://ferm.foo-projects.org/">ferm</a>.</p>
 <p>To keep this brief let's say Ferm is to IPtables as C is to ASM …</p>
                 <a class="readmore" href="http://xr09.github.io/ferm-iptables-the-right-way.html">read more</a>
-                </div><!-- /.entry-content -->
+<p><a href="http://xr09.github.io/ferm-iptables-the-right-way.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
@@ -135,7 +206,7 @@ nice fakeroot make -j5 bindeb-pkg
 <span>| tags: <a href="http://xr09.github.io/tag/debian.html">debian</a><a href="http://xr09.github.io/tag/debmirror.html">debmirror</a><a href="http://xr09.github.io/tag/repo.html">repo</a></span>
 </footer><!-- /.post-info -->                <p>Usually a Debian software repository is around 50 GB, it contains lots of software, documentation and debug packages, unless you are providing services to a wide range of clients then is likely you only need a fraction of those packages …</p>
                 <a class="readmore" href="http://xr09.github.io/debian-repo-minimal-edition.html">read more</a>
-                </div><!-- /.entry-content -->
+<p><a href="http://xr09.github.io/debian-repo-minimal-edition.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
@@ -153,28 +224,11 @@ nice fakeroot make -j5 bindeb-pkg
 <p>So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.</p>
 <p>The advantage of apt-mirror is the ability to download a repo …</p></div>
                 <a class="readmore" href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://xr09.github.io/stripping-down-centos.html" rel="bookmark"
-                           title="Permalink to Stripping Down Centos">Stripping Down Centos</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Wed 16 April 2014</span>
-<span>| tags: <a href="http://xr09.github.io/tag/centos.html">centos</a><a href="http://xr09.github.io/tag/performance.html">performance</a><a href="http://xr09.github.io/tag/tuning.html">tuning</a></span>
-</footer><!-- /.post-info -->                <div class="section" id="why-strip">
-<h2>Why Strip?</h2>
-<p>If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling …</p></div>
-                <a class="readmore" href="http://xr09.github.io/stripping-down-centos.html">read more</a>
-                </div><!-- /.entry-content -->
+<p><a href="http://xr09.github.io/running-the-latest-debmirror-on-centos-5.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 2
+    Page 1 / 3
         <a href="http://xr09.github.io/author/manuel-gutierrez2.html">&raquo;</a>
 </p>
             </section><!-- /#content -->
@@ -205,6 +259,15 @@ nice fakeroot make -j5 bindeb-pkg
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
     </script>
+<script type="text/javascript">
+    var disqus_shortname = 'devpad';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
     <script type="text/javascript">
         var user = "mgp.xr09",
         domain = "gmail.com",

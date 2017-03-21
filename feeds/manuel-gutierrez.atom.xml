@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad - Manuel Gutierrez</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/manuel-gutierrez.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2017-03-14T09:38:00-04:00</updated><entry><title>Compiling The Linux Kernel</title><link href="http://xr09.github.io/compiling-the-linux-kernel.html" rel="alternate"></link><published>2017-03-14T09:38:00-04:00</published><updated>2017-03-14T09:38:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2017-03-14:/compiling-the-linux-kernel.html</id><summary type="html">&lt;div class="section" id="the-little-guide-on-how-to-compile-the-linux-kernel"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad - Manuel Gutierrez</title><link href="http://xr09.github.io/" rel="alternate"></link><link href="http://xr09.github.io/feeds/manuel-gutierrez.atom.xml" rel="self"></link><id>http://xr09.github.io/</id><updated>2017-03-21T11:42:00-04:00</updated><entry><title>Gitea As Personal Git Ui</title><link href="http://xr09.github.io/gitea-as-personal-git-ui.html" rel="alternate"></link><published>2017-03-21T11:42:00-04:00</published><updated>2017-03-21T11:42:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2017-03-21:/gitea-as-personal-git-ui.html</id><summary type="html">&lt;p&gt;At work we've been running &lt;a class="reference external" href="https://about.gitlab.com/"&gt;Gitlab&lt;/a&gt; CE for the last 3 years and everyone is thrilled, amazing features, great user experience, and it gets better with every new release. Totally recommend Gitlab for heavy enterprise self-hosted Git. (and their &lt;a class="reference external" href="https://packages.gitlab.com/gitlab/gitlab-ce/"&gt;Omnibus …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;At work we've been running &lt;a class="reference external" href="https://about.gitlab.com/"&gt;Gitlab&lt;/a&gt; CE for the last 3 years and everyone is thrilled, amazing features, great user experience, and it gets better with every new release. Totally recommend Gitlab for heavy enterprise self-hosted Git. (and their &lt;a class="reference external" href="https://packages.gitlab.com/gitlab/gitlab-ce/"&gt;Omnibus&lt;/a&gt; Package is a breeze to get it up and running)&lt;/p&gt;
+&lt;p&gt;But recently they launched &lt;a class="reference external" href="https://gitea.io/"&gt;Gitea&lt;/a&gt; (a patch friendly &lt;a class="reference external" href="https://gogs.io/"&gt;Gogs&lt;/a&gt; fork), written in Go (really fast, low on resources), very nice UI. With Gitlab covering all your needs... what is Gitea good for?&lt;/p&gt;
+&lt;p&gt;Since Internet (or company network) is not always at my reach, I have one strong use case for a small personal Git service, with a beautiful git history empowered with issues, labels, milestones, all the good stuff. This is 2017, tracking issues and features with &lt;em&gt;TODO.txt&lt;/em&gt; is no fun.&lt;/p&gt;
+&lt;p&gt;I'm now running Gitea on my laptop, it goes with me everywhere. No connection at home? It's okay, carry on. On vacations far away without any connectivity? It's okay, keep coding. Shipwreck on a desert island? It's okay, just fix the bug and eat bananas.&lt;/p&gt;
+&lt;p&gt;I hope the devs keep it small and light, there's no competition in this niche and they're doing an amazing job.&lt;/p&gt;
+&lt;p&gt;There are &lt;a class="reference external" href="https://github.com/go-gitea/gitea/blob/master/conf/app.ini"&gt;several&lt;/a&gt; &lt;a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-gogs-on-ubuntu-14-04"&gt;tutorials&lt;/a&gt; about &lt;a class="reference external" href="https://docs.gitea.io/en-us/install-from-binary/"&gt;installing&lt;/a&gt; Gitea, mix these with a local alias on &lt;strong&gt;/etc/hosts&lt;/strong&gt; and you're good to go. I'm using &lt;strong&gt;git.local&lt;/strong&gt; as my personal URL, so my git remotes look like &lt;strong&gt;https://git.local:3000/xr09/project.git&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This is my &lt;strong&gt;app.ini&lt;/strong&gt;, you can use to tweak your own Gitea.&lt;/p&gt;
+&lt;div class="section" id="app-ini"&gt;
+&lt;h2&gt;app.ini&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;APP_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Local Git
+&lt;span class="nv"&gt;RUN_USER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; your.user
+&lt;span class="nv"&gt;RUN_MODE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; prod
+
+&lt;span class="o"&gt;[&lt;/span&gt;database&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;DB_TYPE&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; sqlite3
+&lt;span class="nv"&gt;HOST&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt;
+&lt;span class="nv"&gt;NAME&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt;
+&lt;span class="nv"&gt;USER&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt;
+&lt;span class="nv"&gt;PASSWD&lt;/span&gt;   &lt;span class="o"&gt;=&lt;/span&gt;
+&lt;span class="nv"&gt;SSL_MODE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; disable
+&lt;span class="nv"&gt;PATH&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; data/gitea.db
+
+&lt;span class="o"&gt;[&lt;/span&gt;repository&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;ROOT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; data/repos
+
+&lt;span class="o"&gt;[&lt;/span&gt;server&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;PROTOCOL&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; https
+&lt;span class="nv"&gt;DOMAIN&lt;/span&gt;       &lt;span class="o"&gt;=&lt;/span&gt; git.local
+&lt;span class="nv"&gt;ROOT_URL&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; https://git.local:3000/
+&lt;span class="nv"&gt;HTTP_ADDR&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;127&lt;/span&gt;.0.0.1
+&lt;span class="nv"&gt;HTTP_PORT&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;3000&lt;/span&gt;
+&lt;span class="nv"&gt;DISABLE_SSH&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;span class="nv"&gt;OFFLINE_MODE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;span class="nv"&gt;LANDING_PAGE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; explore
+&lt;span class="nv"&gt;ENABLE_GZIP&lt;/span&gt;  &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;span class="nv"&gt;CERT_FILE&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; cert.pem
+&lt;span class="nv"&gt;KEY_FILE&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; key.pem
+
+&lt;span class="o"&gt;[&lt;/span&gt;mailer&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;ENABLED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;cache&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;ADAPTER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; memory
+&lt;span class="nv"&gt;INTERVAL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;300&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;service&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;REGISTER_EMAIL_CONFIRM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;span class="nv"&gt;ENABLE_NOTIFY_MAIL&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;span class="nv"&gt;DISABLE_REGISTRATION&lt;/span&gt;   &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;span class="nv"&gt;ENABLE_CAPTCHA&lt;/span&gt;         &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;span class="nv"&gt;REQUIRE_SIGNIN_VIEW&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;picture&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;DISABLE_GRAVATAR&lt;/span&gt;        &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;span class="nv"&gt;ENABLE_FEDERATED_AVATAR&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;attachment&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;ENABLED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;span class="nv"&gt;ALLOWED_TYPES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; image/jpeg&lt;span class="p"&gt;|&lt;/span&gt;image/png
+&lt;span class="nv"&gt;MAX_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt;
+&lt;span class="nv"&gt;MAX_FILES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;
+
+&lt;span class="o"&gt;[&lt;/span&gt;session&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nv"&gt;PROVIDER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; file
+&lt;span class="nv"&gt;COOKIE_SECURE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; yes
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="git"></category><category term="ideas"></category></entry><entry><title>Compiling The Linux Kernel</title><link href="http://xr09.github.io/compiling-the-linux-kernel.html" rel="alternate"></link><published>2017-03-14T09:38:00-04:00</published><updated>2017-03-14T09:38:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2017-03-14:/compiling-the-linux-kernel.html</id><summary type="html">&lt;div class="section" id="the-little-guide-on-how-to-compile-the-linux-kernel"&gt;
 &lt;h2&gt;The Little Guide on how to compile the Linux Kernel&lt;/h2&gt;
 &lt;p&gt;This works for Debian/Ubuntu and other distros with minor tweaks.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apt install build-essential fakeroot libncurses5-dev
