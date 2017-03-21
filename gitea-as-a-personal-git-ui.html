@@ -3,13 +3,21 @@
 <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DevPad - admin</title>
+        <title>Gitea As A Personal Git Ui - DevPad </title>
         <link rel="stylesheet" href="http://xr09.github.io/theme/css/main.css" />
         <link href="http://xr09.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="DevPad Atom Feed" />
 
-        <meta name="description" content="Linux, Python, Networking and more"/>
-        <meta property="og:site_name" content="DevPad" />
-        <meta property="og:type" content="article" />
+<link rel="canonical" href="http://xr09.github.io/gitea-as-a-personal-git-ui.html"/>
+<meta name="description" content="At work we've been running Gitlab CE for the last 3 years and everyone is thrilled, amazing features, great user experience, and it gets better with every new release. Totally recommend Gitlab for heavy enterprise self-hosted Git. (and their Omnibus …"/>
+<meta property="og:title" content="Gitea As A Personal Git Ui -- clean code, good karma" />
+<meta property="og:url" content="http://xr09.github.io/gitea-as-a-personal-git-ui.html" />
+<meta property="og:description" content="At work we've been running Gitlab CE for the last 3 years and everyone is thrilled, amazing features, great user experience, and it gets better with every new release. Totally recommend Gitlab for heavy enterprise self-hosted Git. (and their Omnibus …" />
+<meta property="article:published_time" content="2017-03-21 11:42:00-04:00" />
+<meta property="article:modified_time" content="" />
+<meta name="twitter:site" content="@xr09" />
+<meta name="twitter:creator" content="@xr09" />
+<meta name="twitter:card" content="At work we've been running Gitlab CE for the last 3 years and everyone is thrilled, amazing features, great user experience, and it gets better with every new release. Totally recommend Gitlab for heavy enterprise self-hosted Git. (and their Omnibus …" />
+
                 
         
         <!--[if IE]>
@@ -29,14 +37,20 @@
                 </ul>
                 </nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://xr09.github.io/gitea-as-a-personal-git-ui.html" rel="bookmark"
+           title="Permalink to Gitea As A Personal Git Ui">Gitea As A Personal Git Ui</a></h1>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="xr09">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="http://xr09.github.io/gitea-as-a-personal-git-ui.html">Gitea As A Personal Git Ui</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <span>Tue 21 March 2017</span>
 <span>| tags: <a href="http://xr09.github.io/tag/git.html">git</a><a href="http://xr09.github.io/tag/admin.html">admin</a><a href="http://xr09.github.io/tag/lifehack.html">lifehack</a></span>
-</footer><!-- /.post-info --><p>At work we've been running <a class="reference external" href="https://about.gitlab.com/">Gitlab</a> CE for the last 3 years and everyone is thrilled, amazing features, great user experience, and it gets better with every new release. Totally recommend Gitlab for heavy enterprise self-hosted Git. (and their <a class="reference external" href="https://packages.gitlab.com/gitlab/gitlab-ce/">Omnibus</a> Package is a breeze to get it up and running)</p>
+</footer><!-- /.post-info -->      <p>At work we've been running <a class="reference external" href="https://about.gitlab.com/">Gitlab</a> CE for the last 3 years and everyone is thrilled, amazing features, great user experience, and it gets better with every new release. Totally recommend Gitlab for heavy enterprise self-hosted Git. (and their <a class="reference external" href="https://packages.gitlab.com/gitlab/gitlab-ce/">Omnibus</a> Package is a breeze to get it up and running)</p>
 <p>But recently they launched <a class="reference external" href="https://gitea.io/">Gitea</a> (a patch friendly <a class="reference external" href="https://gogs.io/">Gogs</a> fork), written in Go (really fast, low on resources), very nice UI. With Gitlab covering all your needs... what is Gitea good for?</p>
 <img alt="Gitea" class="align-right" src="../images/gitea.png" />
 <p>Since Internet (or company network) is not always at my reach, I have one strong use case for a small personal Git service, with a beautiful git history empowered with issues, labels, milestones, all the good stuff. This is 2017, tracking issues and features with <em>TODO.txt</em> is no fun.</p>
@@ -108,47 +122,24 @@
 <span class="nv">COOKIE_SECURE</span> <span class="o">=</span> yes
 </pre></div>
 </div>
-<p><a href="http://xr09.github.io/gitea-as-a-personal-git-ui.html#disqus_thread">comments</a></p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://xr09.github.io/cron-scheduling-for-the-fancy.html" rel="bookmark"
-                           title="Permalink to Cron Scheduling For The Fancy">Cron Scheduling For The Fancy</a></h1>
-                </header>
+    </div><!-- /.entry-content -->
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "gitea-as-a-personal-git-ui.html";
+        var disqus_url = "http://xr09.github.io/gitea-as-a-personal-git-ui.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//devpad.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
 
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Tue 01 April 2014</span>
-<span>| tags: <a href="http://xr09.github.io/tag/unix.html">unix</a><a href="http://xr09.github.io/tag/cron.html">cron</a><a href="http://xr09.github.io/tag/admin.html">admin</a></span>
-</footer><!-- /.post-info -->                <p>Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.</p>
-<p>The regular cron is ok for like 99% of the needs, there's no need for anything …</p>
-                <a class="readmore" href="http://xr09.github.io/cron-scheduling-for-the-fancy.html">read more</a>
-<p><a href="http://xr09.github.io/cron-scheduling-for-the-fancy.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://xr09.github.io/new-admin-in-town.html" rel="bookmark"
-                           title="Permalink to New Admin In Town">New Admin In Town</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Wed 29 January 2014</span>
-<span>| tags: <a href="http://xr09.github.io/tag/job.html">job</a><a href="http://xr09.github.io/tag/admin.html">admin</a></span>
-</footer><!-- /.post-info -->                <p>Two months ago I took a new position at work: network admin, so had to dive deeper into the great world of security, scalability, connectivity, backups... everyday I learn new network concepts or some cool hardware for a specific task …</p>
-                <a class="readmore" href="http://xr09.github.io/new-admin-in-town.html">read more</a>
-<p><a href="http://xr09.github.io/new-admin-in-town.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>
