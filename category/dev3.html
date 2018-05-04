@@ -3,7 +3,7 @@
 <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DevPad - unix</title>
+        <title>DevPad - dev</title>
         <link rel="stylesheet" href="https://xr09.github.io/theme/css/main.css" />
         <link href="https://xr09.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="DevPad Atom Feed" />
 
@@ -30,40 +30,8 @@
                 </nav>
         </header><!-- /#banner -->
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://xr09.github.io/cron-scheduling-for-the-fancy.html">Cron Scheduling For The Fancy</a></h1>
-<footer class="post-info">
-        <span>Tue 01 April 2014</span>
-<span>| tags: <a href="https://xr09.github.io/tag/unix.html">unix</a><a href="https://xr09.github.io/tag/cron.html">cron</a><a href="https://xr09.github.io/tag/admin.html">admin</a></span>
-</footer><!-- /.post-info --><p>Cron is a powerful tool for a sysadmin, the fact that you are able to run tasks at any time, any day, is amazing.</p>
-<p>The regular cron is ok for like 99% of the needs, there's no need for anything else unless you want to go fancy.</p>
-<p>So let's get fancy.</p>
-<p>Have you ever wanted to run a task the first monday of the month? Or maybe the second friday? Third Thursday?... Last Sunday? You get it.</p>
-<p>That's fancy requirements, the regular implementation of cron on most distros can't do it, but there's an easy fix.</p>
-<p>By taking advantage of the fact that what cron actually executes is a bash command we can hack its behavior a little. You can check for the desired date with bash and execute the desired command according to the obtained result.</p>
-<p>Check this for running a task only the first saturday of the month.</p>
-<div class="highlight"><pre><span></span><span class="m">30</span> <span class="m">6</span> <span class="m">1</span>-7 * * root <span class="o">[</span> <span class="s2">&quot;</span><span class="k">$(</span>date <span class="s1">&#39;+\%a&#39;</span><span class="k">)</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Sat&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> /root/myfirstsaturdaybackup.sh
-</pre></div>
-<p>The cron will run from day 1 to 7, but the script is executed only when the <em>[date]</em> check is true i.e. the only saturday between day 1 and 7.</p>
-<p>This looks like a good ad-hoc solution but I wanted something less error prone and easier to use.</p>
-<p>So I created <a class="reference external" href="https://github.com/xr09/cron-last-sunday">cron-last-sunday</a> just for that.</p>
-<p>To install it, just copy the script <em>run-if-today</em> to /usr/bin/ or anywhere on the path</p>
-<p>You can use it like this:</p>
-<div class="highlight"><pre><span></span><span class="m">30</span> <span class="m">6</span> * * <span class="m">6</span> root run-if-today <span class="m">1</span> Sat <span class="o">&amp;&amp;</span> /root/myfirstsaturdaybackup.sh
-</pre></div>
-<p>This task will run every saturday (see the 6 before <em>root</em>), but the script will trigger only on the first one, you could even run the task every day &quot;* * *&quot; and the script would only run on the first saturday.</p>
-<p>Check out a task for last sunday of the month:</p>
-<div class="highlight"><pre><span></span><span class="m">30</span> <span class="m">6</span> * * <span class="m">7</span> root run-if-today L Sun <span class="o">&amp;&amp;</span> touch /opt/last-sunday
-</pre></div>
-<p>Use <strong>L</strong> or <strong>l</strong> for last, granted to work on february and leap years. ;)</p>
-<p>Please read the <a class="reference external" href="https://github.com/xr09/cron-last-sunday/blob/master/run-if-today">code</a> if you want to see how it works, it's pretty short and simple. I even put a bad joke or two.</p>
-<p><a href="https://xr09.github.io/cron-scheduling-for-the-fancy.html#disqus_thread">comments</a></p>                </article>
-            </aside><!-- /#featured -->
                 <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
-
+                    <ol id="posts-list" class="hfeed" start="4">
             <li><article class="hentry">
                 <header>
                     <h1><a href="https://xr09.github.io/bash-rolodex.html" rel="bookmark"
@@ -84,22 +52,23 @@ kind of program nobody resists to reimplement, so here I go.</p>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="https://xr09.github.io/sed-is-unix.html" rel="bookmark"
-                           title="Permalink to sed is unix">sed is unix</a></h1>
+                    <h1><a href="https://xr09.github.io/pelican-looks-great.html" rel="bookmark"
+                           title="Permalink to Pelican looks great">Pelican looks great</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <span>Thu 03 October 2013</span>
-<span>| tags: <a href="https://xr09.github.io/tag/unix.html">unix</a><a href="https://xr09.github.io/tag/sed.html">sed</a></span>
-</footer><!-- /.post-info -->                <p>The UNIX concept of &quot;do one thing and do it well&quot; is so beautiful it's inspiring.</p>
-<p>Back in 2005 as a beginner Linux user I used vim for everything text related, now I use it relatively less, I just found …</p>
-                <a class="readmore" href="https://xr09.github.io/sed-is-unix.html">read more</a>
-<p><a href="https://xr09.github.io/sed-is-unix.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
+        <span>Tue 01 October 2013</span>
+<span>| tags: <a href="https://xr09.github.io/tag/pelican.html">pelican</a></span>
+</footer><!-- /.post-info -->                <p>Just got my pelican working, awesome, I struggled for a while with dependencies and even wanted to give up and check some alternatives but in the end I got it, loving Pelican so far.</p>
+<p>For begginers trying to get a …</p>
+                <a class="readmore" href="https://xr09.github.io/pelican-looks-great.html">read more</a>
+<p><a href="https://xr09.github.io/pelican-looks-great.html#disqus_thread">comments</a></p>                </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 1
+        <a href="https://xr09.github.io/category/dev2.html">&laquo;</a>
+    Page 3 / 3
 </p>
             </section><!-- /#content -->
         <section id="extras" class="body">
