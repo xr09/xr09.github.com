@@ -102,13 +102,4 @@ chkconfig readahead_later on
 &lt;p&gt;Replace Apache with Nginx for static files, one of my CentOS was serving a few distros repositories for like a hundred workstations with Apache 2.2, I tried Nginx, now I smile every time I login and see this: &lt;strong&gt;load average: 0.00, 0.00, 0.00&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Important: I do not recommend uninstalling any packages on a legacy system unless you are 120% sure is ok, just disable services instead. Follow this rule or embrace desperation.&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
-</content><category term="centos"></category><category term="performance"></category><category term="tuning"></category></entry><entry><title>sed is unix</title><link href="https://xr09.github.io/sed-is-unix.html" rel="alternate"></link><published>2013-10-03T14:23:00-04:00</published><updated>2013-10-03T14:23:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2013-10-03:/sed-is-unix.html</id><summary type="html">&lt;p&gt;The UNIX concept of &amp;quot;do one thing and do it well&amp;quot; is so beautiful it's inspiring.&lt;/p&gt;
-&lt;p&gt;Back in 2005 as a beginner Linux user I used vim for everything text related, now I use it relatively less, I just found …&lt;/p&gt;</summary><content type="html">&lt;p&gt;The UNIX concept of &amp;quot;do one thing and do it well&amp;quot; is so beautiful it's inspiring.&lt;/p&gt;
-&lt;p&gt;Back in 2005 as a beginner Linux user I used vim for everything text related, now I use it relatively less, I just found sed a while ago.&lt;/p&gt;
-&lt;p&gt;For example, this is how I change my IceWm wallpaper with sed.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sed -i  &lt;span class="s1"&gt;&amp;#39;/jpg/ s/old_wallpaper/new_wallpaper/&amp;#39;&lt;/span&gt; .icewm/preferences
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;A rather simple task, any visual text editor could do but I find this way extremely simple and pragmatic (and scriptable).&lt;/p&gt;
-&lt;p&gt;Some argue this is a waste of time, the time of text tools is over. Until they have to change a humongous 2GB text file and no editor can handle it, but sed will.&lt;/p&gt;
-&lt;p&gt;Do one thing and do it well. Nice play UNIX.&lt;/p&gt;
-</content><category term="unix"></category><category term="sed"></category></entry></feed>
+</content><category term="centos"></category><category term="performance"></category><category term="tuning"></category></entry></feed>
