@@ -93,10 +93,6 @@ chkconfig readahead_later on
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now open &lt;a class="reference external" href="https://www.google.com.cu/search?q=tmux+tutorial"&gt;tmux&lt;/a&gt; split in half and run &lt;em&gt;htop&lt;/em&gt; in one side and &lt;em&gt;init 3&lt;/em&gt; on the other (or just &lt;em&gt;init 3&lt;/em&gt; if you're not into multiplexing, though you should be) this way you are able to check the resources being released.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="section" id="but-dude-i-need-more-speed-1"&gt;
-&lt;h2&gt;But dude I need more speed!!1!&lt;/h2&gt;
-&lt;p&gt;Well, I'm not a wizard (otherwise I would be hanging out with Gandalf and not writing this), sometimes your server really need those resources, you could go deep and tune specific services but YMMV, search for &amp;quot;SERVICE_NAME tuning&amp;quot; on Google. Try not to tune too much, being too clever can cause you the hairiest bugs.&lt;/p&gt;
-&lt;/div&gt;
 &lt;div class="section" id="a-great-tip"&gt;
 &lt;h2&gt;A great tip?&lt;/h2&gt;
 &lt;p&gt;Replace Apache with Nginx for static files, one of my CentOS was serving a few distros repositories for like a hundred workstations with Apache 2.2, I tried Nginx, now I smile every time I login and see this: &lt;strong&gt;load average: 0.00, 0.00, 0.00&lt;/strong&gt;&lt;/p&gt;
