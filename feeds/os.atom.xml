@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>DevPad - os</title><link href="https://xr09.github.io/" rel="alternate"></link><link href="https://xr09.github.io/feeds/os.atom.xml" rel="self"></link><id>https://xr09.github.io/</id><updated>2014-04-30T14:59:00-04:00</updated><entry><title>Running The Latest Debmirror On CentOS 5</title><link href="https://xr09.github.io/running-the-latest-debmirror-on-centos-5.html" rel="alternate"></link><published>2014-04-30T14:59:00-04:00</published><updated>2014-04-30T14:59:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-30:/running-the-latest-debmirror-on-centos-5.html</id><summary type="html">&lt;div class="section" id="to-sync-a-deb-repo"&gt;
 &lt;h2&gt;To sync a deb repo&lt;/h2&gt;
 &lt;p&gt;So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.&lt;/p&gt;
-&lt;p&gt;The advantage of apt-mirror is the ability to download a repo …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="to-sync-a-deb-repo"&gt;
+&lt;p&gt;The …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="to-sync-a-deb-repo"&gt;
 &lt;h2&gt;To sync a deb repo&lt;/h2&gt;
 &lt;p&gt;So, today at work we had to download the brand new Ubuntu 14.04, there are two options to do it: apt-mirror and debmirror.&lt;/p&gt;
 &lt;p&gt;The advantage of apt-mirror is the ability to download a repo with multiple threads, if bandwith is not an issue then your downloads will fly, on the bad side you can't filter unwanted sections of a repo, it's all or nothing.&lt;/p&gt;
@@ -50,7 +50,7 @@ This is perl &lt;span class="m"&gt;5&lt;/span&gt;, version &lt;span class="m"&gt
 &lt;/div&gt;
 </content><category term="centos"></category><category term="perl"></category><category term="debmirror"></category><category term="debian"></category><category term="ubuntu"></category></entry><entry><title>Stripping Down Centos</title><link href="https://xr09.github.io/stripping-down-centos.html" rel="alternate"></link><published>2014-04-16T10:28:00-04:00</published><updated>2014-04-16T10:28:00-04:00</updated><author><name>Manuel Gutierrez</name></author><id>tag:xr09.github.io,2014-04-16:/stripping-down-centos.html</id><summary type="html">&lt;div class="section" id="why-strip"&gt;
 &lt;h2&gt;Why Strip?&lt;/h2&gt;
-&lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="why-strip"&gt;
+&lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="why-strip"&gt;
 &lt;h2&gt;Why Strip?&lt;/h2&gt;
 &lt;p&gt;If you have some legacy CentOS server and performance is an issue, chances are someone installed the vanilla way, then configured the needed services and not even tuned it a little. You can get some performance by disabling unused services or using lighter alternatives.&lt;/p&gt;
 &lt;/div&gt;
